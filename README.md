@@ -4,3 +4,22 @@ Health Connect Australia is a national health information exchange program desig
 The Directory and Authorisation Service Project is the first initiative under the Foundations phase. It enables healthcare providers to discover accurate, up-to-date information about other providers and the services they offer, while establishing a trust framework to support consistent and secure access to health information. By connecting provider data from multiple primary sources through a single access point and ensuring near real-time updates, the project lays the groundwork for broader interoperability and trusted information exchange across the national health ecosystem.
 
 One of the key objectives of the Directory and Authorisation Service Project is to enable interoperability through contemporary standards—such as FHIR APIs—to ensure seamless integration across clinical and administrative systems. To support this, the project is establishing a centralised directory hosted on a FHIR repository, where provider and organisation data will be structured using HL7 FHIR and SNOMED CT-AU standards. To guide consistent implementation and promote national alignment, the project is developing a FHIR Implementation Guide that defines how provider information should be represented and exchanged. This guide will build on existing standards, including the HL7 Australia Provider Directory FHIR IG, and provide a clear reference for integrators and system vendors to support secure, scalable, and standards-compliant access to directory data.
+
+# FHIR Implementation Guide (IG)
+ 
+## Overview
+This repository hosts a FHIR Implementation Guide (IG) for community consultation and collaboration.
+ 
+### How to Build
+- Download the [FHIR IG Publisher](https://confluence.hl7.org/display/FHIR/IG+Publisher+Documentation).
+- Run the publisher against the `input` folder:
+  ```bash
+  java -jar publisher.jar -ig .
+  ```
+ 
+### Contributing
+Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on how to contribute.
+ 
+### License
+This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENSE) file for details.
+
