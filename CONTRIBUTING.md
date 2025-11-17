@@ -18,7 +18,6 @@ Thank you for considering contributing! Your input helps improve this guide for 
 By submitting a contribution (including code, documentation, or other content), you agree that:
 - Your contribution becomes part of this project.
 - It may be freely used, modified, and shared under the terms of the project’s license (Apache License 2.0).
-- You have the right to submit the contribution and it does not violate any third-party rights.
 
 ## Review Process
 - All PRs will be reviewed by maintainers.
