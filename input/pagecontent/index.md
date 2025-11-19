@@ -96,7 +96,7 @@ This table lists known issues with this specification at the time of publishing.
    </tr>
    <tr>
      <td>Example system URI</td>
-     <td>An inherited example system (e.g. <code>http://www.acme.com/identifiers/patient</code>) erroneously infers patient context. Implementers must use their own namespace URIs. Affected identifier profiles: Location (HC-LI), PractitionerRole (HC-PRI), HealthcareService (HC-HSI), Endpoint (HC-EPI) — these profiles include the erroneous example `system` in their documentation.</td>
+     <td>An inherited example system (e.g. <code>http://www.acme.com/identifiers/patient</code>) erroneously infers patient context. Implementers must use their own namespace URIs. The affected identifier profile is Endpoint (HC-EPI) — this profile includes the erroneous example `system` in their documentation.</td>
    </tr>
  </tbody>
 </table>
