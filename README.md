@@ -9,7 +9,10 @@ One of the key objectives of the Directory and Authorisation Service Project is 
  
 ## Overview
 This repository hosts a FHIR Implementation Guide (IG) for community consultation and collaboration.
- 
+
+### link to published site on build.fhir.org
+https://build.fhir.org/ig/AuDigitalHealth/HealthConnect/index.html
+
 ### How to Build
 - Download the [FHIR IG Publisher](https://confluence.hl7.org/display/FHIR/IG+Publisher+Documentation).
 - Run the publisher against the `input` folder:
