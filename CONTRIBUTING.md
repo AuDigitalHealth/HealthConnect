@@ -14,10 +14,9 @@ Thank you for considering contributing! Your input helps improve this guide for 
 - Follow HL7 FHIR IG Publisher conventions.
 - Validate your IG locally before submitting.
 
-## Contributor Agreement
-By submitting a contribution (including code, documentation, or other content), you agree that:
-- Your contribution becomes part of this project.
-- It may be freely used, modified, and shared under the terms of the project’s license (Apache License 2.0).
+## Legal Notice and Contributor Agreement
+
+The Australian Digital Health Agency ("the Agency") makes the information and other material on this website available in good faith but without any representation or warranty as to its accuracy or completeness, for the purpose of disseminating information free of charge for the benefit of the public. The Agency cannot accept any responsibility for the consequences of any use or disclosure of the information. By contributing to and enhancing any of the code on this website, you agree that your work becomes part of this project and can be freely used, modified, and shared by the Agency.
 
 ## Review Process
 - All PRs will be reviewed by maintainers.
