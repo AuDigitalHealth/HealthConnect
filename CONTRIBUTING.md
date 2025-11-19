@@ -20,4 +20,13 @@ The Australian Digital Health Agency ("the Agency") makes the information and ot
 
 ## Review Process
 - All PRs will be reviewed by maintainers.
-- Feedback will be provided within 10 business days.
+
+## Code of conduct
+
+Before making a contribution, please read the
+[code of conduct](CODE_OF_CONDUCT.md).
+
+## Contact us
+
+You can alo raise a query about this code, by emailing:
+[help@digitalhealth.gov.au](mailto:help@digitalhealth.gov.au)
