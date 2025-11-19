@@ -1,0 +1,15 @@
+Instance: endpoint-payloadmimetype
+InstanceOf: SearchParameter
+Usage: #definition
+Title: "Endpoint Payload Mime Type Search Parameter"
+Description: "Search for Endpoint resources by payloadMimeType."
+* url = "http://ns.electronichealth.net.au/hc/SearchParameter/endpoint-payloadmimetype"
+* name = "SearchParameterEndpointPayloadMimeType"
+* status = #draft
+* experimental = true
+* publisher = "Australian Digital Health Agency"
+* code = #payloadmimetype
+* base = #Endpoint
+* type = #token
+* expression = "Endpoint.payloadMimeType"
+* target = #Endpoint

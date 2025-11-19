@@ -1,0 +1,1 @@
+This product includes all or a portion of material that is HL7 FHIR Copyright © 2011+ HL7 licensed under Creative Commons "No Rights Reserved".

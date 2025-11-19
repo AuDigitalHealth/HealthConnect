@@ -1,0 +1,2 @@
+This section outlines the conformance expectations for systems implementing the Health Connect. The Implementation guide includes profiles, extensions, and operations that conform to Health Connect requirements. The following sections describe the conformance artefacts in this implementation guide, explaining how they should be interpreted, providing definitions for Must Support and Mandatory elements, and outlining the process for declaring conformance.
+ 
