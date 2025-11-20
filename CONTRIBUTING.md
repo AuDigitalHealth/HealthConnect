@@ -20,6 +20,7 @@ The Australian Digital Health Agency ("the Agency") makes the information and ot
 
 ## Review Process
 - All PRs will be reviewed by maintainers.
+- Once accepted, PRs will be merged into a holding branch until closer to the next milestone when they will be merged into main. 
 
 ## Code of conduct
 
