@@ -10,13 +10,6 @@ Thumbs.db
 _build.bat
 Requirements Coverage.xlsx
 _build.new.bat
-_build.sh
-_gencontinuous.bat
-_gencontinuous.sh
-_genonce.bat
-_genonce.sh
-_updatePublisher.bat
-_updatePublisher.sh
 Product Description notes.docx
 publication-request.json
 publisher.jar
