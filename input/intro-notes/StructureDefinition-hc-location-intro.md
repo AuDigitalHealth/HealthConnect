@@ -37,7 +37,6 @@ Description: If the preferred postal address extension is present on an address 
 
 Implementation note: The profile enforces this rule so that the `hc-preferred-postal-address` extension is only used to carry postal/mailing addresses (for example PO Boxes). Publishing systems SHOULD only set the extension on addresses whose `type` is `postal`.
 
-
 ##### Invariant: inv-01-address-requirement
 Description: If a location's `type` is `VI` or `MOBL` then an address does not need to be present. For all other location types an `address` MUST be present.
 
