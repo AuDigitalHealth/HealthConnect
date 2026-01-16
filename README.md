@@ -28,5 +28,5 @@ Run either the `_genonce.bat` or `_genonce.sh` script.
 Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on how to contribute.
  
 ## License
-This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENSE) file for details.
+This project is licensed under Creative Commons license 4.0 - see the [LICENSE](LICENSE) file for details.
 
