@@ -13,16 +13,20 @@ This repository hosts a FHIR Implementation Guide (IG) for community consultatio
 ### link to published site on build.fhir.org
 https://build.fhir.org/ig/AuDigitalHealth/HealthConnect/index.html
 
-### How to Build
-- Download the [FHIR IG Publisher](https://confluence.hl7.org/display/FHIR/IG+Publisher+Documentation).
-- Run the publisher against the `input` folder:
-  ```bash
-  java -jar publisher.jar -ig .
-  ```
+## How to Build
+
+### Pre-requisites
+[SUSHI](https://fshschool.org/docs/sushi/installation/) - Ensure you have Node JS installed, and then install SUSHI via `npm install -g fsh-sushi`
+
+[Jekyll](https://jekyllrb.com/docs/installation/) - Jekyll is a Ruby Gem and instructions are available for various operating systems.
+
+### Building
+Run either the `_genonce.bat` or `_genonce.sh` script.
+
  
-### Contributing
+## Contributing
 Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on how to contribute.
  
-### License
+## License
 This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENSE) file for details.
 

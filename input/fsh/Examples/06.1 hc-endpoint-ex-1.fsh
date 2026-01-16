@@ -1,8 +1,8 @@
 Instance: example-hc-endpoint-smd
 InstanceOf: HCEndpoint
 Usage: #example
-Title: "HC Endpoint - SMD Target Example"
-Description: "Example of a Health Connect endpoint with SMD target identifier for secure messaging."
+Title: "Health Connect Endpoint - SMD Target Example"
+Description: "An example of a Health Connect endpoint with SMD target identifier for secure messaging."
 
 * meta.source = "http://ns.electronichealth.net.au/id/source/pca"
 
