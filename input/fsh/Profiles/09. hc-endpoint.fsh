@@ -18,7 +18,7 @@ Description: "This profile defines content for describing details of an endpoint
 * extension[receivingFacility] ^extension[=].extension[+].url = "code"
 * extension[receivingFacility] ^extension[=].extension[=].valueCode = #SHALL:populate-if-known
 * extension[receivingFacility] ^extension[=].extension[+].url = "actor"
-* extension[receivingFacility] ^extension[=].extension[=].valueCanonical = "http://ns.electronichealth.net.au/hc/ActorDefinition/provider-directory-actor-health-connect"
+* extension[receivingFacility] ^extension[=].extension[=].valueCanonical = "http://ns.electronichealth.net.au/hc/ActorDefinition/responder-actor-health-connect"
 * extension[receivingFacility] ^extension[+].url = "http://hl7.org/fhir/StructureDefinition/obligation"
 * extension[receivingFacility] ^extension[=].extension[+].url = "code"
 * extension[receivingFacility] ^extension[=].extension[=].valueCode = #SHOULD:handle
@@ -30,7 +30,7 @@ Description: "This profile defines content for describing details of an endpoint
 * extension[receivingApplication] ^extension[=].extension[+].url = "code"
 * extension[receivingApplication] ^extension[=].extension[=].valueCode = #SHALL:populate-if-known
 * extension[receivingApplication] ^extension[=].extension[+].url = "actor"
-* extension[receivingApplication] ^extension[=].extension[=].valueCanonical = "http://ns.electronichealth.net.au/hc/ActorDefinition/provider-directory-actor-health-connect"
+* extension[receivingApplication] ^extension[=].extension[=].valueCanonical = "http://ns.electronichealth.net.au/hc/ActorDefinition/responder-actor-health-connect"
 * extension[receivingApplication] ^extension[+].url = "http://hl7.org/fhir/StructureDefinition/obligation"
 * extension[receivingApplication] ^extension[=].extension[+].url = "code"
 * extension[receivingApplication] ^extension[=].extension[=].valueCode = #SHOULD:handle
@@ -42,7 +42,7 @@ Description: "This profile defines content for describing details of an endpoint
 * extension[dataEnciphermentCertificate] ^extension[=].extension[+].url = "code"
 * extension[dataEnciphermentCertificate] ^extension[=].extension[=].valueCode = #SHALL:populate-if-known
 * extension[dataEnciphermentCertificate] ^extension[=].extension[+].url = "actor"
-* extension[dataEnciphermentCertificate] ^extension[=].extension[=].valueCanonical = "http://ns.electronichealth.net.au/hc/ActorDefinition/provider-directory-actor-health-connect"
+* extension[dataEnciphermentCertificate] ^extension[=].extension[=].valueCanonical = "http://ns.electronichealth.net.au/hc/ActorDefinition/responder-actor-health-connect"
 * extension[dataEnciphermentCertificate] ^extension[+].url = "http://hl7.org/fhir/StructureDefinition/obligation"
 * extension[dataEnciphermentCertificate] ^extension[=].extension[+].url = "code"
 * extension[dataEnciphermentCertificate] ^extension[=].extension[=].valueCode = #SHOULD:handle
@@ -55,7 +55,7 @@ Description: "This profile defines content for describing details of an endpoint
 * identifier ^extension[=].extension[+].url = "code"
 * identifier ^extension[=].extension[=].valueCode = #SHALL:populate-if-known
 * identifier ^extension[=].extension[+].url = "actor"
-* identifier ^extension[=].extension[=].valueCanonical = "http://ns.electronichealth.net.au/hc/ActorDefinition/provider-directory-actor-health-connect"
+* identifier ^extension[=].extension[=].valueCanonical = "http://ns.electronichealth.net.au/hc/ActorDefinition/responder-actor-health-connect"
 * identifier ^extension[+].url = "http://hl7.org/fhir/StructureDefinition/obligation"
 * identifier ^extension[=].extension[+].url = "code"
 * identifier ^extension[=].extension[=].valueCode = #SHOULD:handle
@@ -75,7 +75,7 @@ Description: "This profile defines content for describing details of an endpoint
 * identifier[HCSMDTargetIdentifier] ^extension[=].extension[+].url = "code"
 * identifier[HCSMDTargetIdentifier] ^extension[=].extension[=].valueCode = #SHALL:populate-if-known
 * identifier[HCSMDTargetIdentifier] ^extension[=].extension[+].url = "actor"
-* identifier[HCSMDTargetIdentifier] ^extension[=].extension[=].valueCanonical = "http://ns.electronichealth.net.au/hc/ActorDefinition/provider-directory-actor-health-connect"
+* identifier[HCSMDTargetIdentifier] ^extension[=].extension[=].valueCanonical = "http://ns.electronichealth.net.au/hc/ActorDefinition/responder-actor-health-connect"
 * identifier[HCSMDTargetIdentifier] ^extension[+].url = "http://hl7.org/fhir/StructureDefinition/obligation"
 * identifier[HCSMDTargetIdentifier] ^extension[=].extension[+].url = "code"
 * identifier[HCSMDTargetIdentifier] ^extension[=].extension[=].valueCode = #SHOULD:handle
@@ -89,7 +89,7 @@ Description: "This profile defines content for describing details of an endpoint
 * identifier[HCEndpointIdentifier] ^extension[=].extension[+].url = "code"
 * identifier[HCEndpointIdentifier] ^extension[=].extension[=].valueCode = #SHALL:populate-if-known
 * identifier[HCEndpointIdentifier] ^extension[=].extension[+].url = "actor"
-* identifier[HCEndpointIdentifier] ^extension[=].extension[=].valueCanonical = "http://ns.electronichealth.net.au/hc/ActorDefinition/provider-directory-actor-health-connect"
+* identifier[HCEndpointIdentifier] ^extension[=].extension[=].valueCanonical = "http://ns.electronichealth.net.au/hc/ActorDefinition/responder-actor-health-connect"
 * identifier[HCEndpointIdentifier] ^extension[+].url = "http://hl7.org/fhir/StructureDefinition/obligation"
 * identifier[HCEndpointIdentifier] ^extension[=].extension[+].url = "code"
 * identifier[HCEndpointIdentifier] ^extension[=].extension[=].valueCode = #SHOULD:handle
@@ -105,7 +105,7 @@ Description: "This profile defines content for describing details of an endpoint
 * connectionType ^extension[=].extension[+].url = "code"
 * connectionType ^extension[=].extension[=].valueCode = #SHALL:populate-if-known
 * connectionType ^extension[=].extension[+].url = "actor"
-* connectionType ^extension[=].extension[=].valueCanonical = "http://ns.electronichealth.net.au/hc/ActorDefinition/provider-directory-actor-health-connect"
+* connectionType ^extension[=].extension[=].valueCanonical = "http://ns.electronichealth.net.au/hc/ActorDefinition/responder-actor-health-connect"
 * connectionType ^extension[+].url = "http://hl7.org/fhir/StructureDefinition/obligation"
 * connectionType ^extension[=].extension[+].url = "code"
 * connectionType ^extension[=].extension[=].valueCode = #SHOULD:handle
@@ -118,7 +118,7 @@ Description: "This profile defines content for describing details of an endpoint
 * name ^extension[=].extension[+].url = "code"
 * name ^extension[=].extension[=].valueCode = #SHALL:populate-if-known
 * name ^extension[=].extension[+].url = "actor"
-* name ^extension[=].extension[=].valueCanonical = "http://ns.electronichealth.net.au/hc/ActorDefinition/provider-directory-actor-health-connect"
+* name ^extension[=].extension[=].valueCanonical = "http://ns.electronichealth.net.au/hc/ActorDefinition/responder-actor-health-connect"
 * name ^extension[+].url = "http://hl7.org/fhir/StructureDefinition/obligation"
 * name ^extension[=].extension[+].url = "code"
 * name ^extension[=].extension[=].valueCode = #SHOULD:handle
@@ -133,7 +133,7 @@ Description: "This profile defines content for describing details of an endpoint
 * payloadType ^extension[=].extension[+].url = "code"
 * payloadType ^extension[=].extension[=].valueCode = #SHALL:populate-if-known
 * payloadType ^extension[=].extension[+].url = "actor"
-* payloadType ^extension[=].extension[=].valueCanonical = "http://ns.electronichealth.net.au/hc/ActorDefinition/provider-directory-actor-health-connect"
+* payloadType ^extension[=].extension[=].valueCanonical = "http://ns.electronichealth.net.au/hc/ActorDefinition/responder-actor-health-connect"
 * payloadType ^extension[+].url = "http://hl7.org/fhir/StructureDefinition/obligation"
 * payloadType ^extension[=].extension[+].url = "code"
 * payloadType ^extension[=].extension[=].valueCode = #SHOULD:handle
@@ -145,7 +145,7 @@ Description: "This profile defines content for describing details of an endpoint
 * payloadMimeType ^extension[=].extension[+].url = "code"
 * payloadMimeType ^extension[=].extension[=].valueCode = #SHALL:populate-if-known
 * payloadMimeType ^extension[=].extension[+].url = "actor"
-* payloadMimeType ^extension[=].extension[=].valueCanonical = "http://ns.electronichealth.net.au/hc/ActorDefinition/provider-directory-actor-health-connect"
+* payloadMimeType ^extension[=].extension[=].valueCanonical = "http://ns.electronichealth.net.au/hc/ActorDefinition/responder-actor-health-connect"
 * payloadMimeType ^extension[+].url = "http://hl7.org/fhir/StructureDefinition/obligation"
 * payloadMimeType ^extension[=].extension[+].url = "code"
 * payloadMimeType ^extension[=].extension[=].valueCode = #SHOULD:handle
@@ -158,7 +158,7 @@ Description: "This profile defines content for describing details of an endpoint
 * address ^extension[=].extension[+].url = "code"
 * address ^extension[=].extension[=].valueCode = #SHALL:populate-if-known
 * address ^extension[=].extension[+].url = "actor"
-* address ^extension[=].extension[=].valueCanonical = "http://ns.electronichealth.net.au/hc/ActorDefinition/provider-directory-actor-health-connect"
+* address ^extension[=].extension[=].valueCanonical = "http://ns.electronichealth.net.au/hc/ActorDefinition/responder-actor-health-connect"
 * address ^extension[+].url = "http://hl7.org/fhir/StructureDefinition/obligation"
 * address ^extension[=].extension[+].url = "code"
 * address ^extension[=].extension[=].valueCode = #SHOULD:handle

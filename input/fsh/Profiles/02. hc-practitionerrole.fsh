@@ -31,7 +31,7 @@ Description: "This profile defines a practitioner in role for an organisation at
 * identifier ^extension[=].extension[+].url = "code"
 * identifier ^extension[=].extension[=].valueCode = #SHALL:populate-if-known
 * identifier ^extension[=].extension[+].url = "actor"
-* identifier ^extension[=].extension[=].valueCanonical = "http://ns.electronichealth.net.au/hc/ActorDefinition/provider-directory-actor-health-connect"
+* identifier ^extension[=].extension[=].valueCanonical = "http://ns.electronichealth.net.au/hc/ActorDefinition/responder-actor-health-connect"
 * identifier ^extension[=].extension[+].url = "http://hl7.org/fhir/tools/StructureDefinition/snapshot-source"
 * identifier ^extension[=].extension[=].valueCanonical = "http://ns.electronichealth.net.au/hc/StructureDefinition/hc-practitionerrole"
 * identifier ^extension[+].url = "http://hl7.org/fhir/StructureDefinition/obligation"
@@ -47,7 +47,7 @@ Description: "This profile defines a practitioner in role for an organisation at
 * identifier[medicareProvider] ^extension[=].extension[+].url = "code"
 * identifier[medicareProvider] ^extension[=].extension[=].valueCode = #SHALL:populate-if-known
 * identifier[medicareProvider] ^extension[=].extension[+].url = "actor"
-* identifier[medicareProvider] ^extension[=].extension[=].valueCanonical = "http://ns.electronichealth.net.au/hc/ActorDefinition/provider-directory-actor-health-connect"
+* identifier[medicareProvider] ^extension[=].extension[=].valueCanonical = "http://ns.electronichealth.net.au/hc/ActorDefinition/responder-actor-health-connect"
 * identifier[medicareProvider] ^extension[=].extension[+].url = "http://hl7.org/fhir/tools/StructureDefinition/snapshot-source"
 * identifier[medicareProvider] ^extension[=].extension[=].valueCanonical = "http://ns.electronichealth.net.au/hc/StructureDefinition/hc-practitionerrole"
 * identifier[medicareProvider] ^extension[+].url = "http://hl7.org/fhir/StructureDefinition/obligation"
@@ -64,7 +64,7 @@ Description: "This profile defines a practitioner in role for an organisation at
 * identifier[peakbodyregistrationnumber] ^extension[=].extension[+].url = "code"
 * identifier[peakbodyregistrationnumber] ^extension[=].extension[=].valueCode = #SHALL:populate-if-known
 * identifier[peakbodyregistrationnumber] ^extension[=].extension[+].url = "actor"
-* identifier[peakbodyregistrationnumber] ^extension[=].extension[=].valueCanonical = "http://ns.electronichealth.net.au/hc/ActorDefinition/provider-directory-actor-health-connect"
+* identifier[peakbodyregistrationnumber] ^extension[=].extension[=].valueCanonical = "http://ns.electronichealth.net.au/hc/ActorDefinition/responder-actor-health-connect"
 * identifier[peakbodyregistrationnumber] ^extension[+].url = "http://hl7.org/fhir/StructureDefinition/obligation"
 * identifier[peakbodyregistrationnumber] ^extension[=].extension[+].url = "code"
 * identifier[peakbodyregistrationnumber] ^extension[=].extension[=].valueCode = #SHOULD:handle
@@ -78,7 +78,7 @@ Description: "This profile defines a practitioner in role for an organisation at
 * identifier[ahpraregistrationnumber] ^extension[=].extension[+].url = "code"
 * identifier[ahpraregistrationnumber] ^extension[=].extension[=].valueCode = #SHALL:populate-if-known
 * identifier[ahpraregistrationnumber] ^extension[=].extension[+].url = "actor"
-* identifier[ahpraregistrationnumber] ^extension[=].extension[=].valueCanonical = "http://ns.electronichealth.net.au/hc/ActorDefinition/provider-directory-actor-health-connect"
+* identifier[ahpraregistrationnumber] ^extension[=].extension[=].valueCanonical = "http://ns.electronichealth.net.au/hc/ActorDefinition/responder-actor-health-connect"
 * identifier[ahpraregistrationnumber] ^extension[+].url = "http://hl7.org/fhir/StructureDefinition/obligation"
 * identifier[ahpraregistrationnumber] ^extension[=].extension[+].url = "code"
 * identifier[ahpraregistrationnumber] ^extension[=].extension[=].valueCode = #SHOULD:handle
@@ -91,7 +91,7 @@ Description: "This profile defines a practitioner in role for an organisation at
 * period ^extension[=].extension[+].url = "code"
 * period ^extension[=].extension[=].valueCode = #SHALL:populate-if-known
 * period ^extension[=].extension[+].url = "actor"
-* period ^extension[=].extension[=].valueCanonical = "http://ns.electronichealth.net.au/hc/ActorDefinition/provider-directory-actor-health-connect"
+* period ^extension[=].extension[=].valueCanonical = "http://ns.electronichealth.net.au/hc/ActorDefinition/responder-actor-health-connect"
 * period ^extension[+].url = "http://hl7.org/fhir/StructureDefinition/obligation"
 * period ^extension[=].extension[+].url = "code"
 * period ^extension[=].extension[=].valueCode = #SHOULD:handle
@@ -114,7 +114,7 @@ Description: "This profile defines a practitioner in role for an organisation at
 * code ^extension[=].extension[+].url = "code"
 * code ^extension[=].extension[=].valueCode = #SHALL:populate-if-known
 * code ^extension[=].extension[+].url = "actor"
-* code ^extension[=].extension[=].valueCanonical = "http://ns.electronichealth.net.au/hc/ActorDefinition/provider-directory-actor-health-connect"
+* code ^extension[=].extension[=].valueCanonical = "http://ns.electronichealth.net.au/hc/ActorDefinition/responder-actor-health-connect"
 * code ^extension[=].extension[+].url = "http://hl7.org/fhir/tools/StructureDefinition/snapshot-source"
 * code ^extension[=].extension[=].valueCanonical = "http://ns.electronichealth.net.au/hc/StructureDefinition/hc-practitionerrole"
 * code ^extension[+].url = "http://hl7.org/fhir/StructureDefinition/obligation"
@@ -133,7 +133,7 @@ Description: "This profile defines a practitioner in role for an organisation at
 * location ^extension[=].extension[+].url = "code"
 * location ^extension[=].extension[=].valueCode = #SHALL:populate-if-known
 * location ^extension[=].extension[+].url = "actor"
-* location ^extension[=].extension[=].valueCanonical = "http://ns.electronichealth.net.au/hc/ActorDefinition/provider-directory-actor-health-connect"
+* location ^extension[=].extension[=].valueCanonical = "http://ns.electronichealth.net.au/hc/ActorDefinition/responder-actor-health-connect"
 * location ^extension[+].url = "http://hl7.org/fhir/StructureDefinition/obligation"
 * location ^extension[=].extension[+].url = "code"
 * location ^extension[=].extension[=].valueCode = #SHOULD:handle
@@ -148,7 +148,7 @@ Description: "This profile defines a practitioner in role for an organisation at
 * healthcareService ^extension[=].extension[+].url = "code"
 * healthcareService ^extension[=].extension[=].valueCode = #SHALL:populate-if-known
 * healthcareService ^extension[=].extension[+].url = "actor"
-* healthcareService ^extension[=].extension[=].valueCanonical = "http://ns.electronichealth.net.au/hc/ActorDefinition/provider-directory-actor-health-connect"
+* healthcareService ^extension[=].extension[=].valueCanonical = "http://ns.electronichealth.net.au/hc/ActorDefinition/responder-actor-health-connect"
 * healthcareService ^extension[+].url = "http://hl7.org/fhir/StructureDefinition/obligation"
 * healthcareService ^extension[=].extension[+].url = "code"
 * healthcareService ^extension[=].extension[=].valueCode = #SHOULD:handle
@@ -166,7 +166,7 @@ Description: "This profile defines a practitioner in role for an organisation at
 * availableTime ^extension[=].extension[+].url = "code"
 * availableTime ^extension[=].extension[=].valueCode = #SHALL:populate-if-known
 * availableTime ^extension[=].extension[+].url = "actor"
-* availableTime ^extension[=].extension[=].valueCanonical = "http://ns.electronichealth.net.au/hc/ActorDefinition/provider-directory-actor-health-connect"
+* availableTime ^extension[=].extension[=].valueCanonical = "http://ns.electronichealth.net.au/hc/ActorDefinition/responder-actor-health-connect"
 * availableTime ^extension[+].url = "http://hl7.org/fhir/StructureDefinition/obligation"
 * availableTime ^extension[=].extension[+].url = "code"
 * availableTime ^extension[=].extension[=].valueCode = #SHOULD:handle
@@ -177,7 +177,7 @@ Description: "This profile defines a practitioner in role for an organisation at
 * availableTime.daysOfWeek ^extension[=].extension[+].url = "code"
 * availableTime.daysOfWeek ^extension[=].extension[=].valueCode = #SHALL:populate-if-known
 * availableTime.daysOfWeek ^extension[=].extension[+].url = "actor"
-* availableTime.daysOfWeek ^extension[=].extension[=].valueCanonical = "http://ns.electronichealth.net.au/hc/ActorDefinition/provider-directory-actor-health-connect"
+* availableTime.daysOfWeek ^extension[=].extension[=].valueCanonical = "http://ns.electronichealth.net.au/hc/ActorDefinition/responder-actor-health-connect"
 * availableTime.daysOfWeek ^extension[+].url = "http://hl7.org/fhir/StructureDefinition/obligation"
 * availableTime.daysOfWeek ^extension[=].extension[+].url = "code"
 * availableTime.daysOfWeek ^extension[=].extension[=].valueCode = #SHOULD:handle
@@ -188,7 +188,7 @@ Description: "This profile defines a practitioner in role for an organisation at
 * availableTime.allDay ^extension[=].extension[+].url = "code"
 * availableTime.allDay ^extension[=].extension[=].valueCode = #SHALL:populate-if-known
 * availableTime.allDay ^extension[=].extension[+].url = "actor"
-* availableTime.allDay ^extension[=].extension[=].valueCanonical = "http://ns.electronichealth.net.au/hc/ActorDefinition/provider-directory-actor-health-connect"
+* availableTime.allDay ^extension[=].extension[=].valueCanonical = "http://ns.electronichealth.net.au/hc/ActorDefinition/responder-actor-health-connect"
 * availableTime.allDay ^extension[+].url = "http://hl7.org/fhir/StructureDefinition/obligation"
 * availableTime.allDay ^extension[=].extension[+].url = "code"
 * availableTime.allDay ^extension[=].extension[=].valueCode = #SHOULD:handle
@@ -199,7 +199,7 @@ Description: "This profile defines a practitioner in role for an organisation at
 * availableTime.availableStartTime ^extension[=].extension[+].url = "code"
 * availableTime.availableStartTime ^extension[=].extension[=].valueCode = #SHALL:populate-if-known
 * availableTime.availableStartTime ^extension[=].extension[+].url = "actor"
-* availableTime.availableStartTime ^extension[=].extension[=].valueCanonical = "http://ns.electronichealth.net.au/hc/ActorDefinition/provider-directory-actor-health-connect"
+* availableTime.availableStartTime ^extension[=].extension[=].valueCanonical = "http://ns.electronichealth.net.au/hc/ActorDefinition/responder-actor-health-connect"
 * availableTime.availableStartTime ^extension[+].url = "http://hl7.org/fhir/StructureDefinition/obligation"
 * availableTime.availableStartTime ^extension[=].extension[+].url = "code"
 * availableTime.availableStartTime ^extension[=].extension[=].valueCode = #SHOULD:handle
@@ -210,7 +210,7 @@ Description: "This profile defines a practitioner in role for an organisation at
 * availableTime.availableEndTime ^extension[=].extension[+].url = "code"
 * availableTime.availableEndTime ^extension[=].extension[=].valueCode = #SHALL:populate-if-known
 * availableTime.availableEndTime ^extension[=].extension[+].url = "actor"
-* availableTime.availableEndTime ^extension[=].extension[=].valueCanonical = "http://ns.electronichealth.net.au/hc/ActorDefinition/provider-directory-actor-health-connect"
+* availableTime.availableEndTime ^extension[=].extension[=].valueCanonical = "http://ns.electronichealth.net.au/hc/ActorDefinition/responder-actor-health-connect"
 * availableTime.availableEndTime ^extension[+].url = "http://hl7.org/fhir/StructureDefinition/obligation"
 * availableTime.availableEndTime ^extension[=].extension[+].url = "code"
 * availableTime.availableEndTime ^extension[=].extension[=].valueCode = #SHOULD:handle
@@ -225,7 +225,7 @@ Description: "This profile defines a practitioner in role for an organisation at
 * endpoint ^extension[=].extension[+].url = "code"
 * endpoint ^extension[=].extension[=].valueCode = #SHALL:populate-if-known
 * endpoint ^extension[=].extension[+].url = "actor"
-* endpoint ^extension[=].extension[=].valueCanonical = "http://ns.electronichealth.net.au/hc/ActorDefinition/provider-directory-actor-health-connect"
+* endpoint ^extension[=].extension[=].valueCanonical = "http://ns.electronichealth.net.au/hc/ActorDefinition/responder-actor-health-connect"
 * endpoint ^extension[+].url = "http://hl7.org/fhir/StructureDefinition/obligation"
 * endpoint ^extension[=].extension[+].url = "code"
 * endpoint ^extension[=].extension[=].valueCode = #SHOULD:handle
@@ -239,7 +239,7 @@ Description: "This profile defines a practitioner in role for an organisation at
 * extension[HcPractitionerRoleCommunication] ^extension[=].extension[+].url = "code"
 * extension[HcPractitionerRoleCommunication] ^extension[=].extension[=].valueCode = #SHALL:populate-if-known
 * extension[HcPractitionerRoleCommunication] ^extension[=].extension[+].url = "actor"
-* extension[HcPractitionerRoleCommunication] ^extension[=].extension[=].valueCanonical = "http://ns.electronichealth.net.au/hc/ActorDefinition/provider-directory-actor-health-connect"
+* extension[HcPractitionerRoleCommunication] ^extension[=].extension[=].valueCanonical = "http://ns.electronichealth.net.au/hc/ActorDefinition/responder-actor-health-connect"
 * extension[HcPractitionerRoleCommunication] ^extension[+].url = "http://hl7.org/fhir/StructureDefinition/obligation"
 * extension[HcPractitionerRoleCommunication] ^extension[=].extension[+].url = "code"
 * extension[HcPractitionerRoleCommunication] ^extension[=].extension[=].valueCode = #SHOULD:handle
@@ -253,7 +253,7 @@ Description: "This profile defines a practitioner in role for an organisation at
 * extension[hc-preferred-name] ^extension[=].extension[+].url = "code"
 * extension[hc-preferred-name] ^extension[=].extension[=].valueCode = #SHALL:populate-if-known
 * extension[hc-preferred-name] ^extension[=].extension[+].url = "actor"
-* extension[hc-preferred-name] ^extension[=].extension[=].valueCanonical = "http://ns.electronichealth.net.au/hc/ActorDefinition/provider-directory-actor-health-connect"
+* extension[hc-preferred-name] ^extension[=].extension[=].valueCanonical = "http://ns.electronichealth.net.au/hc/ActorDefinition/responder-actor-health-connect"
 * extension[hc-preferred-name] ^extension[+].url = "http://hl7.org/fhir/StructureDefinition/obligation"
 * extension[hc-preferred-name] ^extension[=].extension[+].url = "code"
 * extension[hc-preferred-name] ^extension[=].extension[=].valueCode = #SHOULD:handle

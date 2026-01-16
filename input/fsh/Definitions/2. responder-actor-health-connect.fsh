@@ -1,10 +1,10 @@
-Instance: provider-directory-actor-health-connect
+Instance: responder-actor-health-connect
 InstanceOf: ActorDefinition
 Title: "Health Connect Provider Directory Responder Actor"
 Usage: #definition
 Description: "The Health Connect Provider Directory Responder actor represents the system that provides **Health Connect Provider Directory details**. It accepts requests for Directory information about practitioners or services and returns the requested information, or an error message if the request cannot be fulfilled."
 
-* name = "ProviderDirectoryActorHealthConnect"
+* name = "ResponderActorHealthConnect"
 * status = #draft
 * type = http://hl7.org/fhir/examplescenario-actor-type#system
 * documentation = """ 

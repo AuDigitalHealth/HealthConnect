@@ -13,7 +13,7 @@ Description: "This profile defines a healthcare location (can also be referred a
 * name ^extension[=].extension[+].url = "code"
 * name ^extension[=].extension[=].valueCode = #SHALL:populate-if-known
 * name ^extension[=].extension[+].url = "actor"
-* name ^extension[=].extension[=].valueCanonical = "http://ns.electronichealth.net.au/hc/ActorDefinition/provider-directory-actor-health-connect"
+* name ^extension[=].extension[=].valueCanonical = "http://ns.electronichealth.net.au/hc/ActorDefinition/responder-actor-health-connect"
 * name ^extension[=].extension[+].url = "http://hl7.org/fhir/tools/StructureDefinition/snapshot-source"
 * name ^extension[=].extension[=].valueCanonical = "http://ns.electronichealth.net.au/hc/StructureDefinition/hc-location"
 * name ^extension[+].url = "http://hl7.org/fhir/StructureDefinition/obligation"
@@ -31,7 +31,7 @@ Description: "This profile defines a healthcare location (can also be referred a
 * alias ^extension[=].extension[+].url = "code"
 * alias ^extension[=].extension[=].valueCode = #SHALL:populate-if-known
 * alias ^extension[=].extension[+].url = "actor"
-* alias ^extension[=].extension[=].valueCanonical = "http://ns.electronichealth.net.au/hc/ActorDefinition/provider-directory-actor-health-connect"
+* alias ^extension[=].extension[=].valueCanonical = "http://ns.electronichealth.net.au/hc/ActorDefinition/responder-actor-health-connect"
 * alias ^extension[+].url = "http://hl7.org/fhir/StructureDefinition/obligation"
 * alias ^extension[=].extension[+].url = "code"
 * alias ^extension[=].extension[=].valueCode = #SHOULD:handle
@@ -46,7 +46,7 @@ Description: "This profile defines a healthcare location (can also be referred a
 * type ^extension[=].extension[+].url = "code"
 * type ^extension[=].extension[=].valueCode = #SHALL:populate-if-known
 * type ^extension[=].extension[+].url = "actor"
-* type ^extension[=].extension[=].valueCanonical = "http://ns.electronichealth.net.au/hc/ActorDefinition/provider-directory-actor-health-connect"
+* type ^extension[=].extension[=].valueCanonical = "http://ns.electronichealth.net.au/hc/ActorDefinition/responder-actor-health-connect"
 * type ^extension[=].extension[+].url = "http://hl7.org/fhir/tools/StructureDefinition/snapshot-source"
 * type ^extension[=].extension[=].valueCanonical = "http://ns.electronichealth.net.au/hc/StructureDefinition/hc-location"
 * type ^extension[+].url = "http://hl7.org/fhir/StructureDefinition/obligation"
@@ -66,7 +66,7 @@ Description: "This profile defines a healthcare location (can also be referred a
 * telecom ^extension[=].extension[+].url = "code"
 * telecom ^extension[=].extension[=].valueCode = #SHALL:populate-if-known
 * telecom ^extension[=].extension[+].url = "actor"
-* telecom ^extension[=].extension[=].valueCanonical = "http://ns.electronichealth.net.au/hc/ActorDefinition/provider-directory-actor-health-connect"
+* telecom ^extension[=].extension[=].valueCanonical = "http://ns.electronichealth.net.au/hc/ActorDefinition/responder-actor-health-connect"
 * telecom ^extension[+].url = "http://hl7.org/fhir/StructureDefinition/obligation"
 * telecom ^extension[=].extension[+].url = "code"
 * telecom ^extension[=].extension[=].valueCode = #SHOULD:handle
@@ -80,7 +80,7 @@ Description: "This profile defines a healthcare location (can also be referred a
 * telecom[phone] ^extension[=].extension[+].url = "code"
 * telecom[phone] ^extension[=].extension[=].valueCode = #SHALL:populate-if-known
 * telecom[phone] ^extension[=].extension[+].url = "actor"
-* telecom[phone] ^extension[=].extension[=].valueCanonical = "http://ns.electronichealth.net.au/hc/ActorDefinition/provider-directory-actor-health-connect"
+* telecom[phone] ^extension[=].extension[=].valueCanonical = "http://ns.electronichealth.net.au/hc/ActorDefinition/responder-actor-health-connect"
 * telecom[phone] ^extension[+].url = "http://hl7.org/fhir/StructureDefinition/obligation"
 * telecom[phone] ^extension[=].extension[+].url = "code"
 * telecom[phone] ^extension[=].extension[=].valueCode = #SHOULD:handle
@@ -93,7 +93,7 @@ Description: "This profile defines a healthcare location (can also be referred a
 * telecom[email] ^extension[=].extension[+].url = "code"
 * telecom[email] ^extension[=].extension[=].valueCode = #SHALL:populate-if-known
 * telecom[email] ^extension[=].extension[+].url = "actor"
-* telecom[email] ^extension[=].extension[=].valueCanonical = "http://ns.electronichealth.net.au/hc/ActorDefinition/provider-directory-actor-health-connect"
+* telecom[email] ^extension[=].extension[=].valueCanonical = "http://ns.electronichealth.net.au/hc/ActorDefinition/responder-actor-health-connect"
 * telecom[email] ^extension[+].url = "http://hl7.org/fhir/StructureDefinition/obligation"
 * telecom[email] ^extension[=].extension[+].url = "code"
 * telecom[email] ^extension[=].extension[=].valueCode = #SHOULD:handle
@@ -106,7 +106,7 @@ Description: "This profile defines a healthcare location (can also be referred a
 * address ^extension[=].extension[+].url = "code"
 * address ^extension[=].extension[=].valueCode = #SHALL:populate-if-known
 * address ^extension[=].extension[+].url = "actor"
-* address ^extension[=].extension[=].valueCanonical = "http://ns.electronichealth.net.au/hc/ActorDefinition/provider-directory-actor-health-connect"
+* address ^extension[=].extension[=].valueCanonical = "http://ns.electronichealth.net.au/hc/ActorDefinition/responder-actor-health-connect"
 * address ^extension[=].extension[+].url = "http://hl7.org/fhir/tools/StructureDefinition/snapshot-source"
 * address ^extension[=].extension[=].valueCanonical = "http://ns.electronichealth.net.au/hc/StructureDefinition/hc-location"
 * address ^extension[+].url = "http://hl7.org/fhir/StructureDefinition/obligation"
@@ -122,7 +122,7 @@ Description: "This profile defines a healthcare location (can also be referred a
 * position ^extension[=].extension[+].url = "code"
 * position ^extension[=].extension[=].valueCode = #SHALL:populate-if-known
 * position ^extension[=].extension[+].url = "actor"
-* position ^extension[=].extension[=].valueCanonical = "http://ns.electronichealth.net.au/hc/ActorDefinition/provider-directory-actor-health-connect"
+* position ^extension[=].extension[=].valueCanonical = "http://ns.electronichealth.net.au/hc/ActorDefinition/responder-actor-health-connect"
 * position ^extension[=].extension[+].url = "http://hl7.org/fhir/tools/StructureDefinition/snapshot-source"
 * position ^extension[=].extension[=].valueCanonical = "http://ns.electronichealth.net.au/hc/StructureDefinition/hc-location"
 * position ^extension[+].url = "http://hl7.org/fhir/StructureDefinition/obligation"
@@ -141,7 +141,7 @@ Description: "This profile defines a healthcare location (can also be referred a
 * managingOrganization ^extension[=].extension[+].url = "code"
 * managingOrganization ^extension[=].extension[=].valueCode = #SHALL:populate-if-known
 * managingOrganization ^extension[=].extension[+].url = "actor"
-* managingOrganization ^extension[=].extension[=].valueCanonical = "http://ns.electronichealth.net.au/hc/ActorDefinition/provider-directory-actor-health-connect"
+* managingOrganization ^extension[=].extension[=].valueCanonical = "http://ns.electronichealth.net.au/hc/ActorDefinition/responder-actor-health-connect"
 * managingOrganization ^extension[=].extension[+].url = "http://hl7.org/fhir/tools/StructureDefinition/snapshot-source"
 * managingOrganization ^extension[=].extension[=].valueCanonical = "http://ns.electronichealth.net.au/hc/StructureDefinition/hc-location"
 * managingOrganization ^extension[+].url = "http://hl7.org/fhir/StructureDefinition/obligation"
@@ -160,7 +160,7 @@ Description: "This profile defines a healthcare location (can also be referred a
 * endpoint ^extension[=].extension[+].url = "code"
 * endpoint ^extension[=].extension[=].valueCode = #SHALL:populate-if-known
 * endpoint ^extension[=].extension[+].url = "actor"
-* endpoint ^extension[=].extension[=].valueCanonical = "http://ns.electronichealth.net.au/hc/ActorDefinition/provider-directory-actor-health-connect"
+* endpoint ^extension[=].extension[=].valueCanonical = "http://ns.electronichealth.net.au/hc/ActorDefinition/responder-actor-health-connect"
 * endpoint ^extension[+].url = "http://hl7.org/fhir/StructureDefinition/obligation"
 * endpoint ^extension[=].extension[+].url = "code"
 * endpoint ^extension[=].extension[=].valueCode = #SHOULD:handle
@@ -174,7 +174,7 @@ Description: "This profile defines a healthcare location (can also be referred a
 * extension[HCAmenity] ^extension[=].extension[+].url = "code"
 * extension[HCAmenity] ^extension[=].extension[=].valueCode = #SHALL:populate-if-known
 * extension[HCAmenity] ^extension[=].extension[+].url = "actor"
-* extension[HCAmenity] ^extension[=].extension[=].valueCanonical = "http://ns.electronichealth.net.au/hc/ActorDefinition/provider-directory-actor-health-connect"
+* extension[HCAmenity] ^extension[=].extension[=].valueCanonical = "http://ns.electronichealth.net.au/hc/ActorDefinition/responder-actor-health-connect"
 * extension[HCAmenity] ^extension[+].url = "http://hl7.org/fhir/StructureDefinition/obligation"
 * extension[HCAmenity] ^extension[=].extension[+].url = "code"
 * extension[HCAmenity] ^extension[=].extension[=].valueCode = #SHOULD:handle
@@ -187,7 +187,7 @@ Description: "This profile defines a healthcare location (can also be referred a
 * extension[HCPreferredPostalAddress] ^extension[=].extension[+].url = "code"
 * extension[HCPreferredPostalAddress] ^extension[=].extension[=].valueCode = #SHALL:populate-if-known
 * extension[HCPreferredPostalAddress] ^extension[=].extension[+].url = "actor"
-* extension[HCPreferredPostalAddress] ^extension[=].extension[=].valueCanonical = "http://ns.electronichealth.net.au/hc/ActorDefinition/provider-directory-actor-health-connect"
+* extension[HCPreferredPostalAddress] ^extension[=].extension[=].valueCanonical = "http://ns.electronichealth.net.au/hc/ActorDefinition/responder-actor-health-connect"
 * extension[HCPreferredPostalAddress] ^extension[+].url = "http://hl7.org/fhir/StructureDefinition/obligation"
 * extension[HCPreferredPostalAddress] ^extension[=].extension[+].url = "code"
 * extension[HCPreferredPostalAddress] ^extension[=].extension[=].valueCode = #SHOULD:handle
