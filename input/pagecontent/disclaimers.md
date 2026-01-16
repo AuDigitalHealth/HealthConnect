@@ -26,8 +26,14 @@
 
 {% include disclaimers-hl7_international.md %}
 
-### Apache licence
+### Creative Commons 4.0 licence
 
-{% include disclaimers-apache.md %}
+{% include disclaimers-creativecommons.md %}
+
+### Intellectual property considerations
+
+This implementation guide and the underlying FHIR specification are licensed as public domain under the [FHIR license](http://hl7.org/fhir/R4/license.html). The license page also describes rules for the use of the FHIR name and logo.
+
+{% include ip-statements.xhtml %}
 
 OFFICIAL

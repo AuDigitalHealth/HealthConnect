@@ -13,5 +13,7 @@ Description: "Search a PractitionerRole record by their role type."
 * code = #roletype
 * base = #PractitionerRole
 * type = #string
+* modifier[0] = #contains
+* modifier[1] = #exact
 * expression = "PractitionerRole.code.coding.display"
 * target = #PractitionerRole

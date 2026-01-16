@@ -1,8 +1,8 @@
 Instance: provenance-practitioner-name-update
 InstanceOf: HCProvenance
 Usage: #example
-Title: "Health Connect Provenance - Track Practitioner Name Amendment"
-Description: "Example showing provenance tracking when a practitioner's family name is updated in the Health Connect directory from an external source system. This demonstrates how specific data elements can be tracked for audit and compliance purposes that conforms to [Health Connect Provenance - Provenance](StructureDefinition-hc-provenance.html) profile."
+Title: "HC Provenance Example: Practitioner Name Amendment"
+Description: "Demonstrates provenance tracking for a practitioner's name amendment, conforming to the HC Provenance profile."
 
 * target = Reference(example-healthconnect-practitioner-1)
 * target.extension[targetPath].valueString = "name[0].family"

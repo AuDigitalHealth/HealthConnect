@@ -1,15 +1,12 @@
-No data is entered directly into Health Connect; all directory content is sourced from authoritative systems including [PCA](https://developer.digitalhealth.gov.au/fhir/provider-connect-australia/current/index.html?src=/), HI-Service, and NHSD.
-
-**Note:** All elements defined within this profile are expected to be supported by implementing systems unless explicitly stated otherwise. The following sections provide additional guidance and exceptions for specific elements.
+No data is entered directly into Health Connect; all Directory content is sourced from authoritative systems including [PCA](https://developer.digitalhealth.gov.au/fhir/provider-connect-australia/current/index.html?src=/), HI-Service, and NHSD.
 
 ### Usage notes
-The following guidance maps key information requirements for HC Practitioner records to fields in the profile. Where a requirement references the HI Service as the authoritative source, publishers SHOULD prefer and validate values—such as practitioner identifiers, and names.
+The following guidance maps key information requirements for HC Practitioner records to fields in the profile. Where a requirement references the HI Service as the authoritative source, publishers SHOULD prefer and validate values-such as practitioner identifiers, and names.
 
 #### Identifiers
 
 **Required Identifier:**
 * **HPI-I** - Healthcare Provider Identifier - Individual (mandatory)
-
 
 #### Professional Registration and Profession
 Professional registration should be carried in the `qualification` element. The registration number of the Practitioner should be populated in `qualification.identifier`; the practitioner's profession should be sent as free text in `qualification.code.text`.
@@ -20,7 +17,7 @@ Professional registration should be carried in the `qualification` element. The 
 
 Notes:
 - For Ahpra-registered practitioners include the Ahpra registration number in `qualification.identifier`. If you can map the profession to a reliable Ahpra code you may include `qualification.code.coding`, but still provide `qualification.code.text`.
-- For non-Ahpra registrations include the issuing organisation in `qualification.issuer.display` or, when attaching issuer details to the identifier itself, use `qualification.identifier.assigner.display` or `qualification.identifier.system` as appropriate.
+- For peak body (non-Ahpra) registrations include the issuing organisation in `qualification.issuer.display` or, when attaching issuer details to the identifier itself, use `qualification.identifier.assigner.display` or `qualification.identifier.system` as appropriate.
 
 This profile requires profession to be present as human-readable text in `qualification.code.text` when the profession is known; coded professions are optional.
 
@@ -33,10 +30,10 @@ This profile includes invariants to ensure data consistency and proper professio
 
 #### Professional Registration Invariants
 
-**`hc-practitioner-registration-required` (error):**
+**`inv-01-qualification-registration-required` (error):**
 Ensures at least one professional registration is present in qualifications:
 - At least one qualification with Ahpra registration identifier OR
-- At least one qualification with professional registration (PRN) identifier
+- At least one qualification with a peak body registration identifier
 
 **Implementation Validation:**
-- Each qualification will include both an identifier and appropriate profession code
+- Each qualification will include both an identifier and appropriate profession code (at least qualification.code.text). 

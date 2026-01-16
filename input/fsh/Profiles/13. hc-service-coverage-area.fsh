@@ -1,4 +1,4 @@
-Invariant: hc-postal-code-4-digits
+Invariant: inv-01-address-postalcode-4-digits
 Description: "If present, postalCode shall be 4 digits"
 Expression: "address.postalCode.matches('^[0-9]{4}$')"
 Severity: #error
@@ -17,7 +17,7 @@ For a healthcare service, that is provided through a physical location but have 
 
 * . ^short = "Australian geographic area in which a service is available."
 
-* obeys hc-postal-code-4-digits
+* obeys inv-01-address-postalcode-4-digits
 
 * address 1..1 MS
 * address ^short = "The address that defines the coverage area where the service is available"

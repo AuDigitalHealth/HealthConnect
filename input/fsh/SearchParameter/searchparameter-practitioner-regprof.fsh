@@ -13,5 +13,7 @@ Description: "Search a Practitioner record by their registered profession using 
 * code = #regprof
 * base = #Practitioner
 * type = #string
+* modifier[0] = #contains
+* modifier[1] = #exact
 * expression = "Practitioner.qualification.code.text"
 * target = #Practitioner

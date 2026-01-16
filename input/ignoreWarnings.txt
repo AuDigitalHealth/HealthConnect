@@ -18,6 +18,7 @@ No definition could be found for URL value 'http://hl7.org.au/id/gnafidentifier'
 No definition could be found for URL value 'http://ns.electronichealth.net.au/id/hi/hpii/1.0'
 No definition could be found for URL value 'http://hl7.org.au/id/ahpra-registration-number'
 No definition could be found for URL value 'http://ns.electronichealth.net.au/id/hc-vdi'
+Published code systems SHOULD conform to the ShareableCodeSystem profile, which says that the element CodeSystem.caseSensitive is mandatory, but it is not present
 
 # External Australian terminology server dependency - endpoint connection type CodeSystem
 # This CodeSystem is hosted on the AU terminology server which may not be available to all validators
@@ -52,4 +53,11 @@ The ImplementationGuide uses package hl7.fhir.au.base#6.0.0-ballot released on 2
 # Editorial comment: FHIR Tools StructureDefinition resolution issue
 # The expansion-parameters StructureDefinition is from the FHIR tools package and may not be available on all servers, This is used for ValueSet expansion operations and does not affect the core functionality of profiles, Suppressing this error as it's a server-side dependency issue, not a profile validation problem
 No definition could be found for URL value 'http://hl7.org/fhir/tools/StructureDefinition/expansion-parameters'
-	
+
+# Editorial comment: NOI identifier not currently recognised for HSP-O
+# Editor's Comment: The au-core-org-01 constraint currently only recognizes HPI-O and PAI-O as valid NOI identifiers, HSP-O support will be added to au-core in a future release. This validation error is expected and does not affect the core functionality of the HSP-O identifier profile.
+Constraint failed: au-core-org-01: 'A National Organisation Identifier (type=NOI) shall be an HPI-O or PAI-O (type.coding.where(code='NOI').exists() implies ((system='http://ns.electronichealth.net.au/id/hi/hpio/1.0') or (system='http://ns.electronichealth.net.au/id/pcehr/paio/1.0')))' (defined in http://hl7.org.au/fhir/core/StructureDefinition/au-core-organization|2.0.0-ballot)
+
+# Suppress information about version pinning
+Pinned the version of http://hl7.org/fhir/StructureDefinition/%
+Pinned the version of http://terminology.hl7.org/ValueSet/%

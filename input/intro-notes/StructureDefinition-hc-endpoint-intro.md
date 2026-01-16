@@ -1,6 +1,4 @@
-> **Note:** All elements defined within this profile are expected to be supported by implementing systems unless explicitly stated otherwise. The following sections provide additional guidance and exceptions for specific elements.
-
-No data is entered directly into Health Connect; all directory content is sourced from authoritative systems including [PCA](https://developer.digitalhealth.gov.au/fhir/provider-connect-australia/current/index.html?src=/), HI-Service, and NHSD.
+No data is entered directly into Health Connect; all Directory content is sourced from authoritative systems including [PCA](https://developer.digitalhealth.gov.au/fhir/provider-connect-australia/current/index.html?src=/), HI-Service, and NHSD.
 
 
 #### Extensions
@@ -14,12 +12,22 @@ The following guidance expands on operational and implementation expectations fo
 
 - Purpose: An `Endpoint` in Health Connect describes how to communicate with a service (address, protocol, payloads and contact details). Directory consumers use this information to establish connections, and operational tooling uses it to monitor and validate connectivity.
 
+#### Implementation requirements vs. processing
+
+Implementers SHALL process all elements marked as Must Support (MS) in this profile to be conformant. However, certain elements that are mandatory do not need to be processed by Health Connect Provider Directory Requester Actors:
+
+- **Endpoint.status**: This element is not MUST SUPPORT but is mandatory therefore it MAY be ignored by implementing systems. A value will be provided but MAY be ignored. 
+
+#### Initial endpoint scope and future expansion
+
+Health Connect initially expects published `Endpoint` resources to describe Secure Messaging endpoints (SMD-capable targets and related secure messaging transports). Requesters and search clients should expect SMD-specific metadata and prioritise handling SMD attributes (SMD Target Identifier, encryption certificate, and routing identifiers). Over time, clients may be able to handle additional protocol metadata (for example, FHIR REST endpoint details) as publishers begin to expose FHIR and other transport types. 
+
 #### Identifiers and stable handles
 
-The Endpoint profile uses two stable identifier slices for directory management and routing:
+The Endpoint profile uses two stable identifier slices for Directory management and routing:
 
-- [HC Endpoint Identifier (HC-EPI)](StructureDefinition-hc-endpoint-identifier.html) — a externally-assigned endpoint identifier. Publishers SHOULD set this identifier on creation and thereafter treat it as immutable. The identifier SHALL be globally unique within HealthConnect and SHALL NOT be re‑assigned. Client systems SHOULD prefer this identifier for reconciliation and updates rather than attempting to infer identity from other attributes.
-- [HC SMD Target Identifier](StructureDefinition-hc-smd-target-identifier.html) — a slice used only when the endpoint (or associated practitioner/service) supports Secure Messaging Delivery (SMD). When present the SMD identifier SHALL be globally unique and SHALL be treated as an immutable routing handle for secure point‑to‑point or hub‑mediated messaging. Publishers SHOULD only populate this slice for endpoints that actually support SMD.
+- [HC Endpoint Identifier (HC-EPI)](StructureDefinition-hc-endpoint-identifier.html) - a externally-assigned endpoint identifier. Publishers SHOULD set this identifier on creation and thereafter treat it as immutable. The identifier SHALL be globally unique within HealthConnect and SHALL NOT be re‑assigned. Client systems SHOULD prefer this identifier for reconciliation and updates rather than attempting to infer identity from other attributes.
+- [HC SMD Target Identifier](StructureDefinition-hc-smd-target-identifier.html) - a slice used only when the endpoint (or associated practitioner/service) supports Secure Messaging Delivery (SMD). When present the SMD identifier SHALL be globally unique and SHALL be treated as an immutable routing handle for secure point‑to‑point or hub‑mediated messaging. Publishers SHOULD only populate this slice for endpoints that actually support SMD.
 
 ### Reciprocal relationships
 

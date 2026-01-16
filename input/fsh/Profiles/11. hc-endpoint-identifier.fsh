@@ -2,7 +2,7 @@ Profile: HCEndpointIdentifier
 Parent: Identifier
 Id: hc-endpoint-identifier
 Title: "HC Endpoint Identifier (HC-EPI)"
-Description: "This identifier profile defines a unique identifier allocated to a healthcare endpoint, in a Health Connect provider directory context."
+Description: "This identifier profile defines a unique identifier allocated to a healthcare endpoint, in a Health Connect Provider Directory context."
 * ^status = #draft
 * type 1..1
 * type = $v2-0203-int#RI

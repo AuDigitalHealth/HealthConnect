@@ -1,8 +1,8 @@
 Instance: healthcareservice-billing
 InstanceOf: SearchParameter
 Usage: #definition
-Title: "Healthcare Service Billing Search Parameter"
-Description: "Search for Healthcare Service resources by billing information."
+Title: "HealthcareService Billing Search Parameter"
+Description: "Search for HealthcareService resources by billing information."
 * url = "http://ns.electronichealth.net.au/hc/SearchParameter/healthcareservice-billing"
 * name = "SearchParameterHealthcareServiceBilling"
 * status = #draft

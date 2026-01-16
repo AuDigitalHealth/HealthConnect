@@ -1,10 +1,8 @@
-**Note:** All elements defined within this profile are expected to be supported by implementing systems unless explicitly stated otherwise. The following sections provide additional guidance and exceptions for specific elements.
-
-No data is entered directly into Health Connect; all directory content is sourced from authoritative systems including [PCA](https://developer.digitalhealth.gov.au/fhir/provider-connect-australia/current/index.html?src=/), HI-Service, and NHSD.
+No data is entered directly into Health Connect; all Directory content is sourced from authoritative systems including [PCA](https://developer.digitalhealth.gov.au/fhir/provider-connect-australia/current/index.html?src=/), HI-Service, and NHSD.
 
 ### Extensions
 Extensions introduced in this profile:
-* HealthcareService: [Health Connect IAR Levels of Care](StructureDefinition-hc-iar-levels-of-care.html)
+* HealthcareService: [IAR Levels of Care](StructureDefinition-iar-levels-of-care.html)
 * HealthcareService: [Health Connect Active Period](StructureDefinition-hc-active-period.html)
 * HealthcareService: [Health Connect Accept New Patient](StructureDefinition-hc-accept-new-patient.html)
 * HealthcareService: [Health Connect Referral Information for Referrer](StructureDefinition-hc-referral-information-for-referrer.html)
@@ -12,7 +10,7 @@ Extensions introduced in this profile:
 * HealthcareService.availableTime.availableEndTime: [Timezone Code](https://hl7.org/fhir/extensions/5.2.0/StructureDefinition-timezone.html)
 
 ### Usage notes
-The `extension:hc-iar-levels-of-care` is used to indicate the Initial Assessment and Referral (IAR) Levels of Care for a healthcare service. This extension draws its codes from the [Health Connect IAR Levels of Care ValueSet](ValueSet-hc-iar-levels-of-care-vs.html). The ValueSet includes the codes as follows:
+The `extension:iar-levels-of-care` is used to indicate the Initial Assessment and Referral (IAR) Levels of Care for a healthcare services that support mental health care. This extension draws its codes from the [IAR Levels of Care ValueSet](ValueSet-iar-levels-of-care-vs.html). The ValueSet includes the codes as follows:
   
   - 1: Level 1 (self-management)
   - 2: Level 2 (low intensity interventions)
@@ -33,14 +31,12 @@ This section describes the use of codes to indicate payment and billing options,
 #### Service type
 Utilises the Service Type ValueSet, to draw codes from SNOMED that define concepts for the type of service that the healthcare service provides.
 
-A single code representing the primary service type MUST be provided and selected from the [Service Type value set](https://www.healthterminologies.gov.au/integration/R4/fhir/ValueSet/service-type-1). 
+A single code representing the primary service type MUST be provided and selected from the [Service Type value set](https://healthterminologies.gov.au/fhir/ValueSet/service-type-1). 
     
 #### Location reference
 The *location* element must contain a relative reference to an existing [HC Location](StructureDefinition-hc-location.html) whose *managingOrganization* references the same HC Organization as is referenced by the *providedBy* element.
 
 #### Availability
-To indicate a change in the pattern of availability of the healthcare service during a particular period, use *availableTime* with the *availableTimeApplicability* extension. 
-
 To indicate the healthcare service is not available during a period of time, use *notAvailable*. 
 
 #### Coverage area

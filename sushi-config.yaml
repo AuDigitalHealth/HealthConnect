@@ -14,12 +14,12 @@ extension:
   - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
     valueCode: draft
     
-version: 0.1.0-preview
+version: 0.2.0-preview
 fhirVersion: 4.0.1 # https://www.hl7.org/fhir/valueset-FHIR-version.html
 
 copyrightYear: 2025+
 releaseLabel: Preview
-license: Apache-2.0 # https://www.hl7.org/fhir/valueset-spdx-license.html
+license: CC-BY-4.0 # https://www.hl7.org/fhir/valueset-spdx-license.html
 
 useContext:
   - code:
@@ -33,7 +33,7 @@ useContext:
 
 publisher:
   name: Australian Digital Health Agency
-  url: http://example.org/example-publisher
+  url: https://www.digitalhealth.gov.au/
   email: help@digitalhealth.gov.au
 
 
@@ -61,24 +61,29 @@ pages:
     title: Home
   guidance.md:
     title: Guidance
-  profiles-and-extensions.md:
-    title: Profiles and Extensions  
+  artifacts.html:
+    title: FHIR Artefacts
+    profiles-and-extensions.md:
+      title: Profiles and Extensions
+    terminology.md:
+      title: Terminology
+    capability-statements.md:
+      title: Capability Statements
+    search-parameters.md:
+      title: Search Parameters
+    actors.md:
+      title: Actor Definitions
   conformance.md:
-    title: Conformance Overview
+    title: Conformance 
   examples.md:
     title: Examples
-  terminology.md:
-    title: Terminology
-  artefacts.md:
-    title: Artefacts Summary
   disclaimers.md:
     title: Disclaimers
   downloads.md:
     title: Downloads
-  capability-statements.md:
-    title: Capability Statements
-  actors.md:
-    title: Actor Definitions
+  changelog.md:
+    title: Change Log
+
 #
 #
 # The parameters property represents IG.definition.parameter. Rather
@@ -106,6 +111,8 @@ parameters:  # see https://confluence.hl7.org/display/FHIR/Implementation+Guide+
   apply-jurisdiction: true
   apply-publisher: true
   apply-version: true
+  apply-copyright: false
+  default-copyright: true
   show-inherited-invariants: false
   usage-stats-opt-out: true
   excludexml: false
@@ -130,6 +137,10 @@ parameters:  # see https://confluence.hl7.org/display/FHIR/Implementation+Guide+
     - progress #progress: Overall progress messages
   releaselabel: CI Build
 
+  # pin-canonical documentation: https://build.fhir.org/ig/FHIR/ig-guidance/branches/master/pinning.html
+  # pin-canonical discussion: https://chat.fhir.org/#narrow/channel/179252-IG-creation/topic/Canonical.20Pinning/with/534497073
+  # pin-canonicals can be set to 'pin-none', 'pin-specified', or 'pin-all'
+  pin-canonicals: pin-all
 # ╭────────────────────────────────────────────menu.xml────────────────────────────────────────────╮
 # │ The menu property will be used to generate the input/menu.xml file. The menu is represented    │
 # │ as a simple structure where the YAML key is the menu item name and the value is the URL.       │
@@ -146,12 +157,13 @@ menu:
     "Profiles and Extensions": profiles-and-extensions.html
     "Terminology": terminology.html
     "Capability Statements": capability-statements.html
-    "Search Parameters": artifacts.html#behavior-search-parameters
+    "Search Parameters": search-parameters.html
     "Actor Definitions": actors.html
   Conformance: conformance.html
   Examples: examples.html
   Disclaimers: disclaimers.html
   Downloads: downloads.html
+  Change Log: changelog.html
   
 
 # ╭───────────────────────────Less Common Implementation Guide Properties──────────────────────────╮

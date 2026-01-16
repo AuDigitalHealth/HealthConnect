@@ -1,7 +1,7 @@
 Profile: HCHPIOIdentifier
 Parent: $au-hpio
 Id: hc-hpio
-Title: "HC HPI-O"
+Title: "HC Healthcare Provider Identifier - Organisation (HC HPI-O)"
 Description: "This identifier profile extends the AU HPI-O profile to include an organization classification extension to indicate whether the organization is a 'seed' or 'network' type."
 * ^status = #draft
 * ^experimental = false

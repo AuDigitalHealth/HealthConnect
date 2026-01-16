@@ -13,14 +13,13 @@ How these identifier searches can be used is described in [AU Core documentation
 #### Search parameters defined within FHIR R4
 The following parameters are inherited from [R4](https://hl7.org/fhir/R4/organization.html) and are commonly useful; implementers SHOULD support them as indicated.
 
-- `name` (string)
-- Standard R4 parameter that searches Organization.name and Organization.alias (partial matches supported).
-- Example: `GET /Organization?name=Example%20Aged`
+- [`name`](https://hl7.org/fhir/R4/organization.html#search)  
+Standard R4 parameter that searches Organization.name and Organization.alias (partial matches supported). String type. 
+Example: `GET /Organization?name=Example%20Aged`
 
-- `type` (token)
-- Standard R4 parameter that searches Organization.type.coding using token semantics (system|code).
-- Example (code-only): `Organization?type=http://snomed.info/sct|257652008`
-
+- [`type`](https://hl7.org/fhir/R4/organization.html#search)  
+Standard R4 parameter that searches Organization.type.coding using token semantics (system|code).
+Example: `Organization?type=http://snomed.info/sct|257652008`
 
 <table class="list">
 <tbody>
@@ -32,27 +31,27 @@ The following parameters are inherited from [R4](https://hl7.org/fhir/R4/organiz
       </tr>
       <tr>
             <td>_id</td>
-            <td><b>SHALL</b></td>
+            <td><b>SHOULD</b></td>
             <td><code>token</code></td>
             <td></td>
       </tr>
       <tr>
             <td>HPI-O</td>
-            <td><b>SHALL</b></td>
+            <td><b>SHOULD</b></td>
             <td><code>token</code></td>
-            <td>The reader SHOULD support search using the HPI-O identifier as defined in the profile. The health connect provider directory SHOULD support search using the using the HPI-O identifier as defined in the profile</code></td>
+            <td>The Health Connect Provider Directory Requester and Provider Directory SHOULD support search using the HPI-O identifier as defined in the profile.</td>
       </tr>
       <tr>
             <td>HSP-O</td>
-            <td><b>SHALL</b></td>
+            <td><b>SHOULD</b></td>
             <td><code>token</code></td>
-            <td>The reader SHOULD support search using the HSP-O identifier as defined in the profile. The health connect provider directory SHOULD support search using the using the HSP-O identifier as defined in the profile</code></td>
+            <td>The Health Connect Provider Directory Requester and Provider Directory SHOULD support search using the HSP-O identifier as defined in the profile.</td>
       </tr>
       <tr>
             <td>ABN</td>
             <td><b>SHOULD</b></td>
             <td><code>token</code></td>
-            <td>The reader SHOULD support search using the ABN identifier as defined in the profile. The health connect provider directory SHOULD support search using the using the ABN identifier as defined in the profile</code></td>
+            <td>The Health Connect Provider Directory Requester and Provider Directory SHOULD support search using the ABN identifier as defined in the profile.</td>
       </tr>
       <tr>
             <td>ACN</td>

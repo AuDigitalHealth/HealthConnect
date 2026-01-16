@@ -1,6 +1,6 @@
 ### Identifier utilisation in Health Connect
 
-The `HC-PRI` is the primary external identifier used to identify a `PractitionerRole` across Health Connect. Publishers SHOULD provide an authoritative external identifier when creating or updating an `PractitionerRole`. The `HC-PRI` is **mandatory** for `PractitionerRole` resources published in the Health Connect directory and is used as a primary reconciliation key for cross-system matching.
+The `HC-PRI` is the primary external identifier used to identify a `PractitionerRole` across Health Connect. Publishers SHOULD provide an authoritative external identifier when creating or updating an `PractitionerRole`. The `HC-PRI` is **mandatory** for `PractitionerRole` resources published in the Health Connect Provider Directory and is used as a primary reconciliation key for cross-system matching.
 
 - `identifier.type`: fixed to `RI` (resource identifier).
 - `identifier.value`: the external identifier value supplied by the publisher or assigning organisation.

@@ -2,7 +2,7 @@ Instance: practitioner-rsg
 InstanceOf: SearchParameter
 Usage: #definition
 Title: "Practitioner's Recorded Sex or Gender Search Parameter"
-Description: "Search a Practitioner record by their recorded sex or gender."
+Description: "Search a Practitioner record by their recorded sex or gender. This search parameter operates on the 'value' element of the individual-recordedSexOrGender extension (typically an administrative gender code). However, to fully understand the meaning and context of the recorded sex or gender, the complete extension structure returned in results should be examined, including metadata elements such as 'type' (category of what's recorded), 'source', 'sourceDocument', 'effectivePeriod', and other contextual information."
 * url = "http://ns.electronichealth.net.au/hc/SearchParameter/practitioner-rsg"
 * name = "SearchParameterPractitionerRSG"
 * status = #draft

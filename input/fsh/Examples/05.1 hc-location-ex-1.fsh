@@ -1,8 +1,8 @@
-Instance: example-healthconnect-Physical-location-with-wheelchair-access-1
+Instance: example-healthconnect-mobile-healthcare-unit-1
 InstanceOf: HCLocation
 Usage: #example
-Title: "Health Connect - Example Physical location with wheelchair access"
-Description: "An example of Location that conforms to [Health Connect Location - location](StructureDefinition-hc-location.html) profile."
+Title: "HC Location Example: Mobile Healthcare Unit"
+Description: "A mobile healthcare unit location example with wheelchair access, conforming to the HC Location profile."
 
 * meta.lastUpdated = "2025-09-01T14:45:30Z"
 
@@ -16,8 +16,8 @@ Description: "An example of Location that conforms to [Health Connect Location -
 * identifier[=].system = "http://ns.electronichealth.net.au/id/location-specific-practice-number"
 * identifier[=].value = "123333"
 
-* name = "Physical location with wheelchair access"
-* alias = "Ye Old Physical location with wheelchair access"
+* name = "Mobile Healthcare Unit - Sydney CBD"
+* alias = "CBD Mobile Unit"
 * address.extension.url = "http://hl7.org.au/fhir/StructureDefinition/address-identifier"
 * address.extension.valueIdentifier.type = $v2-0203#GNAF "Geocoded National Address File Identifier"
 * address.extension.valueIdentifier.type.text = "G-NAF"
@@ -32,6 +32,9 @@ Description: "An example of Location that conforms to [Health Connect Location -
 * address.postalCode = "2000"
 * address.country = "AU"
 
+* position.longitude = 151.2093
+* position.latitude = -33.8688
+
 * extension[+].url = "http://ns.electronichealth.net.au/hc/StructureDefinition/hc-preferred-postal-address"
 * extension[=].valueAddress.use = #work
 * extension[=].valueAddress.type = #postal
@@ -43,15 +46,16 @@ Description: "An example of Location that conforms to [Health Connect Location -
 * extension[=].valueAddress.country = "AU"
 
 * extension[+].url = "http://ns.electronichealth.net.au/hc/StructureDefinition/hc-amenity"
-* extension[=].valueCodeableConcept = HCAmenity-cs#wheelchairAccess "Wheelchair Access"
+* extension[=].valueCodeableConcept = $amenityCS#wheelchairAccess "Wheelchair Access"
+
 * telecom[phone].value = "(02) 1234 5678"
 * telecom[phone].use = #work
 
-* telecom[email].value = "info@location.com.au"
+* telecom[email].value = "info@sydneycentralmc.com.au"
 * telecom[email].use = #work
 
 * telecom[+].system = #url
-* telecom[=].value = "https://www.mocklocation.com.au"
+* telecom[=].value = "https://www.sydneycentralmc.com.au"
 * telecom[=].use = #work
 
 * telecom[+].system = #fax
@@ -60,5 +64,5 @@ Description: "An example of Location that conforms to [Health Connect Location -
 
 * managingOrganization = Reference(example-healthconnect-organization-1)
 
-* type.coding[0] = http://terminology.hl7.org/CodeSystem/v3-RoleCode#MOBL "Mobile Unit"
-* type.coding[+] = http://terminology.hl7.org/CodeSystem/v3-RoleCode#PTRES "Patient's Residence"
+* type[0].coding = http://terminology.hl7.org/CodeSystem/v3-RoleCode#MOBL "Mobile Unit"
+* type[+].coding = http://terminology.hl7.org/CodeSystem/v3-RoleCode#COMM "Community Location"

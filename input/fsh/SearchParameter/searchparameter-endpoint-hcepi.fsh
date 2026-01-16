@@ -12,6 +12,7 @@ Description: "Search an Endpoint record by its HC identifier."
 * contact.telecom.value = "help@digitalhealth.gov.au"
 * code = #hcepi
 * base = #Endpoint
-* type = #string
-* expression = "Endpoint.identifier.where(system='http://ns.electronichealth.net.au/ep/record').value"
+* type = #token
+* description = "Search an Endpoint record by its HC identifier (Resource Identifier type). Uses token matching for exact value matching. Value-only search supported."
+* expression = "Endpoint.identifier.where(type.coding.exists(code='RI')).value"
 * target = #Endpoint

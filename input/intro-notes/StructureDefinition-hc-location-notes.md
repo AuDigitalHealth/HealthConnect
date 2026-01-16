@@ -2,31 +2,43 @@
 This IG defines and introduces several search parameters in addition to those inherited from R4, that make it easier to find and filter `HC Location` resources in Health Connect implementations.
 
 #### Search parameters defined in this IG
-The following search parameters are **defined by this IG** and **SHALL** be supported:
+The following search parameters are **defined by this IG** and **SHOULD** be supported:
 
-- `postaladdress` (Location.extension where url = HC preferred postal address extension)
-      - Search locations by the HC-preferred postal address stored in the location's HC-specific extension.
-            - Example (string-only): `GET /Location?postaladdress=PO%20Box%20123`
+- [`locmailaddress`](SearchParameter-location-locmailaddress.html) (Location.extension where url = HC preferred postal address extension). Supports `:contains` modifier. 
+- Search locations by the HC-preferred postal address stored in the location's HC-specific extension.
+- Example (string-only): `GET /Location?locmailaddress=PO%20Box%20123`
 
-- `locationamenities` (Location.extension where url = HC amenity extension)
-	- Search for locations by their amenities using the HC amenity extension. Use token semantics for coded amenity values.
-      - TODO Example (display text): `GET /Location?locationamenities=Wheelchair%20access`
+- [`locationamenities`](SearchParameter-location-amenities.html) (Location.extension where url = HC amenity extension)
+- Search for locations by their amenities using the HC amenity extension. Use token semantics for coded amenity values.
+- Example (display text): `GET /Location?locationamenities=Wheelchair%20access`
+
+- [`locationphysicaltype`](SearchParameter-location-physicaltype.html) (Location.physicalType)
+- Search for locations by their physicalType field. Use token semantics for coded physical type values from the Location Type (Physical) ValueSet.
+- Example: `GET /Location?locationphysicaltype=http://terminology.hl7.org/CodeSystem/location-physical-type|wa`
 
 #### Search parameters from R4
-The following search parameters are **inherited from FHIR R4** and have been deemed useful for implementation within this IG. They **SHALL** be supported:
+The following search parameters are **inherited from FHIR R4** and have been deemed useful for implementation within this IG. They **SHOULD** be supported:
 
-- `name` (Location.name and Location.alias)
-	- Search for locations by name and alias (partial searches supported).
-	- Example: `GET /Location?name:contains=Telehealth`
+- [`name (R4)`](https://hl7.org/fhir/R4/searchparameter-registry.html#name) (Location.name and Location.alias)
+- Search for locations by name and alias (partial searches supported).
+- Example: `GET /Location?name:contains=Telehealth`
 
-- `address` (Location.address)
-	- Search for locations by address (partial searches supported).
-	- Example: `GET /Location?address=147-153%20Castlereagh%20Street`
+- [`address (R4)`](https://hl7.org/fhir/R4/searchparameter-registry.html#address) (Location.address)
+- Search for locations by address (partial searches supported).
+- Example: `GET /Location?address=147-153%20Castlereagh%20Street`
 
-- `type` (Location.type.coding)
-	- Search for locations by their type using coded values. Use token semantics for precise code matching.
-	- Available codes = MOBL, PTRES, SCHOOL, WORK, COMM, AMB, VI from the HC Service Delivery Location Role Type ValueSet
-	- Example (code only): `GET /Location?type=MOBL`
+- [`type (R4)`](https://hl7.org/fhir/R4/searchparameter-registry.html#type) (Location.type.coding)
+- Search for locations by their type using coded values. Use token semantics for precise code matching.
+- Available codes = MOBL, PTRES, SCHOOL, WORK, COMM, AMB, VI from the NCTS Delivery Location Role Type ValueSet
+- Example (code only): `GET /Location?type=MOBL`
+
+- [`near`](https://hl7.org/fhir/R4/location.html#positional) (Location.position)
+- Search for locations by geographical proximity using latitude|longitude|distance format. 
+- Results can be sorted by distance using the `_sort` parameter. Documented [here](https://hapifhir.io/hapi-fhir/docs/introduction/changelog_2023.html#section11) under GitHub issue [#4650](https://github.com/hapifhir/hapi-fhir/issues/4650).
+
+- Sort modifiers: `_sort=near` (closest first), `_sort=-near` (furthest first).
+- Example: `GET /Location?near=-33.8688|151.2093|0.5` (within 0.5km of Sydney CBD coordinates)
+- Example with sorting: `GET /Location?near=-33.8688|151.2093|3&_sort=near` (closest locations first within 3km)
 
 <br/><br/>*Note:* Support for _id is mandatory for a responder and optional for a requester. Where the expectation for a search parameter differs between actors, the table below will reflect the stronger conformance requirement.
 
@@ -40,7 +52,7 @@ The following search parameters are **inherited from FHIR R4** and have been dee
   </tr>
   <tr>
         <td>_id</td>
-        <td><b>SHALL</b></td>
+        <td><b>SHOULD</b></td>
         <td><code>token</code></td>
         <td></td>
   </tr>
@@ -57,7 +69,7 @@ The following search parameters are **inherited from FHIR R4** and have been dee
         <td></td>
   </tr>
   <tr>
-        <td>postaladdress</td>
+        <td>locmailaddress</td>
         <td><b>SHOULD</b></td>
         <td><code>string</code></td>
         <td></td>
@@ -69,13 +81,31 @@ The following search parameters are **inherited from FHIR R4** and have been dee
         <td></td>
   </tr>
   <tr>
-        <td>type (R4)</td>
-        <td><b>SHALL</b></td>
+      <td>locationphysicaltype</td>
+        <td><b>SHOULD</b></td>
         <td><code>token</code></td>
         <td></td>
   </tr>
   <tr>
+        <td>type (R4)</td>
+        <td><b>SHOULD</b></td>
+        <td><code>token</code></td>
+        <td></td>
+  </tr>
+  <tr>
+        <td>near (R4)</td>
+        <td><b>SHOULD</b></td>
+        <td><code>special</code></td>
+        <td>Geographical proximity search using latitude|longitude|distance format. Can be sorted by distance using _sort=near</td>
+  </tr>
+  <tr>
         <td>name+type</td>
+        <td><b>SHOULD</b></td>
+        <td><code>string</code>+<code>token</code></td>
+        <td></td>
+  </tr>
+  <tr>
+        <td>name+locationphysicaltype</td>
         <td><b>SHOULD</b></td>
         <td><code>string</code>+<code>token</code></td>
         <td></td>
@@ -93,19 +123,31 @@ The following search parameters are **inherited from FHIR R4** and have been dee
         <td></td>
   </tr>
   <tr>
+        <td>address+locationphysicaltype</td>
+        <td><b>SHOULD</b></td>
+        <td><code>string</code>+<code>token</code></td>
+        <td></td>
+  </tr>
+  <tr>
       <td>address+locationamenities</td>
         <td><b>SHOULD</b></td>
         <td><code>string</code>+<code>token</code></td>
         <td></td>
   </tr>
   <tr>
-        <td>postaladdress+type</td>
+        <td>locmailaddress+type</td>
         <td><b>SHOULD</b></td>
         <td><code>string</code>+<code>token</code></td>
         <td></td>
   </tr>
   <tr>
-      <td>postaladdress+locationamenities</td>
+        <td>locmailaddress+locationphysicaltype</td>
+        <td><b>SHOULD</b></td>
+        <td><code>string</code>+<code>token</code></td>
+        <td></td>
+  </tr>
+  <tr>
+      <td>locmailaddress+locationamenities</td>
         <td><b>SHOULD</b></td>
         <td><code>string</code>+<code>token</code></td>
         <td></td>

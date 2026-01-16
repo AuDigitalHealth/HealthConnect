@@ -1,8 +1,8 @@
 Instance: example-healthconnect-organization-1
 InstanceOf: HCOrganization
 Usage: #example
-Title: "Health Connect - Example Aged Care Facility"
-Description: "An example Aged Care Facility that conforms to [Health Connect Organization - Organization](StructureDefinition-hc-organization.html) profile."
+Title: "HC Organization Example: Aged Care Facility"
+Description: "An Aged Care Facility example conforming to the HC Organization profile."
 
 * meta.lastUpdated = "2025-08-30T09:15:00Z"
 

@@ -41,3 +41,4 @@ Alias: $hc-ahpra-professions-vs = http://ns.electronichealth.net.au/hc/ValueSet/
 Alias: $hc-ahpra-professions-cs = http://ns.electronichealth.net.au/hc/CodeSystem/hc-ahpra-professions-cs
 Alias: $au-v2-0360-extended = https://hl7.org.au/fhir/ValueSet/au-v2-0360-extended
 Alias: $common-languages-australia-2 = https://healthterminologies.gov.au/fhir/ValueSet/common-languages-australia-2
+Alias: $amenityCS = https://healthterminologies.gov.au/fhir/CodeSystem/facility-amenity-1

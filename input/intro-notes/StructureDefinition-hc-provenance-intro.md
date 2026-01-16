@@ -1,6 +1,4 @@
-**Note:** All elements defined within this profile are expected to be supported by implementing systems unless explicitly stated otherwise. The following sections provide additional guidance and exceptions for specific elements.
-
-No data is entered directly into Health Connect; all directory content is sourced from authoritative systems including [PCA](https://developer.digitalhealth.gov.au/fhir/provider-connect-australia/current/index.html?src=/), HI-Service, and NHSD.
+No data is entered directly into Health Connect; all Directory content is sourced from authoritative systems including [PCA](https://developer.digitalhealth.gov.au/fhir/provider-connect-australia/current/index.html?src=/), HI-Service, and NHSD.
 
 ### Extensions
 Extensions introduced in this profile:
@@ -26,20 +24,7 @@ The HC Provenance profile supports two distinct patterns of use:
 - Multiple targetPath extensions can be included to track changes to multiple elements in a single provenance record
 - The same `activity`, `recorded`, `agent.who`, and `entity` elements as resource-level provenance
 
-The atomic element-level approach is particularly valuable in Health Connect's context where directory data may be selectively updated from different authoritative sources. For example, a practitioner's contact details might be updated from one source while their qualifications are verified from another, with separate provenance records documenting each specific change.
-
-#### Systems creating/updating Provenance resources (connecting systems)
-
-- The `target` element MUST reference the HC FHIR resource that is the subject of the provenance activity (for example `HCPractitioner` or `HCOrganization`).
-- The `agent.who` element MUST be populated to indicate the actor performing the activity (for example `HCOrganization`, `HCPractitioner` or `HCPractitionerRole`). When the source system records an action performed on behalf of a participating organisation, use `agent.who` = Reference(HCOrganization).
-- The `activity` element SHOULD be populated with codes from `http://terminology.hl7.org/CodeSystem/v3-DataOperation` (for example `#UPDATE`, `#CREATE`, `#DELETE`). Use the most specific operation that matches the action taken.
-- Implementing systems **must** ensure that the `recorded` element of the Provenance resource is populated with the date and time the update occurred.
-- The system performing the update is responsible for accurately setting this value at the time of the update.
-- This requirement supports traceability and auditability of changes within Health Connect implementations.
-- The purpose of `target.extension[targetPath].valueString` is to hold a FHIRPath expression that identifies the exact data element within the target resource that was changed. It MUST contain a valid FHIRPath expression. Examples in this repository illustrate the expected format, for example:
-    - `name[0].family` (tracks the practitioner's primary family name)
-    - `telecom.where(system='phone').value` (tracks the practitioner's phone number)
-- It is the responsibility of the updating system to record and capture FHIRPath expressions for the changed data elements.
+The atomic element-level approach is particularly valuable in Health Connect's context where Directory data may be selectively updated from different authoritative sources. For example, a practitioner's contact details might be updated from one source while their qualifications are verified from another, with separate provenance records documenting each specific change.
 
 #### Systems consuming/auditing Provenance resources (searching systems)
 

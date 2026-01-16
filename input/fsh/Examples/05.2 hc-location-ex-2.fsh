@@ -1,8 +1,8 @@
 Instance: example-healthconnect-virtual-telehealth-service-1
 InstanceOf: HCLocation
 Usage: #example
-Title: "Health Connect - Example Virtual Telehealth Service"
-Description: "An example of a virtual Location (telehealth service) that conforms to the Health Connect Location profile. This is a virtual/telehealth service and therefore does not include a physical address that conforms to [HealthConnect Location - location](StructureDefinition-hc-location.html) profile."
+Title: "HC Location Example: Virtual Telehealth Service"
+Description: "A virtual telehealth service location example without physical address, conforming to the HC Location profile."
 
 * meta.lastUpdated = "2025-09-01T14:45:30Z"
 

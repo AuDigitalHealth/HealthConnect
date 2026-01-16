@@ -1,0 +1,19 @@
+{
+    "xml.fileAssociations": [
+        {
+            "pattern": "**/*.xml",
+            "systemId": "input-cache/schemas/R5/fhir-single.xsd"
+        }
+    ],
+    "cSpell.words": [
+        "ahpraregistrationnumber"
+    ],
+    "spellright.language": [
+        "en"
+    ],
+    "spellright.documentTypes": [
+        "markdown",
+        "latex",
+        "plaintext"
+    ]
+}

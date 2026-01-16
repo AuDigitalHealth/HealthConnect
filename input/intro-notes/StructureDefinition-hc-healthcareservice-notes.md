@@ -1,9 +1,9 @@
 ### Search parameters
-This IG defines and intoduces several search parameters in addition to those inherited, that make it easier to find and filter `HC Healthcare Service` resources in Health Connect implementations. The following search parameters are defined and **SHALL** be supported:
+This IG defines and intoduces several search parameters in addition to those inherited, that make it easier to find and filter `HC Healthcare Service` resources in Health Connect implementations. The following search parameters are defined and **SHOULD** be supported:
 
 #### Search parameters defined in FHIR R4
-- `service-type` (HealthcareService.type)
-- This SearchParameter is defined in FHIR R4 (see https://hl7.org/fhir/R4/healthcareservice.html) and searches `HealthcareService.type`. It is a token search — use the fully-qualified `system|code` form to avoid ambiguity.
+- [`service-type`](https://hl7.org/fhir/R4/healthcareservice.html) (HealthcareService.type)
+- Searches `HealthcareService.type`. It is a token search - use the fully-qualified `system|code` form to avoid ambiguity.
 
 Examples:
 - Unencoded: `GET /HealthcareService?service-type=http://snomed.info/sct|1256161000168107`
@@ -13,43 +13,45 @@ Note: Values come from the HC Healthcare Service value set (SNOMED). Use codes t
 
 
 #### Search parameters defined in this IG
-The following search parameters are **defined by this IG** and **SHALL** be supported:
+The following search parameters are **defined by this IG** and **SHOULD** be supported:
 
-- `languages` (HealthcareService.communication.coding.display OR PractitionerRole.extension.where(url='http://ns.electronichealth.net.au/hc/StructureDefinition/hc-practitioner-role-communication').value.ofType(CodeableConcept).coding.display)
+- [`languages`](SearchParameter-languages.html) (HealthcareService.communication.coding.display OR PractitionerRole.extension.where(url='http://ns.electronichealth.net.au/hc/StructureDefinition/hc-practitioner-role-communication').value.ofType(CodeableConcept).coding.display)
 - Search for healthcare services by the languages they support for communication. This shared SearchParameter works for both HealthcareService and PractitionerRole resources.
+- Supports `:contains` modifier for partial matching, `:exact` modifier for precise matching.
 - Example (display text): `GET /HealthcareService?languages=Italian`
 
-- `hsbilling` (HealthcareService.serviceProvisionCode)
+- [`hsbilling`](SearchParameter-healthcareservice-billing.html) (HealthcareService.serviceProvisionCode)
 - Search for healthcare services by their billing or service provision conditions (for example, bulk billing, fees apply).
 - Example (preferred, unambiguous): `GET /HealthcareService?hsbilling=http://terminology.hl7.org.au/CodeSystem/service-provision-conditions|FAP`
 
 ##### Availability
 
-- `availability-allday` (HealthcareService.availableTime.allDay | PractitionerRole.availableTime.allDay)
+- [`allday`](SearchParameter-allday.html) (HealthcareService.availableTime.allDay | PractitionerRole.availableTime.allDay)
 - Search for services/roles by whether they are available all day. Use token semantics for boolean values.
-- Example: `GET /HealthcareService?availability-allday=true`
-- Example: `GET /PractitionerRole?availability-allday=false`
+- Example: `GET /HealthcareService?allday=true`
+- Example: `GET /PractitionerRole?allday=false`
 
-- `availability-daysofweek` (HealthcareService.availableTime.daysOfWeek | PractitionerRole.availableTime.daysOfWeek)
+- [`daysofweek`](SearchParameter-daysofweek.html) (HealthcareService.availableTime.daysOfWeek | PractitionerRole.availableTime.daysOfWeek)
 - Search for services/roles by days of the week they are available. Supports multiple days using OR logic.
 - Available day codes: mon, tue, wed, thu, fri, sat, sun
-- Example: `GET /HealthcareService?availability-daysofweek=mon`
-- Example: `GET /HealthcareService?availability-daysofweek=mon,tue,wed` (multiple days)
-- Example: `GET /PractitionerRole?availability-daysofweek=fri`
+- Example: `GET /HealthcareService?daysofweek=mon`
+- Example: `GET /HealthcareService?daysofweek=mon,tue,wed` (multiple days)
+- Example: `GET /PractitionerRole?daysofweek=fri`
 
-- `availability-starttime` (HealthcareService.availableTime.availableStartTime | PractitionerRole.availableTime.availableStartTime)
-- Search for services/roles by availability start time. This shared SearchParameter works for both HealthcareService and PractitionerRole resources.
-- **Format**: Use time format HH:mm:ss (e.g., "08:00:00" for 8 AM)
-- **String matching**: Supports exact match and prefix match
-- Example (exact time): `GET /HealthcareService?availability-starttime=08:00:00`
-- Example (prefix match): `GET /PractitionerRole?availability-starttime=08` (matches 08:xx:xx)
+**Availability (Start/End Time)**
+- Shared parameters: [starttime](SearchParameter-starttime.html) and [endtime](SearchParameter-endtime.html) work for both HealthcareService and PractitionerRole.
+- Format: Numeric HHMM (e.g., 0800 for 8:00 AM, 1730 for 5:30 PM). Do not include colons in queries.
+- Matching: Numeric comparisons with prefix operators.
+- Prefix operators: `eq` (=), `ge` (>=), `gt` (>), `le` (<=), `lt` (<), `ne` (!=). When no prefix is specified, `eq` is implied.
+- Examples:
+- Exact start: GET /HealthcareService?starttime=0800
+- Starts at or after 9 AM: GET /HealthcareService?starttime=ge0900
+- Starts before 10 AM: GET /PractitionerRole?starttime=lt1000
+- Exact end: GET /HealthcareService?endtime=1700
+- Ends at or before 4 PM: GET /HealthcareService?endtime=le1600
+- Ends after 6 PM: GET /PractitionerRole?endtime=gt1800
 
-- `availability-endtime` (HealthcareService.availableTime.availableEndTime | PractitionerRole.availableTime.availableEndTime)
-- Search for services/roles by availability end time. This shared SearchParameter works for both HealthcareService and PractitionerRole resources.
-- **Format**: Use time format HH:mm:ss (e.g., "17:30:00" for 5:30 PM)
-- **String matching**: Supports exact match and prefix match
-- Example (exact time): `GET /HealthcareService?availability-endtime=17:00:00`
-- Example (prefix match): `GET /PractitionerRole?availability-endtime=17` (matches 17:xx:xx)#### SearchParameters from R4
+**Limitation:** Combination in a query cannot guarantee the correct pairing of `starttime` and `endtime` from the same availableTime block. Use of `daysofweek` can help filter, but may still return mixed results when multiple blocks exist for a day. At an implementation layer further filtering may be needed to ensure correct pairing.
 
 <br/><br/>*Note:* Support for _id is mandatory for a responder and optional for a requester. Where the expectation for a search parameter differs between actors, the table below will reflect the stronger conformance requirement.
 
@@ -63,13 +65,13 @@ The following search parameters are **defined by this IG** and **SHALL** be supp
   </tr>
   <tr>
         <td>_id</td>
-        <td><b>SHALL</b></td>
+        <td><b>SHOULD</b></td>
         <td><code>token</code></td>
         <td></td>
   </tr>
   <tr>
         <td>service-type (R4) </td>
-        <td><b>SHALL</b></td>
+        <td><b>SHOULD</b></td>
         <td><code>token</code></td>
         <td></td>
   </tr>
@@ -104,21 +106,21 @@ The following search parameters are **defined by this IG** and **SHALL** be supp
         <td></td>
   </tr>
   <tr>
-        <td>languages+availability-daysofweek</td>
+      <td>languages+daysofweek</td>
         <td><b>SHOULD</b></td>
         <td><code>string</code>+<code>token</code></td>
         <td></td>
   </tr>
   <tr>
-        <td>hsbilling+availability-daysofweek</td>
+      <td>hsbilling+daysofweek</td>
         <td><b>SHOULD</b></td>
         <td><code>token</code>+<code>token</code></td>
         <td></td>
   </tr>
     <tr>
-        <td>availability-daysofweek+availability-starttime+availability-endtime</td>
+      <td>daysofweek+starttime+endtime</td>
         <td><b>SHOULD</b></td>
-        <td><code>token</code>+<code>string</code>+<code>string</code></td>
+        <td><code>token</code>+<code>number</code>+<code>number</code></td>
         <td></td>
   </tr>
  </tbody>
@@ -136,7 +138,7 @@ This implementation supports the following `_include` parameters when searching 
 
 This implementation supports the following `_revinclude` parameters when searching for HealthcareService resources:
 
-* `_revinclude=PractitionerRole:healthcareService` - Include PractitionerRole resources that reference this HealthcareService
+* `_revinclude=PractitionerRole:service` - Include PractitionerRole resources that reference this HealthcareService
 * `_revinclude=Provenance:target` - Include Provenance resources that track changes to this HealthcareService
 
 #### Example usage

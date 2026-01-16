@@ -17,6 +17,8 @@ Description: "Search HealthcareServices or PractitionerRoles by supported langua
 * base[0] = #HealthcareService
 * base[1] = #PractitionerRole
 * type = #string
+* modifier[0] = #contains
+* modifier[1] = #exact
 * expression = "HealthcareService.communication.coding.display | PractitionerRole.extension.where(url='http://ns.electronichealth.net.au/hc/StructureDefinition/hc-practitioner-role-communication').value.ofType(CodeableConcept).coding.display"
 * target = #HealthcareService
 * target = #PractitionerRole

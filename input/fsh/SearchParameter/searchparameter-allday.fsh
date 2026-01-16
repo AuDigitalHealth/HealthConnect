@@ -1,17 +1,17 @@
-// Shared All Day Availability SearchParameter for both HealthcareService and PractitionerRole
+// Shared All Day SearchParameter for both HealthcareService and PractitionerRole
 // This parameter works on the common availableTime backbone element structure
 
-Instance: availability-allday
+Instance: allday
 InstanceOf: SearchParameter
 Usage: #definition
-Title: "All Day Availability Search Parameter"
+Title: "All Day Search Parameter"
 Description: "Search HealthcareServices or PractitionerRoles by whether they are available all day."
-* url = "http://ns.electronichealth.net.au/hc/SearchParameter/availability-allday"
-* name = "SearchParameterAvailabilityAllDay"
+* url = "http://ns.electronichealth.net.au/hc/SearchParameter/allday"
+* name = "SearchParameterAllDay"
 * status = #draft
 * experimental = true
 * publisher = "Australian Digital Health Agency"
-* code = #availability-allday
+* code = #allday
 * base[0] = #HealthcareService
 * base[1] = #PractitionerRole
 * type = #token

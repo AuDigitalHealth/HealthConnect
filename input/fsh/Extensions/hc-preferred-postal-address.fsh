@@ -11,5 +11,6 @@ Description: "Carries a preferred postal/mailing address for correspondence (PO 
 * ^description = "Preferred postal/mailing address for correspondence (PO Box or mailing address) that is distinct from the registered physical address."
 * value[x] only Address
 * valueAddress 1..1
+* valueAddress.type = #postal (exactly)
 * valueAddress ^short = "Preferred postal/mailing address"
 * valueAddress ^definition = "A chosen or preferred postal or mailing address, used for correspondence and separate from the registered physical address."

@@ -1,75 +1,38 @@
 ### Conventions
 
 #### Must support
-Must support is inherited by elements from their parents except in the following cases: extensions, modifier extensions and children of resource, meta or backbone element. This may be overridden explicitly. So, must support on an element 
+This IG follows the approach taken in AU Core to must support and obligation.
+ 
+Labelling an element [*Must Support*](https://www.hl7.org/fhir/conformance-rules.html#mustSupport) means that systems that produce or consume resources **SHALL** provide support for the element in some meaningful way. The FHIR standard does not define exactly what 'meaningful' support for an element means, but indicates that a profile **SHALL** make clear exactly what kind of support is required when an element is labelled as *Must Support*. 
+ 
+In this IG, the meaning of *Must Support* is specified in terms of [Obligation Codes](https://hl7.org/fhir/extensions/CodeSystem-obligation.html) in [obligation extensions](https://hl7.org/fhir/extensions/StructureDefinition-obligation.html) on the element definition. These obligations can also be applied at more granular levels, such as individual data type choices, terminology bindings, identifiers, or sub-elements.
+ 
+To interpret elements labelled as must support follow the guidance in AU Core at [Interpreting Profile Elements Labelled Must Support](https://build.fhir.org/ig/hl7au/au-fhir-core/general-requirements.html#interpreting-profile-elements-labelled-must-support).
 
-* when it is resource, meta or a backbone element, **does not** apply to any children;
-* when it is neither resource, meta nor a backbone element, applies to all children, other than extension and modifier extension, e.g. for HealthcareService.type it applies to id, coding and text, but not to extension;
-* when it has more than one data type, profile, target profile or slice, applies to all data types, profiles, target profiles and slices;
-* when it is an extension or modifier extension, applies to its children normally;
-* when it is a reference with a value for reference, **does not** apply to the referenced resource. A resource is not an element.
+#### Must Support & Obligations for Actors
+This implementation guide defines its own actors and obligations to specify actor-specific behaviour for data elements. While this IG builds upon AU Core profiles, the obligations defined there are not relevant here as those obligations apply to actors not included in this implementation guide. Only obligations on actors included in this implementation guide are relevant. The IG defines two actors with specific responsibilities:
 
-In profiles that represent published organisation information, **the presence of 'must support'** on any data element shall be interpreted as follows:
+* **Health Connect Provider Directory Responder Actor** (server): The source for Health Connect Provider Directory data.
+* **Health Connect Provider Directory Requester Actor** (client): Systems that query and consume Directory data.
 
-* For a responding system providing the data element to the HC service: the HC service will publish the data element to requesting systems.
-* For a requesting system receiving the data element from the HC service: the HC service will include the data element if it is available. Subscribing systems are not obliged to process the data element.
+Generally the main obligations applied to each Actor within this IG are:
 
-In profiles that **do not** represent published organisation information, **the presence of ‘must support’** on any data element shall be interpreted as follows:
+* **Health Connect Provider Directory Responder Actor** with `SHALL:populate-if-known` obligation: The Health Connect Provider Directory Responder SHALL populate-if-known the data element in accordance with the [FHIR obligation definition](https://hl7.org/fhir/extensions/CodeSystem-obligation.html#obligation-SHALL.58populate-if-known). This means that if the actor knows the correct value for the element it will include it. The obligation does not require the element to always be present, but when the actor has the relevant data and it is appropriate for the resource context, the element must be populated if known.
 
-* For a requesting system providing the data element to the HC service: the HC service will process the data element.
-* For a responding or requesting system receiving the data element from the HC service: the HC service will include the data element if it is available.
+* **Health Connect Provider Directory Requester Actor** with `SHOULD:handle` obligation: Client systems SHOULD be capable of receiving and processing the data element when it is present in responses in accordance with the [FHIR obligation definition](https://hl7.org/fhir/extensions/CodeSystem-obligation.html#obligation-handle). This provides flexibility for implementers to support Directory data elements based on their specific use cases and integration requirements.
+
+**For elements without FHIR obligations:**
+
+* Data elements that do not have specific FHIR obligations defined can be ignored by implementers unless explicitly required by their specific use case or local requirements.
 
 #### Search parameters
+The search parameters defined in this implementation guide specify the recommended approaches for client systems to query the Health Connect Provider Directory system and are the authoritative specification for discovering and retrieving healthcare Provider Directory data. Client systems integrating with Health Connect SHOULD use these search parameters to ensure consistent and reliable data retrieval across all client integrations. 
 
-The search parameters defined in this implementation guide specify how client systems MUST query the Health Connect Directory service. These search parameters are the authoritative specification for discovering and retrieving healthcare provider directory data from the Health Connect system.
+The Health Connect Provider Directory supports all search parameters defined in this implementation guide, plus inherited FHIR search capabilities from the derived profiles. All search parameters are marked as SHOULD support for the Health Connect Provider Directory Requester Actor, allowing implementers flexibility in choosing which parameters to support based on their specific use cases and integration requirements. Client systems can utilise any of the available search parameters, and should conform to the specifications and constraints defined herein where applicable to their use case.
 
-**Search Parameter Requirements**: Client systems integrating with Health Connect MUST use the search parameters as defined in this implementation guide. The Health Connect Directory service implements these specific search parameters to ensure consistent and reliable data retrieval across all client integrations.
+##### Querying multiple resource types
 
-**Supported Search Operations**: The Health Connect Directory service supports all search parameters defined in this implementation guide, plus inherited FHIR search capabilities from the derived profiles. Client systems can utilise any of the available search parameters, but must conform to the specifications and constraints defined herein.
-
-##### System-level search parameters
-
-The Health Connect Directory service supports the following system-level search parameters across all resource types. These parameters can be chained together to create sophisticated queries that combine filtering, date range selection, and relationship traversal:
-
-**_lastUpdated**: Enables querying resources based on when they were last modified in Health Connect. This parameter is particularly useful for synchronization scenarios where client systems need to identify resources that have changed since a specific point in time. The parameter supports comparison prefixes to enable flexible date range queries:
-
-- `gt` (greater than): Returns resources updated after the specified date/time
-- `lt` (less than): Returns resources updated before the specified date/time
-- `ge` (greater than or equal): Returns resources updated on or after the specified date/time
-- `le` (less than or equal): Returns resources updated on or before the specified date/time
-
-The date/time value can be specified with varying precision (year, month, day, hour, minute, second). Time components are optional - if omitted, the system assumes the start or end of the period as appropriate for the comparison.
-
-Example usage:
-```
-GET [base]/Practitioner?_lastUpdated=gt2025-01-01T00:00:00Z
-```
-
-This query retrieves all Practitioner resources updated since January 1, 2025.
-
-**_type**: Used in system-level searches to filter the resources returned by their resource type. This parameter allows querying multiple resource types in a single request. Available types include:
-
-- `HealthcareService` (returns resources conforming to the HC Healthcare Service profile)
-- `PractitionerRole` (returns resources conforming to the HC Practitioner Role profile) 
-- `Organization` (returns resources conforming to the HC Organization profile)
-- `Location` (returns resources conforming to the HC Location profile)
-- `Practitioner` (returns resources conforming to the HC Practitioner profile)
-- `Provenance` (returns resources conforming to the HC Provenance profile)
-
-Multiple resource query approaches:
-
-**Option 1 - Separate queries:**
-```
-GET [base]/Practitioner?_lastUpdated=gt2025-01-01
-GET [base]/Organization?_lastUpdated=gt2025-01-01
-```
-
-**Option 2 - Combined query using _include relationships:**
-```
-GET [base]/PractitionerRole?_lastUpdated=gt2025-01-01&_include=PractitionerRole:practitioner&_include=PractitionerRole:organization
-```
-
-**Option 3 - Bundle batch request:**
+**Bundle batch request:**
 ```json
 POST [base]
 Content-Type: application/fhir+json
@@ -94,25 +57,28 @@ Content-Type: application/fhir+json
 }
 ```
 
-**_include**: Enables including related resources referenced by the primary search results in a single response. This parameter supports both single and multiple includes to traverse resource relationships.
+###### Combining with other search parameters
+When used in combination with other standard parameters, sophisticated queries can be created that can efficiently leverage filtering, date range selection, and relationship traversal.
 
-Example usage (most common pattern):
+
+##### Standard search parameters
+[**_lastUpdated**](https://hl7.org/fhir/R4/search.html#lastUpdated): Enables querying resources based on when they were last modified in the Health Connect Provider Directory. This parameter is particularly useful for synchronization scenarios where client systems need to identify resources that have changed since a specific point in time. The parameter supports comparison prefixes to enable flexible date range queries:
+
+- `gt` (greater than): Returns resources updated after the specified date/time
+- `lt` (less than): Returns resources updated before the specified date/time
+- `ge` (greater than or equal): Returns resources updated on or after the specified date/time
+- `le` (less than or equal): Returns resources updated on or before the specified date/time
+
+The date/time value can be specified with varying precision (year, month, day, hour, minute, second). Time components are optional - if omitted, the system assumes the start or end of the period as appropriate for the comparison.
+
+Example usage for type-specific search:
 ```
-GET [base]/PractitionerRole?_include=PractitionerRole:practitioner&_include=PractitionerRole:organization
+GET [base]/Practitioner?_lastUpdated=gt2025-01-01T00:00:00Z
 ```
 
-This query retrieves PractitionerRole resources along with their associated Practitioner and Organization resources.
+This query retrieves only Practitioner resources updated since January 1, 2025.
 
-**Chained Parameter Example**:
-```
-GET [base]/PractitionerRole?_lastUpdated=gt2025-01-01&_include=PractitionerRole:practitioner&_include=PractitionerRole:organization
-```
-
-This query retrieves PractitionerRole resources updated since January 1, 2025, along with their associated Practitioner and Organization resources.
-
-**_elements**: Controls which elements are returned in the response, allowing clients to request only specific fields of a resource. This parameter is particularly useful for reducing response payload size and network traffic when only certain data elements are needed.
-
-The `_elements` parameter accepts a comma-separated list of element names. When specified, the server returns only the requested elements plus any mandatory elements required by the FHIR specification (such as `id` and `meta`).
+[**_elements**:](https://build.fhir.org/search.html#elements) Controls which elements are returned in the response by accepting a comma-separated list of element names. When specified, the server returns only the requested elements. This reduces bandwidth usage and improves query performance by limiting response payload size.
 
 Example usage:
 ```
@@ -121,27 +87,36 @@ GET [base]/Practitioner?_elements=identifier,active
 
 This query retrieves Practitioner resources but returns only the `identifier` and `active` elements (plus mandatory FHIR elements).
 
+##### Relationship traversal  
+[**_include and _revInclude**](https://hl7.org/fhir/R4/search.html#include): Enables including related resources in a single response by traversing resource relationships. `_include` follows references from primary search results to related resources, while `_revInclude` finds resources that reference the primary search results. Multiple parameters can be combined to traverse complex relationships across profile boundaries.
+
+**Examples:**
 ```
-GET [base]/HealthcareService?_elements=identifier,active,location,serviceType,category,characteristic,communication,coverageArea,endpoint
+GET [base]/PractitionerRole?_include=PractitionerRole:practitioner&_include=PractitionerRole:organization
+```
+Retrieves PractitionerRole resources with their associated Practitioner and Organization resources.
+
+```
+GET [base]/HealthcareService?_revInclude=PractitionerRole:service&_include=PractitionerRole:practitioner
+```
+Retrieves HealthcareService resources, plus PractitionerRole resources that reference those services, plus the Practitioner resources referenced by those PractitionerRole instances.
+
+```
+GET [base]/PractitionerRole?_lastUpdated=gt2025-01-01&_include=PractitionerRole:practitioner&_include=PractitionerRole:organization
+```
+Combines relationship traversal with date filtering to retrieve updated PractitionerRole resources and their related resources.
+
+The appropriate combination of parameters depends on the referencing hierarchy defined in the profiles. Client systems should consult the profile structure (illustrated by the diagram found on the index page) and profile narrative sections to determine the correct traversal path for their use case.
+
+
+##### Pagination
+The Health Connect Provider Directory supports paginated search results. The Provider Directory has a default page size of **10** resources. The [`_count`](https://hl7.org/fhir/R4/search.html#count) parameter is supported generically by the service; clients may include `_count` to express a preferred page size.
+
+- **Follow the `next` link:** When a search response is paginated, the server returns a `Bundle` that may include a `link` entry with `relation="next"`. Clients SHOULD use the `next` link to retrieve subsequent pages rather than reconstructing paging URLs.
+
+Example:
+```
+GET [base]/HealthcareService?_count=50
 ```
 
-This query retrieves HealthcareService resources with only the specified elements, reducing the response size for scenarios where only key service information is needed.
-
-**Benefits of using _elements**:
-- Reduces bandwidth usage by limiting response payload size
-- Improves query performance by minimizing data transfer
-- Enables focused data retrieval for specific use cases
-- Supports efficient mobile and low-bandwidth scenarios
-
-For more details on the `_elements` parameter specification, see the [FHIR R4 search documentation](https://build.fhir.org/search.html#elements).
-
-##### Use of multiple _include and _revInclude parameters
- 
-The Health Connect directory server supports the use of multiple **_include** and **_revInclude** search parameters to enable traversal of resource relationships across profile boundaries. These parameters allow client systems to retrieve related resources in a single query by following references defined within the FHIR profiles.
-For example, to retrieve all Practitioners associated with a specific HealthcareService, a client may issue the following query:
- 
-`GET [base]/HealthcareService?_revInclude=PractitionerRole:healthcareService&_include=PractitionerRole:practitioner`
- 
-This query starts with HealthcareService, then first includes PractitionerRole resources that reference the HealthcareService, and then secondly includes the Practitioner resources referenced by those PractitionerRole instances.
-The appropriate combination of _include and _revInclude parameters depends on the referencing hierarchy defined in the profiles. Client systems should consult the profile structure (illustrated by the diagram found on the index page) in addition to the narrative sections of each profile, to determine the correct traversal path and combination of **_include** and/or **_revInclude** parameters for their use case.
-
+This request expresses a preference for up to 50 resources per page; the server may honour this preference or return a different page size. If there are more results, the returned `Bundle` may include a `link` element with `relation="next"` for fetching the next page.

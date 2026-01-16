@@ -17,7 +17,7 @@ $this*2, (($this*2)-9))))+(value.substring(3,1).toInteger())+(select(value.subst
 Profile: HCHSPOIdentifier
 Parent: Identifier
 Id: hc-hspo
-Title: "HC HSP-O"
+Title: "HC Healthcare Support Service Provider - Organisation (HC HSP-O)"
 Description: "This identifier profile defines a Healthcare Support Service Provider Organisation in an Australian context. An HSP-O is assigned under the HI Service to a service (in-home care support and personal care services) where healthcare is provided. A HSP-O can only be of 'seed' type. An Organization cannot be assigned both an HPI-O and an HSP-O; only one identifier is assigned by the HI Service."
 * ^status = #draft
 * ^experimental = false
@@ -29,7 +29,7 @@ Description: "This identifier profile defines a Healthcare Support Service Provi
 * . ^short = "Healthcare Support Service Provider Organisation (HSP-O) Identifier"
 * . ^definition = "Identifier assigned under the HI Service organisations that do not directly provide healthcare services but provide care and support services to older Australians or people with disability may register with the HI Service for a Healthcare Support Service Provider Organisation (HSP-O) identifier. This includes organisations that provide in-home care support and personal care services. Providers with a HSP-O will not have access to the My Health Record system."
 * type 1..
-* type = $v2-0203-int#XX
+* type = $v2-0203#NOI
 * system 1..
 * system = "http://ns.electronichealth.net.au/id/hi/hspo/1.0" (exactly)
 * value 1..

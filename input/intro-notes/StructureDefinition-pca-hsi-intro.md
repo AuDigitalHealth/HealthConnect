@@ -1,8 +1,8 @@
-No data is entered directly into Health Connect; all directory content is sourced from authoritative systems including [PCA](https://developer.digitalhealth.gov.au/fhir/provider-connect-australia/current/index.html?src=/), HI-Service, and NHSD.
+No data is entered directly into Health Connect; all Directory content is sourced from authoritative systems including [PCA](https://developer.digitalhealth.gov.au/fhir/provider-connect-australia/current/index.html?src=/), HI-Service, and NHSD.
 
 ### PCA healthcare service identifier extension
 
-The PCA Healthcare Service Identifier (PCA-HSI) extension defines an identifier for a healthcare service as allocated by the Provider Connect Australia (PCA) system. This extension is used to capture the PCA-allocated identifier for a HealthcareService resource within the Health Connect directory.
+The PCA Healthcare Service Identifier (PCA-HSI) extension defines an identifier for a healthcare service as allocated by the Provider Connect Australia (PCA) system. This extension is used to capture the PCA-allocated identifier for a HealthcareService resource within the Health Connect Provider Directory.
 
 **Usage context:**
 

@@ -2,10 +2,10 @@ Profile: HCSMDTargetIdentifier
 Parent: Identifier
 Id: hc-smd-target-identifier
 Title: "HC SMD Target Identifier (HC-SMDTI)"
-Description: "This identifier profile defines a SMD target identifier allocated to a healthcare practitioner, in a Health Connect provider directory context."
+Description: "This identifier profile defines a SMD target identifier allocated to a healthcare practitioner, in a Health Connect Provider Directory context."
 * ^status = #draft
 * . ^short = "SMD Target Identifier"
-* . ^definition = "SMD Target Identifier that the practitioner has with Professional association / Peak body association (for non-AHPRA registered practitioners), as recorded against the HPI-I record."
+* . ^definition = "SMD Target Identifier that the practitioner has with Professional association / Peak body association (for non-Ahpra registered practitioners), as recorded against the HPI-I record."
 * system 1..1
 * system = "http://ns.electronichealth.net.au/smd/target" (exactly)
 * system ^short = "Secure Messaging Delivery Target Identifier"

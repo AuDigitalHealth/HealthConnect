@@ -1,0 +1,18 @@
+// Shared Start Time SearchParameter for both HealthcareService and PractitionerRole
+// This parameter works on the common availableTime backbone element structure
+
+Instance: starttime
+InstanceOf: SearchParameter
+Usage: #definition
+Title: "Start Time Search Parameter"
+Description: "Search HealthcareServices or PractitionerRoles by start time. Query values must use a four-digit numeric 24 hr time format (HHMM, e.g., 0830 for 8:30am). The start time is converted to an integer to enable prefix-based time searches (e.g., gt, lt, ge, le)."
+* url = "http://ns.electronichealth.net.au/hc/SearchParameter/starttime"
+* name = "SearchParameterStartTime"
+* status = #draft
+* experimental = true
+* publisher = "Australian Digital Health Agency"
+* code = #starttime
+* base[0] = #HealthcareService
+* base[1] = #PractitionerRole
+* type = #number
+* expression = "availableTime.select($this.availableStartTime.toString().replace(':','').substring(0,4).toInteger())"
