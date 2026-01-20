@@ -23,7 +23,7 @@ A HC Location for a virtually delivered service **shall** have:
 * type=’VI’
 
 ##### PhysicalType
-When a Location is to be represented as a physical type, the `physicalType` element is used to carry an applicable code from the [Location Type (Physical) - AU Extended ValueSet](https://hl7.org.au/fhir/6.0.0-ballot/ValueSet-au-location-physical-type-extended.html). 
+When a Location is to be represented as a physical type, the `physicalType` element is used to carry an applicable code from the [Location Type (Physical) - AU Extended ValueSet](https://hl7.org.au/fhir/6.0.0/ValueSet-au-location-physical-type-extended.html). 
 
 The `physicalType` element can be used to express more specific details about the physical nature of a Location (for example: ward, building, dwelling). 
 
