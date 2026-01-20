@@ -43,7 +43,7 @@ publisher:
 #
 dependencies:
     hl7.fhir.au.core: 2.0.0-ballot
-    hl7.fhir.au.base: 6.0.0-ballot
+    hl7.fhir.au.base: 6.0.0
 #
 # The pages property corresponds to IG.definition.page. SUSHI can
 # auto-generate the page list, but if the author includes pages in
