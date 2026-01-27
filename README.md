@@ -15,13 +15,40 @@ https://build.fhir.org/ig/AuDigitalHealth/HealthConnect/index.html
 
 ## How to Build
 
-### Pre-requisites
-[SUSHI](https://fshschool.org/docs/sushi/installation/) - Ensure you have Node JS installed, and then install SUSHI via `npm install -g fsh-sushi`
+Welcome! There are two easy ways to build this IG. If you’re on Windows (or just want fewer local installs), the dev container is the smoothest path.
 
-[Jekyll](https://jekyllrb.com/docs/installation/) - Jekyll is a Ruby Gem and instructions are available for various operating systems.
+### Option A: Dev Container (recommended)
+This keeps your machine clean and works the same on Windows, macOS, and Linux.
+- Install [Docker Desktop](https://docs.docker.com/desktop/setup/install/windows-install/).
+- Install VS Code + the Dev Containers extension.
+- Open this repo in VS Code and choose “Reopen in Container”.
 
-### Building
-Run either the `_genonce.bat` or `_genonce.sh` script.
+The container includes everything you need: Java, Node.js + SUSHI, Ruby + Jekyll, and curl.
+
+### Option B: Local setup
+Prefer to run natively? Install the same dependencies:
+- Java (OpenJDK 17+)
+- Node.js + SUSHI (`npm install -g fsh-sushi`)
+- Ruby + Jekyll (`gem install jekyll bundler`)
+- curl
+
+### Build the IG
+Run the script for your OS:
+- Windows: `_genonce.bat`
+- macOS/Linux: `./_genonce.sh`
+
+If `publisher.jar` is missing, run `_updatePublisher.bat` or `_updatePublisher.sh` first.
+
+### Preview/Serve (Jekyll)
+To preview the site locally (with live rebuilds):
+1) Build the IG (`_genonce.bat` or `./_genonce.sh`) — this runs `publisher.jar`.
+2) Start Jekyll to serve the generated pages.
+
+Example (macOS/Linux or Dev Container):
+- Build: `./_genonce.sh`
+- Serve: `jekyll serve -s temp/pages -d output -H 0.0.0.0 -P 3000`
+
+The static site is written to `output/`.
 
  
 ## Contributing
@@ -29,4 +56,3 @@ Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on how to contribute.
  
 ## License
 This project is licensed under Creative Commons license 4.0 - see the [LICENSE](LICENSE) file for details.
-
