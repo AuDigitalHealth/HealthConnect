@@ -1,0 +1,16 @@
+{
+  "name": "Health Connect IG",
+  "build": {
+    "dockerfile": "./Dockerfile",
+    "context": "."
+  },
+  "remoteUser": "vscode",
+  "forwardPorts": [
+    3000
+  ],
+  "portsAttributes": {
+    "3000": {
+      "label": "IG preview (Jekyll)"
+    }
+  }
+}
