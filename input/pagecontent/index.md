@@ -105,8 +105,8 @@ This table lists known issues with this specification at the time of publishing.
 
 ### References
 
-|[<a name="HL7AUBIG">HL7AUBIG</a>]| HL7 Australia, FHIR R4 standard for AU Base Implementation Guide, v6.0.0-ballot (Ballot)|
-||[https://hl7.org.au/fhir/6.0.0-ballot/index.html](https://hl7.org.au/fhir/6.0.0-ballot/index.html)|  
+|[<a name="HL7AUBIG">HL7AUBIG</a>]| HL7 Australia, FHIR R4 standard for AU Base Implementation Guide, v6.0.0|
+||[https://hl7.org.au/fhir/6.0.0/index.html](https://hl7.org.au/fhir/6.0.0/index.html)|  
 
 |[<a name="HL7FHIR4">HL7FHIR4</a>]|Health Level Seven, Inc., 30 October 2019, FHIR R4.|
 ||[http://hl7.org/fhir/R4/](http://hl7.org/fhir/R4/)|
