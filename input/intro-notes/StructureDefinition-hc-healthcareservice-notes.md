@@ -15,10 +15,11 @@ Note: Values come from the HC Healthcare Service value set (SNOMED). Use codes t
 #### Search parameters defined in this IG
 The following search parameters are **defined by this IG** and **SHOULD** be supported:
 
-- [`languages`](SearchParameter-languages.html) (HealthcareService.communication.coding.display OR PractitionerRole.extension.where(url='http://ns.electronichealth.net.au/hc/StructureDefinition/hc-practitioner-role-communication').value.ofType(CodeableConcept).coding.display)
-- Search for healthcare services by the languages they support for communication. This shared SearchParameter works for both HealthcareService and PractitionerRole resources.
-- Supports `:contains` modifier for partial matching, `:exact` modifier for precise matching.
-- Example (display text): `GET /HealthcareService?languages=Italian`
+- [`languages`](SearchParameter-languages.html) (HealthcareService.communication.coding OR PractitionerRole.extension.where(url='http://ns.electronichealth.net.au/hc/StructureDefinition/hc-practitioner-role-communication').value.ofType(CodeableConcept).coding)
+- Search for healthcare services by the languages they support for communication. This shared SearchParameter works for both HealthcareService and PractitionerRole resources. 
+- Supports `system|code` or `code`.  
+- Example: `GET /HealthcareService?languages=it` (Italian code for bcp-47)
+- Example: `GET /HealthcareService?languages=de` (German code for bcp-47)
 
 - [`hsbilling`](SearchParameter-healthcareservice-billing.html) (HealthcareService.serviceProvisionCode)
 - Search for healthcare services by their billing or service provision conditions (for example, bulk billing, fees apply).
@@ -78,7 +79,7 @@ The following search parameters are **defined by this IG** and **SHOULD** be sup
   <tr>
         <td>languages</td>
         <td><b>SHOULD</b></td>
-        <td><code>string</code></td>
+        <td><code>token</code></td>
         <td></td>
   </tr>
   <tr>
@@ -90,7 +91,7 @@ The following search parameters are **defined by this IG** and **SHOULD** be sup
   <tr>
         <td>service-type+languages</td>
         <td><b>SHOULD</b></td>
-        <td><code>token</code>+<code>string</code></td>
+        <td><code>token</code>+<code>token</code></td>
         <td></td>
   </tr>
   <tr>
@@ -102,13 +103,13 @@ The following search parameters are **defined by this IG** and **SHOULD** be sup
   <tr>
         <td>languages+hsbilling</td>
         <td><b>SHOULD</b></td>
-        <td><code>string</code>+<code>token</code></td>
+        <td><code>token</code>+<code>token</code></td>
         <td></td>
   </tr>
   <tr>
       <td>languages+daysofweek</td>
         <td><b>SHOULD</b></td>
-        <td><code>string</code>+<code>token</code></td>
+        <td><code>token</code>+<code>token</code></td>
         <td></td>
   </tr>
   <tr>
@@ -131,7 +132,7 @@ The following search parameters are **defined by this IG** and **SHOULD** be sup
 This implementation supports the following `_include` parameters when searching for HealthcareService resources:
 
 * `_include=HealthcareService:location` - Include Location resources referenced by the `location` element
-* `_include=HealthcareService:providedBy` - Include Organization resources referenced by the `providedBy` element
+* `_include=HealthcareService:organization` - Include Organization resources referenced by the `providedBy` element
 * `_include=HealthcareService:endpoint` - Include Endpoint resources referenced by the `endpoint` element
 
 ### Search reverse include parameters
@@ -144,7 +145,7 @@ This implementation supports the following `_revinclude` parameters when searchi
 #### Example usage
 
 ```text
-GET /HealthcareService/789?_include=HealthcareService:location&_include=HealthcareService:providedBy&_revinclude=PractitionerRole:healthcareService
+GET /HealthcareService/789?_include=HealthcareService:location&_include=HealthcareService:organization&_revinclude=PractitionerRole:service
 ```
 
 This query returns the HealthcareService with its Location, providing Organization, and all associated PractitionerRoles.

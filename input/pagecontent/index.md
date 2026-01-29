@@ -1,4 +1,4 @@
-# Health Connect FHIR ImplementationGuide
+# Health Connect Provider Directory FHIR Implementation Guide
 
 > {% include active-development-boilerplate.md %}
 {% include feedback-boilerplate.md %}

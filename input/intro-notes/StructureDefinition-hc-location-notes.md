@@ -160,7 +160,7 @@ The following search parameters are **inherited from FHIR R4** and have been dee
 This implementation supports the following `_include` parameters when searching for Location resources:
 
 * `_include=Location:endpoint` - Include endpoint resources referenced by the `endpoint` element
-* `_include=Location:managingOrganization` - Include organization resources referenced by the `managingOrganization` element
+* `_include=Location:organization` - Include organization resources referenced by the `managingOrganization` element
 
 ### Search reverse include parameters
 

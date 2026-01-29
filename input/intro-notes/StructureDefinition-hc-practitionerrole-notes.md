@@ -19,17 +19,17 @@ The following **standard FHIR R4** search parameters are **recommended** for Pra
 - PRN (with system): `GET /PractitionerRole?identifier=http://example.org/fhir/identifier/examplesystem|PRN-123456`
 - PRN (without system): `GET /PractitionerRole?identifier=PRN-123456`
 
+- [`role`](https://hl7.org/fhir/R4/practitionerrole.html#search) (PractitionerRole.code). Token based search: provide `system|code` or `code`.
+- Search for PractitionerRoles by SNOMED or other coding values in `PractitionerRole.code`.
+- Example: `GET /PractitionerRole?role=309339007`
+
 #### Search parameters defined in this IG
 The following search parameters are **defined by this IG** and **SHOULD** be supported:
 
-- [`languages`](SearchParameter-languages.html) (PractitionerRole.extension where url = HC practitioner role communication).  Supports both `:contains` & `:exact` modifiers.  
+- [`languages`](SearchParameter-languages.html) (PractitionerRole.extension where url = HC practitioner role communication).  Supports `system|code` or `code`.  
 - Find practitioner roles by the languages spoken by the practitioner in this role, stored in the HC communication extension. This is a shared SearchParameter that works across both HealthcareService and PractitionerRole resources.
-- Supports `:contains` modifier for partial matching, `:exact` modifier for precise matching.
-- Example: `GET /PractitionerRole?languages=Italian`
-
-- [`roletype`](SearchParameter-practitionerrole-roletype.html) (PractitionerRole.code.coding.display).  Supports both `:contains` & `:exact` modifiers.  
-- Search for PractitionerRoles by their role type display name (for example, "Medical pathologist"). Uses string matching for display text.
-- Example: `GET /PractitionerRole?roletype=Medical%20pathologist`
+- Example: `GET /PractitionerRole?languages=it` (Italian code for bcp-47)
+- Example: `GET /PractitionerRole?languages=de` (German code for bcp-47)
 
 ##### Availability 
 
@@ -79,21 +79,21 @@ The following search parameters are **defined by this IG** and **SHOULD** be sup
         <td>Requester Actors SHOULD support search using Medicare Provider Number or Ahpra number as defined in the profile.</td>
   </tr>
   <tr>
-        <td>roletype</td>
+        <td>role</td>
         <td><b>SHOULD</b></td>
-        <td><code>string</code></td>
-        <td></td>
+        <td><code>token</code></td>
+        <td>Standard FHIR `role` search parameter on PractitionerRole.code</td>
   </tr>
   <tr>
         <td>languages</td>
         <td><b>SHOULD</b></td>
-        <td><code>string</code></td>
+        <td><code>token</code></td>
         <td></td>
   </tr>
   <tr>
         <td>identifier+languages</td>
         <td><b>SHOULD</b></td>
-        <td><code>token</code>+<code>string</code></td>
+        <td><code>token</code>+<code>token</code></td>
         <td></td>
   </tr>
   <tr>
@@ -132,18 +132,18 @@ The following search parameters are **defined by this IG** and **SHOULD** be sup
         <td><code>token</code>+<code>number</code></td>
         <td></td>
   </tr>
-  <tr>
-      <td>roletype+daysofweek</td>
-        <td><b>SHOULD</b></td>
-        <td><code>string</code>+<code>token</code></td>
-        <td></td>
-  </tr>
-  <tr>
-      <td>roletype+starttime</td>
-        <td><b>SHOULD</b></td>
-        <td><code>string</code>+<code>number</code></td>
-        <td></td>
-  </tr>
+      <tr>
+            <td>role+daysofweek</td>
+            <td><b>SHOULD</b></td>
+            <td><code>token</code>+<code>token</code></td>
+            <td></td>
+      </tr>
+      <tr>
+            <td>role+starttime</td>
+            <td><b>SHOULD</b></td>
+            <td><code>token</code>+<code>number</code></td>
+            <td></td>
+      </tr>
       <tr>
       <td>daysofweek+starttime+endtime</td>
         <td><b>SHOULD</b></td>
@@ -158,7 +158,7 @@ The following search parameters are **defined by this IG** and **SHOULD** be sup
 This implementation supports the following `_include` parameters when searching for PractitionerRole resources:
 
 * `_include=PractitionerRole:practitioner` - Include Practitioner resources referenced by the `practitioner` element
-* `_include=PractitionerRole:healthcareService` - Include HealthcareService resources referenced by the `healthcareService` element
+* `_include=PractitionerRole:service` - Include HealthcareService resources referenced by the `healthcareService` element
 * `_include=PractitionerRole:organization` - Include Organization resources referenced by the `organization` element
 * `_include=PractitionerRole:location` - Include Location resources referenced by the `location` element
 * `_include=PractitionerRole:endpoint` - Include Endpoint resources referenced by the `endpoint` element

@@ -36,9 +36,11 @@ The atomic element-level approach is particularly valuable in Health Connect's c
 
 ##### Search include parameters
 
-This implementation supports the following `_include` parameters when searching for Provenance resources:
+This implementation supports the following `_include` parameter when searching for Provenance resources:
 
 * `_include=Provenance:target` - Include the target resources (Organization, Location, HealthcareService, PractitionerRole, Practitioner, or Endpoint) that this Provenance resource tracks
+
+This IG also supports the R4 SearchParameters for Provenance, which are detailed [here](https://hl7.org/fhir/R4/provenance.html#search).
 
 ##### Example usage
 

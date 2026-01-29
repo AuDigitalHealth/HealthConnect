@@ -80,7 +80,7 @@ The following search parameters are **defined by this IG** and **SHOULD** be sup
         <td>Search by any identifier, i.e AHPRA, HPI-I or PRN. R5-style identifier search across Practitioner.identifier and Practitioner.qualification.identifier</td>
   </tr>
   <tr>
-        <td>name</td>
+        <td>name (R4)</td>
         <td><b>SHOULD</b></td>
         <td><code>string</code></td>
         <td>Search by practitioner's name across all name types (official, preferred, etc.). Standard FHIR R4 search parameter.</td>

@@ -88,7 +88,7 @@ GET [base]/Practitioner?_elements=identifier,active
 This query retrieves Practitioner resources but returns only the `identifier` and `active` elements (plus mandatory FHIR elements).
 
 ##### Relationship traversal  
-[**_include and _revInclude**](https://hl7.org/fhir/R4/search.html#include): Enables including related resources in a single response by traversing resource relationships. `_include` follows references from primary search results to related resources, while `_revInclude` finds resources that reference the primary search results. Multiple parameters can be combined to traverse complex relationships across profile boundaries.
+[**_include and _revinclude**](https://hl7.org/fhir/R4/search.html#include): Enables including related resources in a single response by traversing resource relationships. `_include` follows references from primary search results to related resources, while `_revinclude` finds resources that reference the primary search results. Multiple parameters can be combined to traverse complex relationships across profile boundaries.
 
 **Examples:**
 ```
@@ -97,7 +97,7 @@ GET [base]/PractitionerRole?_include=PractitionerRole:practitioner&_include=Prac
 Retrieves PractitionerRole resources with their associated Practitioner and Organization resources.
 
 ```
-GET [base]/HealthcareService?_revInclude=PractitionerRole:service&_include=PractitionerRole:practitioner
+GET [base]/HealthcareService?_revinclude=PractitionerRole:service&_include=PractitionerRole:practitioner
 ```
 Retrieves HealthcareService resources, plus PractitionerRole resources that reference those services, plus the Practitioner resources referenced by those PractitionerRole instances.
 

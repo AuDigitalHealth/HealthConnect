@@ -55,6 +55,13 @@
 - Updated `starttime` and `endtime` SearchParameters to support numeric prefix operators (ge, gt, le, lt, ne) for time-based searches. Changed to #number type for both. Time values are internally converted to HHMM integers to allow for prefix use. Limitations described. 
 - Update guidance for best use of `prn` search paramter. 
 - Rename slice professionalregistrationnumber to peakbodyregistrationnumber to add clarity about use case. 
+- Give clearer guidance on client Requester actor having no requirements to implement any particular SearchParameters. [#36](https://github.com/AuDigitalHealth/HealthConnect/issues/36)
+- Add `agent.role` and `agent.type` data elements to existing Provenance examples.
+- Add further description about what Provenance SearchParameters are supported. 
+- Add guidance on the use of `:iterate` as a modifier on `_include` and `_revinclude`. 
+- Changed the Data Model Overview Diagram Endpoint Cardinality from 0..1 to 0..*. [#37](https://github.com/AuDigitalHealth/HealthConnect/issues/37)
+- Removed the `roletype` SearchParameter in favour of using R4 defined `role`.
+- Changed the `languages` SearchParameter to operate as token, i.e. system|code usage.
 
 ### Release 0.1.0 (Snapshot 1)
 - Publication date: 2025-11-19

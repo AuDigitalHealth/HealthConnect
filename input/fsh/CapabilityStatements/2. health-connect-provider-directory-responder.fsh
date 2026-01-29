@@ -38,17 +38,11 @@ Description: "This CapabilityStatement resource defines the expected capabilitie
 // Provenance interactions - server capabilities
 * rest.resource[=].interaction[+].code = #read
 * rest.resource[=].interaction[=].documentation = "Read HC Provenance records"
-
 * rest.resource[=].interaction[+].code = #search-type
 * rest.resource[=].interaction[=].documentation = "Search HC Provenance records by various parameters"
 
 * rest.resource[=].versioning = #versioned
 * rest.resource[=].readHistory = false
-* rest.resource[=].updateCreate = false
-* rest.resource[=].conditionalCreate = false
-* rest.resource[=].conditionalRead = #not-supported
-* rest.resource[=].conditionalUpdate = false
-* rest.resource[=].conditionalDelete = #not-supported
 * rest.resource[=].searchInclude[0] = "Provenance:target"
 * rest.resource[=].searchParam[0].name = "target"
 * rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Provenance-target"
@@ -93,7 +87,7 @@ Description: "This CapabilityStatement resource defines the expected capabilitie
 * rest.resource[=].interaction[0].code = #read
 * rest.resource[=].interaction[+].code = #search-type
 * rest.resource[=].versioning = #versioned
-* rest.resource[=].searchInclude[0] = "Location:managingOrganization"
+* rest.resource[=].searchInclude[0] = "Location:organization"
 * rest.resource[=].searchInclude[+] = "Location:endpoint"
 * rest.resource[=].searchRevInclude[0] = "HealthcareService:location"
 * rest.resource[=].searchRevInclude[+] = "Provenance:target"
@@ -143,13 +137,14 @@ Description: "This CapabilityStatement resource defines the expected capabilitie
 * rest.resource[=].interaction[+].code = #search-type
 * rest.resource[=].versioning = #versioned
 * rest.resource[=].searchInclude[0] = "HealthcareService:location"
-* rest.resource[=].searchInclude[+] = "HealthcareService:providedBy"
+* rest.resource[=].searchInclude[+] = "HealthcareService:organization"
 * rest.resource[=].searchInclude[+] = "HealthcareService:endpoint"
-* rest.resource[=].searchRevInclude[0] = "PractitionerRole:healthcareService"
+* rest.resource[=].searchInclude[+] = "HealthcareService:organization"
+* rest.resource[=].searchRevInclude[0] = "PractitionerRole:service"
 * rest.resource[=].searchRevInclude[+] = "Provenance:target"
 * rest.resource[=].searchParam[+].name = "languages"
 * rest.resource[=].searchParam[=].definition = "http://ns.electronichealth.net.au/hc/SearchParameter/languages"
-* rest.resource[=].searchParam[=].type = #string
+* rest.resource[=].searchParam[=].type = #token
 * rest.resource[=].searchParam[=].extension[0].url = "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"
 * rest.resource[=].searchParam[=].extension[=].valueCode = #SHALL
 * rest.resource[=].searchParam[+].name = "hsbilling"
@@ -193,14 +188,14 @@ Description: "This CapabilityStatement resource defines the expected capabilitie
 * rest.resource[=].interaction[+].code = #search-type
 * rest.resource[=].versioning = #versioned
 * rest.resource[=].searchInclude[0] = "PractitionerRole:practitioner"
-* rest.resource[=].searchInclude[+] = "PractitionerRole:healthcareService"
+* rest.resource[=].searchInclude[+] = "PractitionerRole:service"
 * rest.resource[=].searchInclude[+] = "PractitionerRole:organization"
 * rest.resource[=].searchInclude[+] = "PractitionerRole:location"
 * rest.resource[=].searchInclude[+] = "PractitionerRole:endpoint"
 * rest.resource[=].searchRevInclude[0] = "Provenance:target"
 * rest.resource[=].searchParam[0].name = "languages"
 * rest.resource[=].searchParam[=].definition = "http://ns.electronichealth.net.au/hc/SearchParameter/languages"
-* rest.resource[=].searchParam[=].type = #string
+* rest.resource[=].searchParam[=].type = #token
 * rest.resource[=].searchParam[=].extension[0].url = "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"
 * rest.resource[=].searchParam[=].extension[=].valueCode = #SHALL
 * rest.resource[=].searchParam[+].name = "allday"
@@ -228,9 +223,9 @@ Description: "This CapabilityStatement resource defines the expected capabilitie
 * rest.resource[=].searchParam[=].type = #token
 * rest.resource[=].searchParam[=].extension[0].url = "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"
 * rest.resource[=].searchParam[=].extension[=].valueCode = #SHALL
-* rest.resource[=].searchParam[+].name = "roletype"
-* rest.resource[=].searchParam[=].definition = "http://ns.electronichealth.net.au/hc/SearchParameter/practitionerrole-roletype"
-* rest.resource[=].searchParam[=].type = #string
+* rest.resource[=].searchParam[+].name = "role"
+* rest.resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/PractitionerRole-role"
+* rest.resource[=].searchParam[=].type = #token
 * rest.resource[=].searchParam[=].extension[0].url = "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"
 * rest.resource[=].searchParam[=].extension[=].valueCode = #SHALL
 

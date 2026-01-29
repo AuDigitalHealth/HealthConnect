@@ -62,10 +62,6 @@ This page lists the custom SearchParameters that have been defined within this I
 			<td><a href="SearchParameter-practitioner-regprof.html">Practitioner's Registered Profession</a></td>
 			<td>Search a Practitioner record by their registered profession using string values.</td>
 		</tr>
-		<tr>
-			<td><a href="SearchParameter-practitionerrole-roletype.html">Practitioner's Role Type</a></td>
-			<td>Search a PractitionerRole record by their role type.</td>
-		</tr>
 				<tr>
 			<td><a href="SearchParameter-practitioner-rsg.html">Practitioner's Recorded Sex or Gender</a></td>
 			<td>Search a Practitioner record by their recorded sex or gender.</td>
@@ -83,6 +79,7 @@ The Health Connect Provider Directory supports specific search modifiers for str
 
 - **`:exact`** - Performs case-sensitive, exact matching without partial matching. Use this when you need precise lookups with string-type parameters.
 - **`:contains`** - Searches for the value anywhere within the string, not just at the beginning. Use this for broader text searches.
+- **`:iterate`** - As a modifier to `_include` and `_revinclude` enables recursive traversal of reference chains in search results. In this IG, the primary use case for this would be following the `Organization.partOf` hierarchy to also retrieve all referenced parent organizations in a single query.
 
 **Note:** Token-type search parameters (such as `hcepi`) provide exact matching by default and do not require modifiers.
 
@@ -109,13 +106,6 @@ The following string-type search parameters can be used with the appropriate mod
 			<td><strong>Recommended:</strong> Search for practitioners by partial name matches</td>
 		</tr>
 		<tr>
-			<td><code>languages</code></td>
-			<td>HealthcareService, PractitionerRole</td>
-			<td>string</td>
-			<td>Exact language match (case-sensitive)</td>
-			<td><strong>Recommended:</strong> Search for partial language matches</td>
-		</tr>
-		<tr>
 			<td><code>regprof</code></td>
 			<td>Practitioner</td>
 			<td>string</td>
@@ -123,18 +113,18 @@ The following string-type search parameters can be used with the appropriate mod
 			<td><strong>Recommended:</strong> Search for partial profession matches</td>
 		</tr>
 		<tr>
-			<td><code>roletype</code></td>
-			<td>PractitionerRole</td>
-			<td>string</td>
-			<td>Exact role type match (case-sensitive)</td>
-			<td><strong>Recommended:</strong> Search for partial role type matches</td>
-		</tr>
-		<tr>
 			<td><code>locmailaddress</code></td>
 			<td>Location</td>
 			<td>string</td>
 			<td>Not supported</td>
 			<td>Search postal address components</td>
+		</tr>
+			<tr>
+			<td><code>name (R4)</code></td>
+			<td>Location</td>
+			<td>string</td>
+			<td></td>
+			<td><strong>Recommended:</strong> Partial name/alias search on Locations</td>
 		</tr>
 	</tbody>
 </table>

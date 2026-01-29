@@ -8,8 +8,12 @@ Description: "Demonstrates provenance tracking for a practitioner's phone number
 * target.extension[targetPath].valueString = "telecom.where(system='phone').value"
 * recorded = "2025-09-15T14:30:15.123+10:00"
 * agent.who = Reference(example-healthconnect-organization-1)
+* agent.role = http://terminology.hl7.org/CodeSystem/contractsignertypecodes#AMENDER
+* agent.type = http://terminology.hl7.org/CodeSystem/provenance-participant-type#author
 * activity = http://terminology.hl7.org/CodeSystem/v3-DataOperation#UPDATE
 
 // Track specific data element
 * entity[0].role = #source
 * entity[0].what = Reference(external-hc-practitioner-record)
+
+

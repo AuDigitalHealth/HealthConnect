@@ -5,7 +5,7 @@ Instance: languages
 InstanceOf: SearchParameter
 Usage: #definition
 Title: "Languages Search Parameter"
-Description: "Search HealthcareServices or PractitionerRoles by supported languages/communication methods. Shared across HealthcareService and PractitionerRole."
+Description: "Search HealthcareServices or PractitionerRoles by supported languages/communication methods. Shared across HealthcareService and PractitionerRole. Supports token based searching, i.e. `system|code` or just `code`"
 * url = "http://ns.electronichealth.net.au/hc/SearchParameter/languages"
 * name = "SearchParameterLanguages"
 * status = #draft
@@ -16,9 +16,7 @@ Description: "Search HealthcareServices or PractitionerRoles by supported langua
 * code = #languages
 * base[0] = #HealthcareService
 * base[1] = #PractitionerRole
-* type = #string
-* modifier[0] = #contains
-* modifier[1] = #exact
-* expression = "HealthcareService.communication.coding.display | PractitionerRole.extension.where(url='http://ns.electronichealth.net.au/hc/StructureDefinition/hc-practitioner-role-communication').value.ofType(CodeableConcept).coding.display"
+* type = #token
+* expression = "HealthcareService.communication.coding | PractitionerRole.extension.where(url='http://ns.electronichealth.net.au/hc/StructureDefinition/hc-practitioner-role-communication').value.ofType(CodeableConcept).coding"
 * target = #HealthcareService
 * target = #PractitionerRole
