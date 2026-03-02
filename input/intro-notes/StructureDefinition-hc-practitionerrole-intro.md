@@ -1,8 +1,18 @@
 ### Extensions
 Extensions introduced in this profile:
 
-* PractitionerRole: [HC PractitionerRole Communication](StructureDefinition-hc-practitioner-role-communication.html)
-* PractitionerRole: [HC Preferred Name](StructureDefinition-hc-preferred-name.html)
+    * [PractitionerRole Communication](StructureDefinition-practitioner-role-communication.html)
+    * [Alternate Name](StructureDefinition-alternate-name.html)
+    * [HC Suppressed](StructureDefinition-hc-suppressed.html)
+
+#### PractitionerRole Communication
+The [extension:practitioner-role-communication](StructureDefinition-practitioner-role-communication.html) records communication preferences (languages and contact modes) for the practitioner in this role.
+
+#### Alternate name in role context
+The [Alternate Name](StructureDefinition-alternate-name.html) extension allows a practitioner to specify a alternate name for use in the context of a specific role. This name may differ from their registered name and allows practitioners to be known by their alternate name when delivering healthcare services in this role. v 
+
+#### HC suppressed
+The [extension:hc-suppressed](StructureDefinition-hc-suppressed.html) is used to indicate if this resource should be hidden from display in the Provider Directory. A Practitioner may elect to hide their visibility from a role from those searching the Health Connect Provider Directory system. A value of `true` indicates the resource **SHALL** be excluded from Provider Directory listings. For more details, please see the extension intro notes.
 
 ### Usage notes
 
@@ -13,10 +23,9 @@ Extensions introduced in this profile:
 
 These registration identifiers must match corresponding registration identifiers held by the referenced Practitioner and should represent the professional credentials that authorize the practitioner to perform this specific role.
 
-HC Practitioner Role resources may also have additional identifiers specific to other business partners, with identifier systems that may or may not match other identifier slices defined in [AU Core Practitioner Role](https://build.fhir.org/ig/hl7au/au-fhir-core/StructureDefinition-au-core-practitionerrole.html).
+Beyond the identifiers already defined above the HC HealthcareService profile explicitly supports the following identifier slice (as indicated by the must support flag):
 
-#### Preferred name in role context
-The [HC Preferred Name](StructureDefinition-hc-preferred-name.html) extension allows a practitioner to specify a preferred name for use in the context of a specific role. This name may differ from their registered name and allows practitioners to be known by their preferred name when delivering healthcare services in this role. 
+* [HC Local Identifier (HC-LI)](StructureDefinition-hc-local-identifier.html)
 
 #### PractitionerRole code
 Only the main role or job of the clinician should be provided, using a code from the SNOMED-CT-AU code system. The preferred value set is [Practitioner Role 1](https://tx.ontoserver.csiro.au/fhir/ValueSet/practitioner-role-1). Publishing systems must supply a single code representing the clinician’s primary practitioner role. Any additional codes or roles will be ignored. When a PractitionerRole is provided to a subscribing system, only the primary role (as defined by the SNOMED-CT-AU code from the specified value set) will be included.
@@ -25,10 +34,10 @@ The SNOMED code is the authoritative, machine-readable representation and should
 
 #### Guidance on PractitionerRole.specialty
 
-The `PractitionerRole.specialty` element is marked as **Must Support (MS)** because this requirement is inherited from AU Core, which also imposes obligations on defined roles. None of the AU Core roles or obligations are relevant to this specification. There is no requirement for implementers of this specification to do anything this this data element.
+The `PractitionerRole.specialty` element is marked as **Must Support (MS)** because this requirement is inherited from AU Core, which also imposes obligations on defined roles. None of the AU Core roles or obligations are relevant to this specification. There is no requirement for implementers of this specification to do anything with this data element.
 
-- It **SHOULD** be ignored by Health Connect Provider Directory Requester Actors.
-- It **SHALL NOT** be populated by Health Connect Provider Directory Actors.
+  - It **SHOULD** be ignored by Health Connect Provider Directory Requester Actors.
+  - It **SHALL NOT** be populated by Health Connect Provider Directory Actors.
 
 ### Data Integrity and Validation
 
@@ -44,9 +53,9 @@ The `inv-02-identifier-registration-match` invariant ensures that registration i
 
 **Business Logic:**
 This ensures referential integrity in provider directory implementations where:
-- A PractitionerRole represents a specific professional role.
-- The registration credentials for that role must be held by the actual Practitioner.
-- Prevents scenarios where role assignments reference incorrect or mismatched professional registrations.
+  - A PractitionerRole represents a specific professional role.
+  - The registration credentials for that role must be held by the actual Practitioner.
+  - Prevents scenarios where role assignments reference incorrect or mismatched professional registrations.
 
 #### Registration Identifier Requirements
 

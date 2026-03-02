@@ -3,7 +3,7 @@ InstanceOf: SearchParameter
 Usage: #definition
 Title: "Practitioner identifier (R5 mimic)"
 Description: "Enables R5-style identifier searching across both Practitioner.identifier and Practitioner.qualification.identifier paths. This allows searching for practitioners by any identifier type including HPI-I, Ahpra and other peak body registration numbers. Works with `system|value` OR `system` OR `value`."
-* url = "http://ns.electronichealth.net.au/hc/SearchParameter/practitioner-identifier-r5"
+* url = "http://digitalhealth.gov.au/fhir/hcpd/SearchParameter/practitioner-identifier-r5"
 * name = "SearchParameterPractitionerIdentifierR5"
 * status = #draft
 * experimental = false

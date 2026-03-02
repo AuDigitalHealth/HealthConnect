@@ -3,10 +3,10 @@ InstanceOf: SearchParameter
 Usage: #definition
 Title: "HealthcareService Billing Search Parameter"
 Description: "Search for HealthcareService resources by billing information."
-* url = "http://ns.electronichealth.net.au/hc/SearchParameter/healthcareservice-billing"
+* url = "http://digitalhealth.gov.au/fhir/hcpd/SearchParameter/healthcareservice-billing"
 * name = "SearchParameterHealthcareServiceBilling"
 * status = #draft
-* experimental = true
+* experimental = false
 * publisher = "Australian Digital Health Agency"
 * code = #hsbilling
 * base = #HealthcareService

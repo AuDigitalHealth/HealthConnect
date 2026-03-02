@@ -11,6 +11,10 @@ Description: "A virtual telehealth service location example without physical add
 * identifier[=].system = "http://ns.electronichealth.net.au/id/location-specific-practice-number"
 * identifier[=].value = "565656"
 
+* identifier[HCLocalIdentifier].type = $v2-0203-int#XX "Organization identifier"
+* identifier[HCLocalIdentifier].system = "http://digitalhealth.gov.au/fhir/hcpd/id/hc-local-identifier"
+* identifier[HCLocalIdentifier].value = "c1e61f66-151f-42e2-8c61-7ae40951b5e3"
+
 * name = "Virtual Telehealth Service"
 * alias = "Ye Old Virtual Telehealth Service"
 

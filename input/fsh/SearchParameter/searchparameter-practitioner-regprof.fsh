@@ -3,10 +3,10 @@ InstanceOf: SearchParameter
 Usage: #definition
 Title: "Practitioner's Registered Profession Search Parameter"
 Description: "Search a Practitioner record by their registered profession using string values."
-* url = "http://ns.electronichealth.net.au/hc/SearchParameter/practitioner-regprof"
+* url = "http://digitalhealth.gov.au/fhir/hcpd/SearchParameter/practitioner-regprof"
 * name = "SearchParameterPractitionerRegProf"
 * status = #draft
-* experimental = true
+* experimental = false
 * publisher = "Australian Digital Health Agency"
 * contact.telecom.system = #email
 * contact.telecom.value = "help@digitalhealth.gov.au"

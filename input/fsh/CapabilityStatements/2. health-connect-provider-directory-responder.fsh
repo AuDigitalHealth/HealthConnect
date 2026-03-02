@@ -5,14 +5,14 @@ Title: "Health Connect Provider Directory Responder"
 Description: "This CapabilityStatement resource defines the expected capabilities of the [Health Connect Provider Directory Responder Actor](ActorDefinition-responder-actor-health-connect.html) when conforming to this implementation guide. The listed FHIR profiles, RESTful operations, and search parameters describe only those capabilities exposed for responding to Requester Actor requests. The Health Connect Provider Directory Responder supports additional internal and publishing operations that are not shown here; these are out of scope for this IG and are documented separately for publishing systems. The requirements of the Health Connect Provider Directory Responder may also be impacted by the rules of local jurisdictions or other contextual requirements."
 
 * name = "HealthConnectProviderDirectoryResponder"
-* url = "http://ns.electronichealth.net.au/hc/CapabilityStatement/health-connect-provider-directory-responder"
+* url = "http://digitalhealth.gov.au/fhir/hcpd/CapabilityStatement/health-connect-provider-directory-responder"
 * status = #draft
 * date = "2025-11-27"
 * kind = #instance
 * fhirVersion = #4.0.1
 
 * implementation.description = "Health Connect Provider Directory Responder FHIR Server"
-* implementation.url = "http://ns.electronichealth.net.au/hc"
+* implementation.url = "http://digitalhealth.gov.au/fhir/hcpd"
 
 * format[0] = #json
 * format[+] = #xml
@@ -30,7 +30,7 @@ Description: "This CapabilityStatement resource defines the expected capabilitie
 
 // Add HCProvenance resource
 * rest.resource[+].type = #Provenance
-* rest.resource[=].profile = "http://ns.electronichealth.net.au/hc/StructureDefinition/hc-provenance"
+* rest.resource[=].profile = "http://digitalhealth.gov.au/fhir/hcpd/StructureDefinition/hc-provenance"
 * rest.resource[=].profile.extension[0].url = "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"
 * rest.resource[=].profile.extension[=].valueCode = #SHALL
 * rest.resource[=].documentation = "HC Provenance resources track the lineage of data retrieved, updated, or verified from external systems of record."
@@ -52,7 +52,7 @@ Description: "This CapabilityStatement resource defines the expected capabilitie
 
 // Organization
 * rest.resource[+].type = #Organization
-* rest.resource[=].profile = "http://ns.electronichealth.net.au/hc/StructureDefinition/hc-organization"
+* rest.resource[=].profile = "http://digitalhealth.gov.au/fhir/hcpd/StructureDefinition/hc-organization"
 * rest.resource[=].profile.extension[0].url = "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"
 * rest.resource[=].profile.extension[=].valueCode = #SHALL
 * rest.resource[=].documentation = "This section defines the supported interactions for the [HC Organization](StructureDefinition-hc-organization.html) profile of the Organization resource type."
@@ -80,7 +80,7 @@ Description: "This CapabilityStatement resource defines the expected capabilitie
 
 // Location
 * rest.resource[+].type = #Location
-* rest.resource[=].profile = "http://ns.electronichealth.net.au/hc/StructureDefinition/hc-location"
+* rest.resource[=].profile = "http://digitalhealth.gov.au/fhir/hcpd/StructureDefinition/hc-location"
 * rest.resource[=].profile.extension[0].url = "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"
 * rest.resource[=].profile.extension[=].valueCode = #SHALL
 * rest.resource[=].documentation = "This section describes the supported interactions for the [HC Location](StructureDefinition-hc-location.html) profile. Each Location resource conforming to this profile identifies a physical or virtual place associated with healthcare services in the Health Connect Provider Directory, enabling clients to discover, filter, and reference service delivery sites."
@@ -92,12 +92,12 @@ Description: "This CapabilityStatement resource defines the expected capabilitie
 * rest.resource[=].searchRevInclude[0] = "HealthcareService:location"
 * rest.resource[=].searchRevInclude[+] = "Provenance:target"
 * rest.resource[=].searchParam[0].name = "locmailaddress"
-* rest.resource[=].searchParam[=].definition = "http://ns.electronichealth.net.au/hc/SearchParameter/location-locmailaddress"
+* rest.resource[=].searchParam[=].definition = "http://digitalhealth.gov.au/fhir/hcpd/SearchParameter/location-locmailaddress"
 * rest.resource[=].searchParam[=].type = #string
 * rest.resource[=].searchParam[=].extension[0].url = "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"
 * rest.resource[=].searchParam[=].extension[=].valueCode = #SHALL
 * rest.resource[=].searchParam[+].name = "locationamenities"
-* rest.resource[=].searchParam[=].definition = "http://ns.electronichealth.net.au/hc/SearchParameter/location-amenities"
+* rest.resource[=].searchParam[=].definition = "http://digitalhealth.gov.au/fhir/hcpd/SearchParameter/location-amenities"
 * rest.resource[=].searchParam[=].type = #token
 * rest.resource[=].searchParam[=].extension[0].url = "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"
 * rest.resource[=].searchParam[=].extension[=].valueCode = #SHALL
@@ -117,7 +117,7 @@ Description: "This CapabilityStatement resource defines the expected capabilitie
 * rest.resource[=].searchParam[=].extension[0].url = "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"
 * rest.resource[=].searchParam[=].extension[=].valueCode = #SHALL
 * rest.resource[=].searchParam[+].name = "locationphysicaltype"
-* rest.resource[=].searchParam[=].definition = "http://ns.electronichealth.net.au/hc/SearchParameter/location-physicaltype"
+* rest.resource[=].searchParam[=].definition = "http://digitalhealth.gov.au/fhir/hcpd/SearchParameter/location-physicaltype"
 * rest.resource[=].searchParam[=].type = #token
 * rest.resource[=].searchParam[=].extension[0].url = "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"
 * rest.resource[=].searchParam[=].extension[=].valueCode = #SHALL
@@ -129,7 +129,7 @@ Description: "This CapabilityStatement resource defines the expected capabilitie
 
 // HealthcareService
 * rest.resource[+].type = #HealthcareService
-* rest.resource[=].profile = "http://ns.electronichealth.net.au/hc/StructureDefinition/hc-healthcareservice"
+* rest.resource[=].profile = "http://digitalhealth.gov.au/fhir/hcpd/StructureDefinition/hc-healthcareservice"
 * rest.resource[=].profile.extension[0].url = "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"
 * rest.resource[=].profile.extension[=].valueCode = #SHALL
 * rest.resource[=].documentation = "This section describes the supported interactions for the [HC Healthcare Service](StructureDefinition-hc-healthcareservice.html) profile. Each HealthcareService resource conforming to this profile identifies a healthcare service in the Health Connect Provider Directory, enabling clients to discover, filter, and reference healthcare services that are provided."
@@ -143,32 +143,32 @@ Description: "This CapabilityStatement resource defines the expected capabilitie
 * rest.resource[=].searchRevInclude[0] = "PractitionerRole:service"
 * rest.resource[=].searchRevInclude[+] = "Provenance:target"
 * rest.resource[=].searchParam[+].name = "languages"
-* rest.resource[=].searchParam[=].definition = "http://ns.electronichealth.net.au/hc/SearchParameter/languages"
+* rest.resource[=].searchParam[=].definition = "http://digitalhealth.gov.au/fhir/hcpd/SearchParameter/languages"
 * rest.resource[=].searchParam[=].type = #token
 * rest.resource[=].searchParam[=].extension[0].url = "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"
 * rest.resource[=].searchParam[=].extension[=].valueCode = #SHALL
 * rest.resource[=].searchParam[+].name = "hsbilling"
-* rest.resource[=].searchParam[=].definition = "http://ns.electronichealth.net.au/hc/SearchParameter/healthcareservice-billing"
+* rest.resource[=].searchParam[=].definition = "http://digitalhealth.gov.au/fhir/hcpd/SearchParameter/healthcareservice-billing"
 * rest.resource[=].searchParam[=].type = #token
 * rest.resource[=].searchParam[=].extension[0].url = "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"
 * rest.resource[=].searchParam[=].extension[=].valueCode = #SHALL
 * rest.resource[=].searchParam[+].name = "allday"
-* rest.resource[=].searchParam[=].definition = "http://ns.electronichealth.net.au/hc/SearchParameter/allday"
+* rest.resource[=].searchParam[=].definition = "http://digitalhealth.gov.au/fhir/hcpd/SearchParameter/allday"
 * rest.resource[=].searchParam[=].type = #token
 * rest.resource[=].searchParam[=].extension[0].url = "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"
 * rest.resource[=].searchParam[=].extension[=].valueCode = #SHALL
 * rest.resource[=].searchParam[+].name = "daysofweek"
-* rest.resource[=].searchParam[=].definition = "http://ns.electronichealth.net.au/hc/SearchParameter/daysofweek"
+* rest.resource[=].searchParam[=].definition = "http://digitalhealth.gov.au/fhir/hcpd/SearchParameter/daysofweek"
 * rest.resource[=].searchParam[=].type = #token
 * rest.resource[=].searchParam[=].extension[0].url = "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"
 * rest.resource[=].searchParam[=].extension[=].valueCode = #SHALL
 * rest.resource[=].searchParam[+].name = "starttime"
-* rest.resource[=].searchParam[=].definition = "http://ns.electronichealth.net.au/hc/SearchParameter/starttime"
+* rest.resource[=].searchParam[=].definition = "http://digitalhealth.gov.au/fhir/hcpd/SearchParameter/starttime"
 * rest.resource[=].searchParam[=].type = #number
 * rest.resource[=].searchParam[=].extension[0].url = "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"
 * rest.resource[=].searchParam[=].extension[=].valueCode = #SHALL
 * rest.resource[=].searchParam[+].name = "endtime"
-* rest.resource[=].searchParam[=].definition = "http://ns.electronichealth.net.au/hc/SearchParameter/endtime"
+* rest.resource[=].searchParam[=].definition = "http://digitalhealth.gov.au/fhir/hcpd/SearchParameter/endtime"
 * rest.resource[=].searchParam[=].type = #number
 * rest.resource[=].searchParam[=].extension[0].url = "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"
 * rest.resource[=].searchParam[=].extension[=].valueCode = #SHALL
@@ -180,7 +180,7 @@ Description: "This CapabilityStatement resource defines the expected capabilitie
 
 // PractitionerRole
 * rest.resource[+].type = #PractitionerRole
-* rest.resource[=].profile = "http://ns.electronichealth.net.au/hc/StructureDefinition/hc-practitionerrole"
+* rest.resource[=].profile = "http://digitalhealth.gov.au/fhir/hcpd/StructureDefinition/hc-practitionerrole"
 * rest.resource[=].profile.extension[0].url = "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"
 * rest.resource[=].profile.extension[=].valueCode = #SHALL
 * rest.resource[=].documentation = "This section defines the supported interactions for the [HC Practitioner Role](StructureDefinition-hc-practitionerrole.html) profile of the PractitionerRole resource type. Each PractitionerRole resource conforming to the [HC Practitioner Role](StructureDefinition-hc-practitionerrole.html) profile describes a practitioner in a role at a healthcare service."
@@ -194,27 +194,27 @@ Description: "This CapabilityStatement resource defines the expected capabilitie
 * rest.resource[=].searchInclude[+] = "PractitionerRole:endpoint"
 * rest.resource[=].searchRevInclude[0] = "Provenance:target"
 * rest.resource[=].searchParam[0].name = "languages"
-* rest.resource[=].searchParam[=].definition = "http://ns.electronichealth.net.au/hc/SearchParameter/languages"
+* rest.resource[=].searchParam[=].definition = "http://digitalhealth.gov.au/fhir/hcpd/SearchParameter/languages"
 * rest.resource[=].searchParam[=].type = #token
 * rest.resource[=].searchParam[=].extension[0].url = "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"
 * rest.resource[=].searchParam[=].extension[=].valueCode = #SHALL
 * rest.resource[=].searchParam[+].name = "allday"
-* rest.resource[=].searchParam[=].definition = "http://ns.electronichealth.net.au/hc/SearchParameter/allday"
+* rest.resource[=].searchParam[=].definition = "http://digitalhealth.gov.au/fhir/hcpd/SearchParameter/allday"
 * rest.resource[=].searchParam[=].type = #token
 * rest.resource[=].searchParam[=].extension[0].url = "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"
 * rest.resource[=].searchParam[=].extension[=].valueCode = #SHALL
 * rest.resource[=].searchParam[+].name = "daysofweek"
-* rest.resource[=].searchParam[=].definition = "http://ns.electronichealth.net.au/hc/SearchParameter/daysofweek"
+* rest.resource[=].searchParam[=].definition = "http://digitalhealth.gov.au/fhir/hcpd/SearchParameter/daysofweek"
 * rest.resource[=].searchParam[=].type = #token
 * rest.resource[=].searchParam[=].extension[0].url = "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"
 * rest.resource[=].searchParam[=].extension[=].valueCode = #SHALL
 * rest.resource[=].searchParam[+].name = "starttime"
-* rest.resource[=].searchParam[=].definition = "http://ns.electronichealth.net.au/hc/SearchParameter/starttime"
+* rest.resource[=].searchParam[=].definition = "http://digitalhealth.gov.au/fhir/hcpd/SearchParameter/starttime"
 * rest.resource[=].searchParam[=].type = #number
 * rest.resource[=].searchParam[=].extension[0].url = "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"
 * rest.resource[=].searchParam[=].extension[=].valueCode = #SHALL
 * rest.resource[=].searchParam[+].name = "endtime"
-* rest.resource[=].searchParam[=].definition = "http://ns.electronichealth.net.au/hc/SearchParameter/endtime"
+* rest.resource[=].searchParam[=].definition = "http://digitalhealth.gov.au/fhir/hcpd/SearchParameter/endtime"
 * rest.resource[=].searchParam[=].type = #number
 * rest.resource[=].searchParam[=].extension[0].url = "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"
 * rest.resource[=].searchParam[=].extension[=].valueCode = #SHALL
@@ -231,7 +231,7 @@ Description: "This CapabilityStatement resource defines the expected capabilitie
 
 // Practitioner
 * rest.resource[+].type = #Practitioner
-* rest.resource[=].profile = "http://ns.electronichealth.net.au/hc/StructureDefinition/hc-practitioner"
+* rest.resource[=].profile = "http://digitalhealth.gov.au/fhir/hcpd/StructureDefinition/hc-practitioner"
 * rest.resource[=].profile.extension[0].url = "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"
 * rest.resource[=].profile.extension[=].valueCode = #SHALL
 * rest.resource[=].documentation = "This section describes the supported interactions for the [HC Practitioner](StructureDefinition-hc-practitioner.html) profile. Each Practitioner resource conforming to this profile represents an individual healthcare provider registered in the Health Connect Provider Directory, enabling clients to search, identify, and reference practitioners and their associated roles and service locations."
@@ -246,22 +246,17 @@ Description: "This CapabilityStatement resource defines the expected capabilitie
 * rest.resource[=].searchParam[=].extension[0].url = "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"
 * rest.resource[=].searchParam[=].extension[=].valueCode = #SHALL
 * rest.resource[=].searchParam[+].name = "regprof"
-* rest.resource[=].searchParam[=].definition = "http://ns.electronichealth.net.au/hc/SearchParameter/practitioner-regprof"
+* rest.resource[=].searchParam[=].definition = "http://digitalhealth.gov.au/fhir/hcpd/SearchParameter/practitioner-regprof"
 * rest.resource[=].searchParam[=].type = #string
 * rest.resource[=].searchParam[=].extension[0].url = "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"
 * rest.resource[=].searchParam[=].extension[=].valueCode = #SHALL
 * rest.resource[=].searchParam[+].name = "rsg"
-* rest.resource[=].searchParam[=].definition = "http://ns.electronichealth.net.au/hc/SearchParameter/practitioner-rsg"
-* rest.resource[=].searchParam[=].type = #token
-* rest.resource[=].searchParam[=].extension[0].url = "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"
-* rest.resource[=].searchParam[=].extension[=].valueCode = #SHALL
-* rest.resource[=].searchParam[+].name = "genderIdentity"
-* rest.resource[=].searchParam[=].definition = "http://hl7.org.au/fhir/SearchParameter/gender-identity"
+* rest.resource[=].searchParam[=].definition = "http://digitalhealth.gov.au/fhir/hcpd/SearchParameter/practitioner-rsg"
 * rest.resource[=].searchParam[=].type = #token
 * rest.resource[=].searchParam[=].extension[0].url = "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"
 * rest.resource[=].searchParam[=].extension[=].valueCode = #SHALL
 * rest.resource[=].searchParam[+].name = "identifier-r5"
-* rest.resource[=].searchParam[=].definition = "http://ns.electronichealth.net.au/hc/SearchParameter/practitioner-identifier-r5"
+* rest.resource[=].searchParam[=].definition = "http://digitalhealth.gov.au/fhir/hcpd/SearchParameter/practitioner-identifier-r5"
 * rest.resource[=].searchParam[=].type = #token
 * rest.resource[=].searchParam[=].extension[0].url = "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"
 * rest.resource[=].searchParam[=].extension[=].valueCode = #SHALL
@@ -273,7 +268,7 @@ Description: "This CapabilityStatement resource defines the expected capabilitie
 
 // Endpoint
 * rest.resource[+].type = #Endpoint
-* rest.resource[=].profile = "http://ns.electronichealth.net.au/hc/StructureDefinition/hc-endpoint"
+* rest.resource[=].profile = "http://digitalhealth.gov.au/fhir/hcpd/StructureDefinition/hc-endpoint"
 * rest.resource[=].profile.extension[0].url = "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"
 * rest.resource[=].profile.extension[=].valueCode = #SHALL
 * rest.resource[=].documentation = "This section describes the supported interactions for the [HC Endpoint](StructureDefinition-hc-endpoint.html) profile. Each Endpoint resource conforming to this profile provides connection details for electronic services available through the Health Connect Provider Directory, allowing clients to discover and interact with service endpoints in a standardised way."
@@ -285,17 +280,17 @@ Description: "This CapabilityStatement resource defines the expected capabilitie
 * rest.resource[=].searchRevInclude[+] = "PractitionerRole:endpoint"
 * rest.resource[=].searchRevInclude[+] = "Provenance:target"
 * rest.resource[=].searchParam[0].name = "epurl"
-* rest.resource[=].searchParam[=].definition = "http://ns.electronichealth.net.au/hc/SearchParameter/endpoint-url"
+* rest.resource[=].searchParam[=].definition = "http://digitalhealth.gov.au/fhir/hcpd/SearchParameter/endpoint-url"
 * rest.resource[=].searchParam[=].type = #uri
 * rest.resource[=].searchParam[=].extension[0].url = "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"
 * rest.resource[=].searchParam[=].extension[=].valueCode = #SHALL
 * rest.resource[=].searchParam[+].name = "payloadmimetype"
-* rest.resource[=].searchParam[=].definition = "http://ns.electronichealth.net.au/hc/SearchParameter/endpoint-payloadmimetype"
+* rest.resource[=].searchParam[=].definition = "http://digitalhealth.gov.au/fhir/hcpd/SearchParameter/endpoint-payloadmimetype"
 * rest.resource[=].searchParam[=].type = #token
 * rest.resource[=].searchParam[=].extension[0].url = "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"
 * rest.resource[=].searchParam[=].extension[=].valueCode = #SHALL
 * rest.resource[=].searchParam[+].name = "hcepi"
-* rest.resource[=].searchParam[=].definition = "http://ns.electronichealth.net.au/hc/SearchParameter/endpoint-hcepi"
+* rest.resource[=].searchParam[=].definition = "http://digitalhealth.gov.au/fhir/hcpd/SearchParameter/endpoint-hcepi"
 * rest.resource[=].searchParam[=].type = #token
 * rest.resource[=].searchParam[=].extension[0].url = "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"
 * rest.resource[=].searchParam[=].extension[=].valueCode = #SHALL

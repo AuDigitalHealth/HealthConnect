@@ -1,5 +1,3 @@
-### Actors
- 
 The following ActorDefinitions define the systems that plays a role in data exchange, and that have obligations associated with the role the actor plays, in Health Connect.
 
 - [Health Connect Provider Directory Requester Actor](ActorDefinition-requester-actor-health-connect.html)

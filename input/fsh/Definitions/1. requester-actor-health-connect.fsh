@@ -13,4 +13,4 @@ Health Connect Provider Directory system."
 - **SHALL** implement the required REST API interactions and search parameters as defined in the HealthConnect Requester Capability Statement.
 """
 
-* capabilities = "http://ns.electronichealth.net.au/hc/CapabilityStatement/health-connect-provider-directory-requester"
+* capabilities = "http://digitalhealth.gov.au/fhir/hcpd/CapabilityStatement/health-connect-provider-directory-requester"

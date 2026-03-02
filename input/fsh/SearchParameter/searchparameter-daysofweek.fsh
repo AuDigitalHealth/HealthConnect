@@ -6,10 +6,10 @@ InstanceOf: SearchParameter
 Usage: #definition
 Title: "Days of Week Search Parameter"
 Description: "Search HealthcareServices or PractitionerRoles by days of week availability. Supports multiple days using OR logic."
-* url = "http://ns.electronichealth.net.au/hc/SearchParameter/daysofweek"
+* url = "http://digitalhealth.gov.au/fhir/hcpd/SearchParameter/daysofweek"
 * name = "SearchParameterDaysOfWeek"
 * status = #draft
-* experimental = true
+* experimental = false
 * publisher = "Australian Digital Health Agency"
 * code = #daysofweek
 * base[0] = #HealthcareService

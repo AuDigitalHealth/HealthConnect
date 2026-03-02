@@ -3,13 +3,13 @@ InstanceOf: SearchParameter
 Usage: #definition
 Title: "Location Amenities Search Parameter"
 Description: "Search for Location resources by amenities."
-* url = "http://ns.electronichealth.net.au/hc/SearchParameter/location-amenities"
+* url = "http://digitalhealth.gov.au/fhir/hcpd/SearchParameter/location-amenities"
 * name = "SearchParameterLocationAmenities"
 * status = #draft
-* experimental = true
+* experimental = false
 * publisher = "Australian Digital Health Agency"
 * code = #locationamenities
 * base = #Location
 * type = #token
-* expression = "Location.extension.where(url='http://ns.electronichealth.net.au/hc/StructureDefinition/hc-amenity')"
+* expression = "Location.extension.where(url='http://digitalhealth.gov.au/fhir/hcpd/StructureDefinition/hc-amenity')"
 * target = #Location

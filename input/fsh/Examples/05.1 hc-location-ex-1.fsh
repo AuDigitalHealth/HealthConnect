@@ -16,6 +16,10 @@ Description: "A mobile healthcare unit location example with wheelchair access, 
 * identifier[=].system = "http://ns.electronichealth.net.au/id/location-specific-practice-number"
 * identifier[=].value = "123333"
 
+* identifier[HCLocalIdentifier].type = $v2-0203-int#XX "Organization identifier"
+* identifier[HCLocalIdentifier].system = "http://digitalhealth.gov.au/fhir/hcpd/id/hc-local-identifier"
+* identifier[HCLocalIdentifier].value = "26ff4c29-692f-45c7-8df7-99cf6b5a8c09"
+
 * name = "Mobile Healthcare Unit - Sydney CBD"
 * alias = "CBD Mobile Unit"
 * address.extension.url = "http://hl7.org.au/fhir/StructureDefinition/address-identifier"
@@ -35,7 +39,7 @@ Description: "A mobile healthcare unit location example with wheelchair access, 
 * position.longitude = 151.2093
 * position.latitude = -33.8688
 
-* extension[+].url = "http://ns.electronichealth.net.au/hc/StructureDefinition/hc-preferred-postal-address"
+* extension[+].url = "http://digitalhealth.gov.au/fhir/hcpd/StructureDefinition/hc-alternate-postal-address"
 * extension[=].valueAddress.use = #work
 * extension[=].valueAddress.type = #postal
 * extension[=].valueAddress.text = "PO Box 123, SYDNEY NSW 2000"
@@ -45,7 +49,7 @@ Description: "A mobile healthcare unit location example with wheelchair access, 
 * extension[=].valueAddress.postalCode = "2000"
 * extension[=].valueAddress.country = "AU"
 
-* extension[+].url = "http://ns.electronichealth.net.au/hc/StructureDefinition/hc-amenity"
+* extension[+].url = "http://digitalhealth.gov.au/fhir/cc/StructureDefinition/amenity"
 * extension[=].valueCodeableConcept = $amenityCS#wheelchairAccess "Wheelchair Access"
 
 * telecom[phone].value = "(02) 1234 5678"
@@ -64,5 +68,5 @@ Description: "A mobile healthcare unit location example with wheelchair access, 
 
 * managingOrganization = Reference(example-healthconnect-organization-1)
 
-* type[0].coding = http://terminology.hl7.org/CodeSystem/v3-RoleCode#MOBL "Mobile Unit"
-* type[+].coding = http://terminology.hl7.org/CodeSystem/v3-RoleCode#COMM "Community Location"
+* type[+] = http://terminology.hl7.org/CodeSystem/v3-RoleCode#MOBL "Mobile Unit"
+* type[+] = http://terminology.hl7.org/CodeSystem/v3-RoleCode#COMM "Community Location"

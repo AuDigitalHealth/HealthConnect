@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="rSGZs5RnZcQm0evX7oRR" name="Page-1">
-        <mxGraphModel dx="-206" dy="-724" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="-205" dy="-833" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -314,10 +314,10 @@
                         <mxPoint y="-7" as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="429" value="&lt;div&gt;UML class diagram of HCA FHIR resources&lt;/div&gt;&lt;div&gt;2025-11-25&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" parent="1" vertex="1">
+                <mxCell id="429" value="&lt;div&gt;UML class diagram of HCA FHIR resources&lt;/div&gt;&lt;div&gt;2026-01-20&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" parent="1" vertex="1">
                     <mxGeometry x="1241" y="1280" width="159" height="80" as="geometry"/>
                 </mxCell>
-                <mxCell id="457" value="0..1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="1" vertex="1" connectable="0">
+                <mxCell id="457" value="0..*" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="1" vertex="1" connectable="0">
                     <mxGeometry x="1131.3333333333335" y="1590" as="geometry">
                         <mxPoint x="105" y="-38" as="offset"/>
                     </mxGeometry>

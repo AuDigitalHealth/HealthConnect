@@ -26,7 +26,7 @@ Description: "An example Endpoint with an SMD target identifier for secure messa
 * name = "Sydney General Hospital SMD Endpoint"
 
 // Payload types for secure messaging
-* payloadType[0] = AustralianEndpointPayloadTypesCodeSystem#http://ns.hl7.org.au/hl7v2/profiles/HL7AU-OO-REF-SIMPLIFIED-201706 "HL7 V2.4 REF message (Level 2)"
+* payloadType[0] = $AUEndpointPayloadTypeCS#http://ns.hl7.org.au/hl7v2/profiles/HL7AU-OO-REF-SIMPLIFIED-201706 "HL7 V2.4 REF message (Level 2)"
 
 // MIME types supported
 * payloadMimeType[0] = #application/pdf
@@ -37,7 +37,7 @@ Description: "An example Endpoint with an SMD target identifier for secure messa
 * address = "https://smd.sydneyhospital.org.au/secure-messaging/endpoint"
 
 // Data encipherment certificate
-* extension[dataEnciphermentCertificate].valueString = "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURYVENDQWtXZ0F3SUJBZ0lKQU1mK0R6UjBWV..."
+* extension[data-encipherment-certificate].valueString = "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURYVENDQWtXZ0F3SUJBZ0lKQU1mK0R6UjBWV..."
 
 // Contact information
 * contact.system = #email

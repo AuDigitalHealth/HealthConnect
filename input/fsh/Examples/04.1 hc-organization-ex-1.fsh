@@ -8,7 +8,7 @@ Description: "An Aged Care Facility example conforming to the HC Organization pr
 
 * active = true
 * identifier[hpio].value = "8003626566707032"
-* identifier[hpio].extension[HCOrgClassification].valueCodeableConcept.coding = $hc-org-class-cs#network "Network"
+* identifier[hpio].extension[hc-org-classification].valueCodeableConcept.coding = $hc-org-class-cs#network "Network"
 * identifier[abn].system = "http://hl7.org.au/id/abn"
 * identifier[abn].type.text = "ABN"
 * identifier[abn].value = "41824753556"
@@ -47,12 +47,3 @@ Description: "An Aged Care Facility example conforming to the HC Organization pr
 * address[physical].state = "NSW"
 * address[physical].postalCode = "2000"
 * address[physical].country = "AU"
-
-// Postal/Mailing Address - Optional
-* address[postal].type = #postal
-* address[postal].line = "PO Box 12345"
-* address[postal].city = "Sydney"
-* address[postal].state = "NSW"
-* address[postal].postalCode = "1230"
-* address[postal].country = "AU"
-

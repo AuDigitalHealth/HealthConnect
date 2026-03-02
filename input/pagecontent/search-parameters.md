@@ -1,6 +1,73 @@
-### Custom Search Parameters
+### Overview
+The search parameters defined in this implementation guide specify the recommended approaches for client systems to query the Health Connect Provider Directory system and are the authoritative specification for discovering and retrieving healthcare Provider Directory data. Client systems integrating with Health Connect **SHOULD** use these search parameters to ensure consistent and reliable data retrieval across all client integrations. 
 
-This page lists the custom SearchParameters that have been defined within this Implementation Guide.
+The Health Connect Provider Directory supports all search parameters defined in this implementation guide, plus inherited FHIR search capabilities from the derived profiles. All search parameters are marked as **SHOULD** support for the Health Connect Provider Directory Requester Actor, allowing implementers flexibility in choosing which parameters to support based on their specific use cases and integration requirements. Client systems can utilise any of the available search parameters, and should conform to the specifications and constraints defined herein where applicable to their use case.
+
+#### Useful standard search parameters for this IG
+
+[**_lastUpdated**](https://hl7.org/fhir/R4/search.html#lastUpdated): Enables querying resources based on when they were last modified in the Health Connect Provider Directory. This parameter is particularly useful for synchronization scenarios where client systems need to identify resources that have changed since a specific point in time. The parameter supports comparison prefixes to enable flexible date range queries:
+
+- `gt` (greater than): Returns resources updated after the specified date/time
+- `lt` (less than): Returns resources updated before the specified date/time
+- `ge` (greater than or equal): Returns resources updated on or after the specified date/time
+- `le` (less than or equal): Returns resources updated on or before the specified date/time
+
+The date/time value can be specified with varying precision (year, month, day, hour, minute, second). Time components are optional - if omitted, the system assumes the start or end of the period as appropriate for the comparison.
+
+Example usage for type-specific search:
+```
+GET [base]/Practitioner?_lastUpdated=gt2025-01-01T00:00:00Z
+```
+
+This query retrieves only Practitioner resources updated since January 1, 2025.
+
+[**_elements**:](https://build.fhir.org/search.html#elements) Controls which elements are returned in the response by accepting a comma-separated list of element names. When specified, the server returns only the requested elements. This reduces bandwidth usage and improves query performance by limiting response payload size.
+
+Example usage:
+```
+GET [base]/Practitioner?_elements=identifier,active
+```
+
+This query retrieves Practitioner resources but returns only the `identifier` and `active` elements (plus mandatory FHIR elements).
+
+##### Relationship traversal  
+
+[**_include and _revinclude**](https://hl7.org/fhir/R4/search.html#include): Enables including related resources in a single response by traversing resource relationships. `_include` follows references from primary search results to related resources, while `_revinclude` finds resources that reference the primary search results. Multiple parameters can be combined to traverse complex relationships across profile boundaries.
+
+**Examples:**
+```
+GET [base]/PractitionerRole?_include=PractitionerRole:practitioner&_include=PractitionerRole:organization
+```
+Retrieves PractitionerRole resources with their associated Practitioner and Organization resources.
+
+```
+GET [base]/HealthcareService?_revinclude=PractitionerRole:service&_include=PractitionerRole:practitioner
+```
+Retrieves HealthcareService resources, plus PractitionerRole resources that reference those services, plus the Practitioner resources referenced by those PractitionerRole instances.
+
+```
+GET [base]/PractitionerRole?_lastUpdated=gt2025-01-01&_include=PractitionerRole:practitioner&_include=PractitionerRole:organization
+```
+Combines relationship traversal with date filtering to retrieve updated PractitionerRole resources and their related resources.
+
+The appropriate combination of parameters depends on the referencing hierarchy defined in the profiles. Client systems should consult the profile structure (illustrated by the diagram found on the index page) and profile narrative sections to determine the correct traversal path for their use case.
+
+
+##### Pagination
+The Health Connect Provider Directory supports paginated search results. The Provider Directory has a default page size of **10** resources. The [`_count`](https://hl7.org/fhir/R4/search.html#count) parameter is supported generically by the service; clients may include `_count` to express a preferred page size.
+
+- **Follow the `next` link:** When a search response is paginated, the server returns a `Bundle` that may include a `link` entry with `relation="next"`. Clients SHOULD use the `next` link to retrieve subsequent pages rather than reconstructing paging URLs.
+
+Example:
+```
+GET [base]/HealthcareService?_count=50
+```
+
+This request expresses a preference for up to 50 resources per page; the server may honour this preference or return a different page size. If there are more results, the returned `Bundle` may include a `link` element with `relation="next"` for fetching the next page.
+
+#### Custom IG-defined Search Parameters
+
+This section lists the custom SearchParameters that have been defined within this Implementation Guide.
 
 <table class="grid">
 	<thead>
@@ -73,7 +140,7 @@ This page lists the custom SearchParameters that have been defined within this I
 	</tbody>
 </table>
 
-### Search Modifiers
+##### Search Modifiers
 
 The Health Connect Provider Directory supports specific search modifiers for string-type search parameters to tailor search functionality:
 
@@ -83,7 +150,7 @@ The Health Connect Provider Directory supports specific search modifiers for str
 
 **Note:** Token-type search parameters (such as `hcepi`) provide exact matching by default and do not require modifiers.
 
-#### String-Type Parameters with Modifier Support
+##### String-Type Parameters with Modifier Support
 
 The following string-type search parameters can be used with the appropriate modifier:
 
@@ -129,7 +196,7 @@ The following string-type search parameters can be used with the appropriate mod
 	</tbody>
 </table>
 
-### Prefix Operators for Time Availability Searches
+##### Prefix Operators for Time Availability Searches
 
 The <a href="SearchParameter-starttime.html">Start Time</a> and <a href="SearchParameter-endtime.html">End Time</a> search parameters support numeric prefix operators, allowing you to search for times before, after, or at a specific value. These parameters use a four-digit numeric format (<strong>HHMM</strong>, e.g., <code>0830</code> for 8:30am, <code>1700</code> for 5:00pm).
 

@@ -3,10 +3,10 @@ InstanceOf: SearchParameter
 Usage: #definition
 Title: "Endpoint URL Search Parameter"
 Description: "Search for Endpoint resources by address (URL)."
-* url = "http://ns.electronichealth.net.au/hc/SearchParameter/endpoint-url"
+* url = "http://digitalhealth.gov.au/fhir/hcpd/SearchParameter/endpoint-url"
 * name = "SearchParameterEndpointUrl"
 * status = #draft
-* experimental = true
+* experimental = false
 * publisher = "Australian Digital Health Agency"
 * code = #epurl
 * base = #Endpoint

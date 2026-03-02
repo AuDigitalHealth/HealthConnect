@@ -6,17 +6,15 @@ Description: "An external practitioner record example (PRN identifier) conformin
 
 * extension[recordedSexOrGender].extension[value].valueCodeableConcept = $administrative-gender#male "Male"
 
-* extension[genderIdentity].extension[value].valueCodeableConcept = $sct#446151000124109 "Identifies as male gender"
-
 * identifier[hpii].value = "8003616566719020"
 
 * name[officialName].use = #official
 * name[officialName].family = "Fryer"
 * name[officialName].given = "John"
 * name[officialName].prefix = "Dr"
-* name[preferredName].use = #usual
-* name[preferredName].family = "Fryer"
-* name[preferredName].given = "John"
+* name[alternate-name].use = #usual
+* name[alternate-name].family = "Fryer"
+* name[alternate-name].given = "John"
 
 // Phone number that was updated in HC from this PCA record
 * telecom[+].system = #phone
@@ -27,21 +25,19 @@ Description: "An external practitioner record example (PRN identifier) conformin
 * telecom[personalPhoneNumber].value = "+61 2 7777 0199" 
 * telecom[personalPhoneNumber].use = #home
 
-* qualification[0].identifier[peakbodyregistrationnumber].type = $v2-0203-int#PRN
-* qualification[0].identifier[peakbodyregistrationnumber].type.text = "Professional Registration Number (PRN)"
-* qualification[0].identifier[peakbodyregistrationnumber].system = "http://example.org/fhir/identifier/acha-prn"
-* qualification[0].identifier[peakbodyregistrationnumber].value = "PRN-123456"
-* qualification[0].identifier[peakbodyregistrationnumber].use = #official
-* qualification[0].code.text = "Clinical Hypnotherapist"
-* qualification[0].issuer.display = "Australian Clinical Hypnotherapy Association"
+* qualification[+].identifier[peakbodyregistrationnumber].type = $v2-0203-int#PRN
+* qualification[=].identifier[peakbodyregistrationnumber].system = "http://example.org/fhir/identifier/acha-prn"
+* qualification[=].identifier[peakbodyregistrationnumber].value = "PRN-123456"
+* qualification[=].identifier[peakbodyregistrationnumber].use = #official
+* qualification[=].code.text = "Clinical Hypnotherapist"
+* qualification[=].issuer.display = "Australian Clinical Hypnotherapy Association"
 
-* qualification[1].identifier[peakbodyregistrationnumber].type = $v2-0203-int#PRN
-* qualification[1].identifier[peakbodyregistrationnumber].type.text = "Professional Registration Number (PRN)"
-* qualification[1].identifier[peakbodyregistrationnumber].system = "http://example.org/fhir/identifier/rcpa-prn"
-* qualification[1].identifier[peakbodyregistrationnumber].value = "PRN-2468"
-* qualification[1].identifier[peakbodyregistrationnumber].use = #official
-* qualification[1].code.text = "Pathologist"
-* qualification[1].issuer.display = "RCPA"
+* qualification[+].identifier[peakbodyregistrationnumber].type = $v2-0203-int#PRN
+* qualification[=].identifier[peakbodyregistrationnumber].system = "http://example.org/fhir/identifier/rcpa-prn"
+* qualification[=].identifier[peakbodyregistrationnumber].value = "PRN-2468"
+* qualification[=].identifier[peakbodyregistrationnumber].use = #official
+* qualification[=].code.text = "Pathologist"
+* qualification[=].issuer.display = "RCPA"
 
 // Communication
 

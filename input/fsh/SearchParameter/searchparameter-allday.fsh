@@ -6,10 +6,10 @@ InstanceOf: SearchParameter
 Usage: #definition
 Title: "All Day Search Parameter"
 Description: "Search HealthcareServices or PractitionerRoles by whether they are available all day."
-* url = "http://ns.electronichealth.net.au/hc/SearchParameter/allday"
+* url = "http://digitalhealth.gov.au/fhir/hcpd/SearchParameter/allday"
 * name = "SearchParameterAllDay"
 * status = #draft
-* experimental = true
+* experimental = false
 * publisher = "Australian Digital Health Agency"
 * code = #allday
 * base[0] = #HealthcareService

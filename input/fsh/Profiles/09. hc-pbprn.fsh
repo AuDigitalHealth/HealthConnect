@@ -8,13 +8,23 @@ Parent: Identifier
 Id: hc-pbprn
 Title: "HC Peak Body Professional Registration Number (HC-PBPRN)"
 Description: "This identifier profile defines a professional registration number allocated to a healthcare practitioner, in a Health Connect Provider Directory context."
+* ^experimental = false
 * ^status = #draft
+* ^publisher = "Australian Digital Health Agency"
+* ^contact.name = "Australian Digital Health Agency"
+* ^contact.telecom[+].system = #url
+* ^contact.telecom[=].value = "https://www.digitalhealth.gov.au"
+* ^contact.telecom[+].system = #email
+* ^contact.telecom[=].value = "help@digitalhealth.gov.au"
+* ^useContext.code = http://terminology.hl7.org/CodeSystem/usage-context-type#jurisdiction
+* ^useContext.valueCodeableConcept = urn:iso:std:iso:3166#AU "Australia"
 * obeys inv-01-system-or-assigner
 * . ^short = "Peak Body Professional Registration Number"
 * . ^definition = "Professional Registration Number that the practitioner has with Professional association / Peak body association (for non-Ahpra registered practitioners), as recorded against the HPI-I record."
 * type 1.. MS
-* type = $v2-0203-int#PRN
+* type = $v2-0203-int#PRN (exactly)
 * type ^short = "Coded identifier type for professional registration number"
+* type.text = "Peak Body Professional Registration Number"
 * system MS
 * system ^short = "Professional registration number system."
 * system ^definition = "Namespace for the professional registration number."

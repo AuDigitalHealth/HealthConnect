@@ -9,7 +9,7 @@ Description: "A Home Care Support Service example conforming to the HC Organizat
 * active = true
 * partOf = Reference(example-healthconnect-organization-1)
 * identifier[hspo].value = "8003640000000003"
-* identifier[hspo].extension[HCOrgClassification].valueCodeableConcept.coding = $hc-org-class-cs#seed "Seed"
+* identifier[hspo].extension[hc-org-classification].valueCodeableConcept.coding = $hc-org-class-cs#seed "Seed"
 * identifier[abn].system = "http://hl7.org.au/id/abn"
 * identifier[abn].type.text = "ABN"
 * identifier[abn].value = "98765432109"
@@ -48,11 +48,3 @@ Description: "A Home Care Support Service example conforming to the HC Organizat
 * address[physical].state = "NSW"
 * address[physical].postalCode = "2000"
 * address[physical].country = "AU"
-
-// Postal/Mailing Address - Optional
-* address[postal].type = #postal
-* address[postal].line = "PO Box 5678"
-* address[postal].city = "Sydney"
-* address[postal].state = "NSW"
-* address[postal].postalCode = "1234"
-* address[postal].country = "AU"

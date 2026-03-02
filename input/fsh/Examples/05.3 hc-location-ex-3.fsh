@@ -11,6 +11,10 @@ Description: "A virtual coverage area defining the geographical service boundary
 * identifier[=].system = "http://ns.electronichealth.net.au/id/location-specific-practice-number"
 * identifier[=].value = "876543"
 
+* identifier[HCLocalIdentifier].type = $v2-0203-int#XX "Organization identifier"
+* identifier[HCLocalIdentifier].system = "http://digitalhealth.gov.au/fhir/hcpd/id/hc-local-identifier"
+* identifier[HCLocalIdentifier].value = "8df1a0cf-f7aa-4306-98f1-115653885d78"
+
 * name = "Sydney CBD Mobile Unit Service Area"
 * description = "Coverage area served by the Sydney CBD Mobile Healthcare Unit, encompassing the central business district and surrounding areas."
 

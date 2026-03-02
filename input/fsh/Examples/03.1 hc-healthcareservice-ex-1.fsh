@@ -9,12 +9,17 @@ Description: "A Residential Aged Care HealthcareService example conforming to th
 * providedBy = Reference(Organization/example-healthconnect-organization-1)
 * type = http://snomed.info/sct#1584801000168109 "Geriatric evaluation and management service"
 * location = Reference(Location/example-healthconnect-medical-centre-location-1)
-* extension[0].url = "http://ns.electronichealth.net.au/hc/StructureDefinition/hc-active-period"
-* extension[0].valuePeriod.start = "2022-01-01"
-* extension[0].valuePeriod.end = "2025-12-31"
+* extension[+].url = "http://digitalhealth.gov.au/fhir/cc/StructureDefinition/active-period"
+* extension[=].valuePeriod.start = "2022-01-01"
+* extension[=].valuePeriod.end = "2025-12-31"
 * name = "Healthcare service with Residential Aged Care service type"
+* telecom[+].system = #phone
+* telecom[=].value = "(02) 1234 5678"
+* telecom[=].use = #work
+* telecom[=].extension[contact-purpose].valueCodeableConcept = http://terminology.hl7.org/CodeSystem/contactentity-type#ADMIN "Administrative"
+
 * appointmentRequired = true
-* availableTime.daysOfWeek[0] = #mon
+* availableTime.daysOfWeek[+] = #mon
 * coverageArea.reference = "Location/example-healthconnect-mobile-unit-coverage-area-1"
 * endpoint.reference = "Endpoint/example-hc-endpoint-smd"
 * availableTime.daysOfWeek[+] = #tue
@@ -26,8 +31,8 @@ Description: "A Residential Aged Care HealthcareService example conforming to th
 * availableTime.availableStartTime.extension[timeZone].valueCode = #Australia/Sydney
 * availableTime.availableEndTime = "17:30:00"
 * availableTime.availableEndTime.extension[timeZone].valueCode = #Australia/Sydney
-* extension[1].url = "http://ns.electronichealth.net.au/hc/StructureDefinition/hc-referral-information-for-referrer"
-* extension[1].valueMarkdown = """
+* extension[+].url = "http://digitalhealth.gov.au/fhir/cc/StructureDefinition/referral-information-for-referrer"
+* extension[=].valueMarkdown = """
 **Referral required** from a GP or specialist.
 
 Please include:
@@ -36,15 +41,19 @@ Please include:
 
 Referrals can be faxed to **(02) 1234 5679**.
 """
-* extension[2].url = "http://ns.electronichealth.net.au/hc/StructureDefinition/iar-levels-of-care"
-* extension[2].valueCodeableConcept = http://ns.electronichealth.net.au/hc/CodeSystem/iar-levels-of-care#3 "Level 3 (moderate intensity interventions)"
-* extension[3].url = "http://ns.electronichealth.net.au/hc/StructureDefinition/hc-accept-new-patient"
-* extension[3].valueBoolean = true
+* extension[+].url = "http://digitalhealth.gov.au/fhir/cc/StructureDefinition/iar-levels-of-care"
+* extension[=].valueCodeableConcept = http://digitalhealth.gov.au/fhir/hcpd/CodeSystem/iar-levels-of-care#3 "Level 3 (moderate intensity interventions)"
+* extension[+].url = "http://digitalhealth.gov.au/fhir/cc/StructureDefinition/new-patient-availability"
+* extension[=].valueCodeableConcept = http://digitalhealth.gov.au/fhir/hcpd/CodeSystem/new-patient-availability-cs#accepting "Accepting new patients"
+
+* identifier[HCLocalIdentifier].type = $v2-0203-int#XX "Organization identifier"
+* identifier[HCLocalIdentifier].system = "http://digitalhealth.gov.au/fhir/hcpd/id/hc-local-identifier"
+* identifier[HCLocalIdentifier].value = "17fbd35e-ca2f-43a6-8ffc-9f0f95e65b4e"
 
 * eligibility.code = $sct#933451001000036104 "Older adult 65+ years"
 
 * communication[+] = urn:ietf:bcp:47#it "Italian"
 * communication[+] = urn:ietf:bcp:47#zh "Chinese"
 
-* serviceProvisionCode[0] = http://terminology.hl7.org.au/CodeSystem/service-provision-conditions#FAP "Fees apply"
+* serviceProvisionCode[+] = http://terminology.hl7.org.au/CodeSystem/service-provision-conditions#FAP "Fees apply"
 * serviceProvisionCode[+] = http://terminology.hl7.org.au/CodeSystem/service-provision-conditions#NFE "No fee"

@@ -2,25 +2,28 @@ No data is entered directly into Health Connect; all Directory content is source
 
 ### Extensions
 Extensions introduced in this profile:
-* Location: [HC Amenity](StructureDefinition-hc-amenity.html)
-* Location: [HC Preferred Postal Address](StructureDefinition-hc-preferred-postal-address.html)
+* Location: [Amenity](StructureDefinition-amenity.html)
+* Location: [HC Alternate Postal Address](StructureDefinition-hc-alternate-postal-address.html)
 
 ### Usage notes
-* The [HC Preferred Postal Address](StructureDefinition-hc-preferred-postal-address.html) extension is used to carry a separate address that is different to the registered address for the location. 
-
 Publishing guidance:
 
 A HC Location resource may also have additional identifiers specific to other business partners, and their identifier systems may or may not match other identifier slices defined in [AU Core Location](https://build.fhir.org/ig/hl7au/au-fhir-core/StructureDefinition-au-core-location.html).
+
+#### Identifiers
+Beyond the identifiers already defined in AU Core the HC Location profile explicitly supports the following identifier slice (as indicated by the must support flag):
+
+* [HC Local Identifier (HC-LI)](StructureDefinition-hc-local-identifier.html)
 
 #### Type
 The usage notes of the AU Base Location profile provide guidance for Locations that may form part of defining a mobile or remotely delivered service. The HC Location profile formalises this guidance as mandatory requirements (via invariants). The requirements are summarised below:
 
 A HC Location for a mobile service **shall** have:
-* type=’MOBL’ plus at least one of the following codes: 'PTRES', 'SCHOOL', 'WORK', 'COMM' or 'AMB', to further qualify where the mobile service is offered. 
+  * type=’MOBL’ plus at least one of the following codes: 'PTRES', 'SCHOOL', 'WORK', 'COMM' or 'AMB', to further qualify where the mobile service is offered. 
 
 A HC Location for a virtually delivered service **shall** have:
 
-* type=’VI’
+  * type=’VI’
 
 ##### PhysicalType
 When a Location is to be represented as a physical type, the `physicalType` element is used to carry an applicable code from the [Location Type (Physical) - AU Extended ValueSet](https://hl7.org.au/fhir/6.0.0-ballot/ValueSet-au-location-physical-type-extended.html). 
@@ -32,10 +35,10 @@ The *managingOrganization* element must contain a relative reference to an exist
 
 #### Invariants
 
-##### Invariant: preferred-postal-address
-Description: If the preferred postal address extension is present on an address then that address must be of type 'postal'.
+##### Invariant: hc-alternate-postal-address
+Description: If the alternate postal address extension is present on an address then that address must be of type 'postal'.
 
-Implementation note: The profile enforces this rule so that the `hc-preferred-postal-address` extension is only used to carry postal/mailing addresses (for example PO Boxes). Publishing systems SHOULD only set the extension on addresses whose `type` is `postal`.
+Implementation note: The profile enforces this rule so that the `hc-alternate-postal-address` extension is only used to carry postal/mailing addresses (for example PO Boxes). Publishing systems SHOULD only set the extension on addresses whose `type` is `postal`.
 
 ##### Invariant: inv-01-address-requirement
 Description: If a location's `type` is `VI` or `MOBL` then an address does not need to be present. For all other location types an `address` MUST be present.

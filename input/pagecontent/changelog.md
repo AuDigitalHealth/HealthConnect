@@ -1,5 +1,32 @@
 **This change log documents the significant updates and resolutions implemented from version 0.1.0 of this IG to present.**
 
+### Release 0.3.0 (Snapshot 3)
+- Publication date: 2026-03-02
+- Publication status: Preview 
+- Based on FHIR version: 4.0.1
+
+#### Changes in this version
+- Added guidance on Bulk Data Extraction IG v3.0.0
+- Changed the url pattern from `http://ns.electronichealth.net.au/hc` to `http://digitalhealth.gov.au/fhir/hcpd` 
+- Prepare extensions to be used in Agency common components FHIR IG.
+- Added an Experimental Dependency section to Guidance.
+- No longer internally defines the ValueSet or CodeSystem for PayloadType on Endpoint but rather points to AU PD's implementation. 
+- No longer internally defines the ValueSet or CodeSystem for ServiceInterfaces on Endpoint but rather points to AU PD's implementation.
+- Added dependency of AU Provider Directory IG v2.1.0
+- Changed SearchParameters to become non-experimental. 
+- Removed bundle batch search guidance. No longer reccomended for synchronous 'standard' searching. 
+- Reformat the Guidance section to place SearchParameter related material entirely under it's own section.
+- Added Security and Privacy tab.
+- Added more detailed definitions to the IAR CodeSystem. 
+- Reprofile the new patient availability extension from Boolean to CodeableConcept to allign with NHSD and PCA [42](https://github.com/AuDigitalHealth/HealthConnect/issues/42) 
+- Define NCTS profile types on terminology artefacts. 
+- Add the Contact Purpose extension on HealthcareService.telecom [43](https://github.com/AuDigitalHealth/HealthConnect/issues/43)
+- Add the extension `hc-suppressed` describe the guidance and apply to profiles: Practitioner, PractitionerRole and Organization.
+- Removed genderIdentity extension, value set, search parameter guidance, examples, and narrative. 
+- Add identifier profile HC-LI for internal system use. 
+- Change namespaces on extensions to allow later re-factor into a Common Components IG. 
+- removed constraints for Organization.alias and Organization.address:postal
+
 ### Release 0.2.0 (Snapshot 2)
 - Publication date: 2026-01-16
 - Publication status: Preview 

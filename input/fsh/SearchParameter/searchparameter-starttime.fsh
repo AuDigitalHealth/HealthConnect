@@ -6,10 +6,10 @@ InstanceOf: SearchParameter
 Usage: #definition
 Title: "Start Time Search Parameter"
 Description: "Search HealthcareServices or PractitionerRoles by start time. Query values must use a four-digit numeric 24 hr time format (HHMM, e.g., 0830 for 8:30am). The start time is converted to an integer to enable prefix-based time searches (e.g., gt, lt, ge, le)."
-* url = "http://ns.electronichealth.net.au/hc/SearchParameter/starttime"
+* url = "http://digitalhealth.gov.au/fhir/hcpd/SearchParameter/starttime"
 * name = "SearchParameterStartTime"
 * status = #draft
-* experimental = true
+* experimental = false
 * publisher = "Australian Digital Health Agency"
 * code = #starttime
 * base[0] = #HealthcareService

@@ -5,21 +5,21 @@ This IG defines no new SearchParameters for the Organization resource; it expect
 #### Search parameters defined within AU Core
 How these identifier searches can be used is described in [AU Core documentation](https://build.fhir.org/ig/hl7au/au-fhir-core/StructureDefinition-au-core-organization.html#notes). AU Core recommends using the standard FHIR `identifier` search parameter (token, system|value) for organization identifiers. Examples:
 
-- ABN: `GET /Organization?identifier=http://hl7.org.au/id/abn|12345678912`
-- ACN: `GET /Organization?identifier=http://hl7.org.au/id/acn|123456789`
-- HPI-O: `GET /Organization?identifier=http://ns.electronichealth.net.au/id/hi/hpio/1.0|8003626566707032`
-- HSP-O: `GET /Organization?identifier=http://ns.electronichealth.net.au/id/hi/hspo/1.0|8003640001234569`
+      - ABN: `GET /Organization?identifier=http://hl7.org.au/id/abn|12345678912`
+      - ACN: `GET /Organization?identifier=http://hl7.org.au/id/acn|123456789`
+      - HPI-O: `GET /Organization?identifier=http://ns.electronichealth.net.au/id/hi/hpio/1.0|8003626566707032`
+      - HSP-O: `GET /Organization?identifier=http://ns.electronichealth.net.au/id/hi/hspo/1.0|8003640001234569`
 
 #### Search parameters defined within FHIR R4
 The following parameters are inherited from [R4](https://hl7.org/fhir/R4/organization.html) and are commonly useful; implementers SHOULD support them as indicated.
 
 - [`name`](https://hl7.org/fhir/R4/organization.html#search)  
-Standard R4 parameter that searches Organization.name and Organization.alias (partial matches supported). String type. 
-Example: `GET /Organization?name=Example%20Aged`
+      Standard R4 parameter that searches Organization.name and Organization.alias (partial matches supported). String type. 
+      Example: `GET /Organization?name=Example%20Aged`
 
 - [`type`](https://hl7.org/fhir/R4/organization.html#search)  
-Standard R4 parameter that searches Organization.type.coding using token semantics (system|code).
-Example: `Organization?type=http://snomed.info/sct|257652008`
+      Standard R4 parameter that searches Organization.type.coding using token semantics (system|code).
+      Example: `Organization?type=http://snomed.info/sct|257652008`
 
 <table class="list">
 <tbody>

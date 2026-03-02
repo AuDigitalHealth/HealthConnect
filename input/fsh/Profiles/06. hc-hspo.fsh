@@ -19,11 +19,16 @@ Parent: Identifier
 Id: hc-hspo
 Title: "HC Healthcare Support Service Provider - Organisation (HC HSP-O)"
 Description: "This identifier profile defines a Healthcare Support Service Provider Organisation in an Australian context. An HSP-O is assigned under the HI Service to a service (in-home care support and personal care services) where healthcare is provided. A HSP-O can only be of 'seed' type. An Organization cannot be assigned both an HPI-O and an HSP-O; only one identifier is assigned by the HI Service."
-* ^status = #draft
 * ^experimental = false
+* ^status = #draft
 * ^publisher = "Australian Digital Health Agency"
-* ^contact.telecom.system = #email
-* ^contact.telecom.value = "help@digitalhealth.gov.au"
+* ^contact.name = "Australian Digital Health Agency"
+* ^contact.telecom[+].system = #url
+* ^contact.telecom[=].value = "https://www.digitalhealth.gov.au"
+* ^contact.telecom[+].system = #email
+* ^contact.telecom[=].value = "help@digitalhealth.gov.au"
+* ^useContext.code = http://terminology.hl7.org/CodeSystem/usage-context-type#jurisdiction
+* ^useContext.valueCodeableConcept = urn:iso:std:iso:3166#AU "Australia"
 * ^copyright = "Copyright © 2025 Australian Digital Health Agency - All rights reserved. This content is licensed under a Creative Commons Attribution 4.0 International License. See https://creativecommons.org/licenses/by/4.0/."
 
 * . ^short = "Healthcare Support Service Provider Organisation (HSP-O) Identifier"
@@ -38,8 +43,8 @@ Description: "This identifier profile defines a Healthcare Support Service Provi
 * value obeys inv-hspo-0 and inv-hspo-1 and inv-hspo-2
 
 * extension contains
-    HcOrgClassification named HCOrgClassification 1..1 MS
-* extension[HCOrgClassification] ^short = "Organization classification - fixed to 'seed' for HSP-O"
-* extension[HCOrgClassification] ^definition = "Organization classification for HSP-O identifiers is always 'seed'."
-* extension[HCOrgClassification].valueCodeableConcept.coding = $hc-org-class-cs#seed "Seed" (exactly)
+    HCOrgClassification named hc-org-classification 1..1 MS
+* extension[hc-org-classification] ^short = "Organization classification - fixed to 'seed' for HSP-O"
+* extension[hc-org-classification] ^definition = "Organization classification for HSP-O identifiers is always 'seed'."
+* extension[hc-org-classification].valueCodeableConcept.coding = $hc-org-class-cs#seed "Seed" (exactly)
 

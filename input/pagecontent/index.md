@@ -20,7 +20,11 @@ One of the key objectives of the Directory and Authorisation Service Project is 
 This guide is divided into several pages which are listed at the top of each page in the menu bar.
 
 - [Home](index.html): This page provides the introduction and scope for the implementation guide.
+- [Conformance](conformance.html): This page describes the set of rules to claim conformance to this guide including capability statements and actor definitions.
 - [Guidance](guidance.html): This page provides implementation guidance and best practices for using the Health Connect Provider Directory FHIR IG.
+  - [General Guidance](general-guidance.html): This page provides implementation conventions for must support elements, actor obligations, and experimental dependencies in the Health Connect Provider Directory FHIR IG.
+  - [Bulk Data Extraction](bulk-data-extraction.html): This page provides asynchronous bulk export capabilities using FHIR Bulk Data Access specification for large-scale provider directory data extraction and synchronization.
+- [Security and Privacy](security-and-privacy.html): This page provides Security requirements including TLS encryption standards, FHIR communications security, and privacy obligations for Health Connect Provider Directory implementations.
 - [FHIR Artefacts](artifacts.html): These pages provide detailed descriptions and formal definitions for all the FHIR artefacts defined in this guide.
   - [Artifacts Summary](artifacts.html): This page provides a comprehensive summary of all FHIR artifacts defined in this implementation guide including profiles, extensions, terminology, and other conformance resources.
   - [Profiles and Extensions](profiles-and-extensions.html): This page lists the FHIR profiles and extensions that are defined in this guide.
@@ -28,11 +32,10 @@ This guide is divided into several pages which are listed at the top of each pag
   - [Capability Statements](capability-statements.html): This page defines the expected FHIR capabilities of Health Connect Provider Directory Requester and Health Connect Provider Directory Responder.
   - [Search Parameters](artifacts.html#behavior-search-parameters): This page lists the FHIR search parameters that are defined in this guide.
   - [Actor Definitions](actors.html): This page defines the Health Connect actors, Health Connect Provider Directory Requester and Health Connect Provider Directory Responder.
-- [Conformance](conformance.html): This page describes the set of rules to claim conformance to this guide including capability statements and actor definitions.
 - [Examples](examples.html): This page lists the sample instances of FHIR resources conforming to the FHIR profiles.
-- [Disclaimers](disclaimers.html): This page lists the licensing, copyright, and disclaimers under which this guide is issued.
-- [Downloads](downloads.html): This page provides links to downloadable artefacts including the Agency FHIR NPM package.
+- [Support](downloads.html): This page provides links to downloadable artefacts including the Agency FHIR NPM package.
 - [Change Log](changelog.html): This page documents the version history and changes made to this implementation guide across different releases.
+- [Disclaimers](disclaimers.html): This page lists the licensing, copyright, and disclaimers under which this guide is issued.
 
 ### Document purpose and scope
 
@@ -100,16 +103,20 @@ This table lists known issues with this specification at the time of publishing.
      <td>Example system URI</td>
      <td>An inherited example system (e.g. <code>http://www.acme.com/identifiers/patient</code>) erroneously infers patient context. Implementers must use their own namespace URIs. The affected identifier profile is Endpoint (HC-EPI) - this profile includes the erroneous example `system` in their documentation.</td>
    </tr>
+      <tr>
+     <td>AU Core Constraint failed</td>
+     <td>The au-core-org-01 constraint currently only recognizes HPI-O and PAI-O as valid NOI identifiers, HSP-O support will be added to au-core in a future release. This validation error is expected and does not affect the core functionality of the HSP-O identifier profile. Constraint failed: au-core-org-01: 'A National Organisation Identifier (type=NOI) shall be an HPI-O or PAI-O (type.coding.where(code='NOI').exists() implies ((system='http://ns.electronichealth.net.au/id/hi/hpio/1.0') or (system='http://ns.electronichealth.net.au/id/pcehr/paio/1.0')))' (defined in http://hl7.org.au/fhir/core/StructureDefinition/au-core-organization|2.0.0) </td>
+   </tr>
  </tbody>
 </table>
 
 ### References
 
-|[<a name="HL7AUBIG">HL7AUBIG</a>]| HL7 Australia, FHIR R4 standard for AU Base Implementation Guide, v6.0.0-ballot (Ballot)|
-||[https://hl7.org.au/fhir/6.0.0-ballot/index.html](https://hl7.org.au/fhir/6.0.0-ballot/index.html)|  
+|[<a name="HL7AUBIG">HL7AUBIG</a>]| HL7 Australia, FHIR R4 standard for AU Base Implementation Guide, v6.0.0|
+||[https://hl7.org.au/fhir/6.0.0/index.html](https://hl7.org.au/fhir/6.0.0/index.html)|  
 
 |[<a name="HL7FHIR4">HL7FHIR4</a>]|Health Level Seven, Inc., 30 October 2019, FHIR R4.|
 ||[http://hl7.org/fhir/R4/](http://hl7.org/fhir/R4/)|
 
-|[<a name="HL7AUCIG">HL7AUCIG</a>]| HL7 Australia, FHIR R4 standard for AU Core Implementation Guide, v2.0.0-ballot - Ballot (Ballot)|
-||[https://hl7.org.au/fhir/core/2.0.0-ballot/index.html](https://hl7.org.au/fhir/core/2.0.0-ballot/index.html)|  
+|[<a name="HL7AUCIG">HL7AUCIG</a>]| HL7 Australia, FHIR R4 standard for AU Core Implementation Guide, v2.0.0|
+||[https://hl7.org.au/fhir/core/2.0.0/index.html](https://hl7.org.au/fhir/core/2.0.0/index.html)|  

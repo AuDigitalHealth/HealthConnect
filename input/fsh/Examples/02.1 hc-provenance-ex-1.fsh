@@ -13,6 +13,6 @@ Description: "Demonstrates provenance tracking for a practitioner's name amendme
 * activity = http://terminology.hl7.org/CodeSystem/v3-DataOperation#UPDATE
 
 // Track specific data element
-* entity[0].role = #source
-* entity[0].what = Reference(external-hc-practitioner-record)
+* entity[+].role = #source
+* entity[=].what = Reference(external-hc-practitioner-record)
 

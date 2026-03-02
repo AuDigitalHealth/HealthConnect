@@ -3,9 +3,10 @@
 # │  used properties are included. For a list of all supported properties and their functions,     │
 # │  see: https://fshschool.org/docs/sushi/configuration/.                                         │
 # ╰────────────────────────────────────────────────────────────────────────────────────────────────╯
-id: au.digitalhealth.r4.healthconnect
-canonical: http://ns.electronichealth.net.au/hc
-name: HealthConnectAustraliaProviderDirectoryFHIRImplementationGuide
+id: au.gov.digitalhealth.r4.hcpd
+canonical: http://digitalhealth.gov.au/fhir/hcpd
+date: 2026-02-20
+name: HCPD_ImplementationGuide
 title: Health Connect Australia Provider Directory FHIR Implementation Guide
 description: This Implementation Guide defines an Health Connect Australia Provider Directory within Australian context.
 
@@ -14,7 +15,7 @@ extension:
   - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
     valueCode: draft
     
-version: 0.2.0-preview
+version: 0.3.0-preview
 fhirVersion: 4.0.1 # https://www.hl7.org/fhir/valueset-FHIR-version.html
 
 copyrightYear: 2025+
@@ -42,8 +43,19 @@ publisher:
 # use cases, the value can be an object with keys for id, uri, and version.
 #
 dependencies:
-    hl7.fhir.au.core: 2.0.0-ballot
-    hl7.fhir.au.base: 6.0.0-ballot
+  hl7.fhir.au.base:
+    version: 6.0.0
+    uri: http://hl7.org.au/fhir/ImplementationGuide/hl7.fhir.au.base
+  hl7.fhir.au.core:
+    version: 2.0.0
+    uri: http://hl7.org.au/fhir/core/ImplementationGuide/hl7.fhir.au.core
+  hl7.fhir.au.pd:
+    version: current
+    uri: http://hl7.org.au/fhir/pd/ImplementationGuide/hl7.fhir.au.pd
+  hl7.fhir.uv.bulkdata:
+    version: 3.0.0
+    uri: http://hl7.org/fhir/uv/bulkdata/ImplementationGuide/hl7.fhir.uv.bulkdata
+    
 #
 # The pages property corresponds to IG.definition.page. SUSHI can
 # auto-generate the page list, but if the author includes pages in
@@ -55,34 +67,49 @@ dependencies:
 # file name extension.  Any subproperties that are valid filenames
 # with supported extensions (e.g., .md/.xml) will be treated as
 # sub-pages.
-#
 pages:
   index.md:
     title: Home
+  conformance.md:
+    title: Conformance
   guidance.md:
     title: Guidance
+    general-guidance.md:
+      title: General Guidance
+    bulk-data-extraction.md:
+      title: Bulk Data Extraction
+  BatchRequestSubmission.md:
+    title: Batch Request Submission
+  BatchRequestStatus.md:
+    title: Batch Request Status
+  BatchRequestResults.md:
+    title: Batch Request Results
+  BatchRequestDelete.md:
+    title: Batch Request Delete
+  security-and-privacy.md:
+    title: Security and Privacy
   artifacts.html:
     title: FHIR Artefacts
     profiles-and-extensions.md:
       title: Profiles and Extensions
     terminology.md:
       title: Terminology
+    actors.md:
+      title: Actor Definitions
     capability-statements.md:
       title: Capability Statements
     search-parameters.md:
       title: Search Parameters
-    actors.md:
-      title: Actor Definitions
-  conformance.md:
-    title: Conformance 
   examples.md:
     title: Examples
-  disclaimers.md:
-    title: Disclaimers
-  downloads.md:
-    title: Downloads
+  support.md:
+    title: Support
+    downloads.md:
+      title: Downloads
   changelog.md:
     title: Change Log
+  disclaimers.md:
+    title: Disclaimers
 
 #
 #
@@ -141,6 +168,14 @@ parameters:  # see https://confluence.hl7.org/display/FHIR/Implementation+Guide+
   # pin-canonical discussion: https://chat.fhir.org/#narrow/channel/179252-IG-creation/topic/Canonical.20Pinning/with/534497073
   # pin-canonicals can be set to 'pin-none', 'pin-specified', or 'pin-all'
   pin-canonicals: pin-all
+
+  special-url: [http://digitalhealth.gov.au/fhir/cc/StructureDefinition/active-period, 
+                http://digitalhealth.gov.au/fhir/cc/StructureDefinition/alternate-name, 
+                http://digitalhealth.gov.au/fhir/cc/StructureDefinition/amenity, 
+                http://digitalhealth.gov.au/fhir/cc/StructureDefinition/iar-levels-of-care, 
+                http://digitalhealth.gov.au/fhir/cc/StructureDefinition/new-patient-availability, 
+                http://digitalhealth.gov.au/fhir/cc/StructureDefinition/practitioner-role-communication, 
+                http://digitalhealth.gov.au/fhir/cc/StructureDefinition/referral-information-for-referrer]
 # ╭────────────────────────────────────────────menu.xml────────────────────────────────────────────╮
 # │ The menu property will be used to generate the input/menu.xml file. The menu is represented    │
 # │ as a simple structure where the YAML key is the menu item name and the value is the URL.       │
@@ -151,19 +186,22 @@ parameters:  # see https://confluence.hl7.org/display/FHIR/Implementation+Guide+
 # ╰────────────────────────────────────────────────────────────────────────────────────────────────╯
 menu:
   Home: index.html
-  Guidance: guidance.html
+  Conformance: conformance.html
+  Guidance:
+    "General Guidance": general-guidance.html
+    "Bulk Data Extraction": bulk-data-extraction.html
+  Security and Privacy: security-and-privacy.html
   FHIR Artefacts:
     "Artefacts Summary": artifacts.html
     "Profiles and Extensions": profiles-and-extensions.html
     "Terminology": terminology.html
+    "Actor Definitions": actors.html
     "Capability Statements": capability-statements.html
     "Search Parameters": search-parameters.html
-    "Actor Definitions": actors.html
-  Conformance: conformance.html
   Examples: examples.html
-  Disclaimers: disclaimers.html
-  Downloads: downloads.html
+  Support: downloads.html
   Change Log: changelog.html
+  Disclaimers: disclaimers.html
   
 
 # ╭───────────────────────────Less Common Implementation Guide Properties──────────────────────────╮
@@ -258,7 +296,7 @@ contact:
 experimental: false
 # * useContext
 copyright: Copyright © 2025 Australian Digital Health Agency - All rights reserved. This content is licensed under a Creative Commons Attribution 4.0 International License. See [https://creativecommons.org/licenses/by/4.0/](https://creativecommons.org/licenses/by/4.0/)
-packageId: au.digitalhealth.r4.healthconnect
+packageId: au.gov.digitalhealth.r4.hcpd
 #
 #
 # ╭──────────────────────────────────────────SUSHI flags───────────────────────────────────────────╮

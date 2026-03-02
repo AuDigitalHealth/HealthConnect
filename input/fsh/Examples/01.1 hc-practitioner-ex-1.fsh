@@ -8,8 +8,6 @@ Description: "An example Practitioner (Alex Smith) conforming to the HC Practiti
 
 * extension[recordedSexOrGender].extension[value].valueCodeableConcept = $administrative-gender#female "Female"
 
-* extension[genderIdentity].extension[value].valueCodeableConcept = $sct#446141000124107 "Identifies as female gender"
-
 * identifier[hpii].value = "8003619900015717"
 
 * qualification.identifier[ahpraregistrationnumber].system = "http://hl7.org.au/id/ahpra-registration-number"
@@ -21,9 +19,9 @@ Description: "An example Practitioner (Alex Smith) conforming to the HC Practiti
 * name[officialName].family = "Smith"
 * name[officialName].given = "Alex"
 * name[officialName].prefix = "Dr"
-* name[preferredName].use = #usual
-* name[preferredName].family = "Smith"
-* name[preferredName].given = "Alex"
+* name[alternate-name].use = #usual
+* name[alternate-name].family = "Smith"
+* name[alternate-name].given = "Alex"
 
 * telecom[personalPhoneNumber].system = #phone
 * telecom[personalPhoneNumber].use = #home

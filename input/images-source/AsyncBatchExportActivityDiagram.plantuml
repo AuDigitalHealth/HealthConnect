@@ -1,0 +1,15 @@
+@startuml AsyncBatchExportActivityDiagram
+
+title Asynchronous Bulk Data Export Process Workflow
+
+start
+
+:Step 1: [[BatchRequestSubmission.html Submit request]];
+ 
+:Step 2: [[BatchRequestStatus.html Request status]];
+floating note right: Option: [[BatchRequestDelete.html Delete request]]
+
+:Step 3: [[BatchRequestResults.html Fetch results]];
+
+stop
+@enduml

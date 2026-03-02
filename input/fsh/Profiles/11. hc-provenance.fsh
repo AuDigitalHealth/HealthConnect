@@ -3,10 +3,16 @@ Parent: Provenance
 Id: hc-provenance
 Title: "HC Provenance"
 Description: "This profile of Provenance is used to record an activity performed by the HC service (conditionally on behalf of a participating organisation when the target element references a HC Organization resource) whereby specific data elements of a HC Organization or HC Practitioner resource have been initially retrieved, updated or verified from an external system of record."
+* ^experimental = false
 * ^status = #draft
 * ^publisher = "Australian Digital Health Agency"
-* ^contact.telecom.system = #email
-* ^contact.telecom.value = "help@digitalhealth.gov.au"
+* ^contact.name = "Australian Digital Health Agency"
+* ^contact.telecom[+].system = #url
+* ^contact.telecom[=].value = "https://www.digitalhealth.gov.au"
+* ^contact.telecom[+].system = #email
+* ^contact.telecom[=].value = "help@digitalhealth.gov.au"
+* ^useContext.code = http://terminology.hl7.org/CodeSystem/usage-context-type#jurisdiction
+* ^useContext.valueCodeableConcept = urn:iso:std:iso:3166#AU "Australia"
 * ^copyright = "Copyright © 2025 Australian Digital Health Agency - All rights reserved. This content is licensed under a Creative Commons Attribution 4.0 International License. See https://creativecommons.org/licenses/by/4.0/."
 * . ^short = "Records an activity where specific data elements of a resource were retrieved/updated/verified from an external system of record"
 * . ^definition = "Records an activity performed by the HC service (conditionally on behalf of a participating organisation when the target element references a HC Organization resource) whereby specific data elements of a HC Organization or HC Practitioner resource have been initially retrieved, updated or verified from an external system of record."

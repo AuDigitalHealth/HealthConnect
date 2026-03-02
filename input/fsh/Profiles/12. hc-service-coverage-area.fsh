@@ -9,10 +9,16 @@ Id: hc-service-coverage-area
 Title: "HC Service Coverage Area"
 Description: "This profile of Location represents an Australian geographic coverage area i.e. postcodes where this service is provided.
 For a healthcare service, that is provided through a physical location but have eligibility restrictions applicable in terms of only residents for certain postcodes/suburbs can receive this service, then the details of coverage area and eligibility should be provided here."
+* ^experimental = false
 * ^status = #draft
 * ^publisher = "Australian Digital Health Agency"
-* ^contact[+].telecom.system = #email
-* ^contact[=].telecom.value = "help@digitalhealth.gov.au"
+* ^contact.name = "Australian Digital Health Agency"
+* ^contact.telecom[+].system = #url
+* ^contact.telecom[=].value = "https://www.digitalhealth.gov.au"
+* ^contact.telecom[+].system = #email
+* ^contact.telecom[=].value = "help@digitalhealth.gov.au"
+* ^useContext.code = http://terminology.hl7.org/CodeSystem/usage-context-type#jurisdiction
+* ^useContext.valueCodeableConcept = urn:iso:std:iso:3166#AU "Australia"
 * ^copyright = "Copyright © 2025 Australian Digital Health Agency - All rights reserved. This content is licensed under a Creative Commons Attribution 4.0 International License. See https://creativecommons.org/licenses/by/4.0/."
 
 * . ^short = "Australian geographic area in which a service is available."

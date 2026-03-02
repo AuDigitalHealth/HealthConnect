@@ -6,10 +6,10 @@ InstanceOf: SearchParameter
 Usage: #definition
 Title: "Languages Search Parameter"
 Description: "Search HealthcareServices or PractitionerRoles by supported languages/communication methods. Shared across HealthcareService and PractitionerRole. Supports token based searching, i.e. `system|code` or just `code`"
-* url = "http://ns.electronichealth.net.au/hc/SearchParameter/languages"
+* url = "http://digitalhealth.gov.au/fhir/hcpd/SearchParameter/languages"
 * name = "SearchParameterLanguages"
 * status = #draft
-* experimental = true
+* experimental = false
 * publisher = "Australian Digital Health Agency"
 * contact.telecom.system = #email
 * contact.telecom.value = "help@digitalhealth.gov.au"
@@ -17,6 +17,6 @@ Description: "Search HealthcareServices or PractitionerRoles by supported langua
 * base[0] = #HealthcareService
 * base[1] = #PractitionerRole
 * type = #token
-* expression = "HealthcareService.communication.coding | PractitionerRole.extension.where(url='http://ns.electronichealth.net.au/hc/StructureDefinition/hc-practitioner-role-communication').value.ofType(CodeableConcept).coding"
+* expression = "HealthcareService.communication.coding | PractitionerRole.extension.where(url='http://digitalhealth.gov.au/fhir/hcpd/StructureDefinition/hc-practitioner-role-communication').value.ofType(CodeableConcept).coding"
 * target = #HealthcareService
 * target = #PractitionerRole

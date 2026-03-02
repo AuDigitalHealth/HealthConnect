@@ -3,6 +3,11 @@ No data is entered directly into Health Connect; all Directory content is source
 ### Usage notes
 The following guidance maps key information requirements for HC Practitioner records to fields in the profile. Where a requirement references the HI Service as the authoritative source, publishers SHOULD prefer and validate values-such as practitioner identifiers, and names.
 
+#### Extensions
+
+#### HC suppressed
+The [extension:hc-suppressed](StructureDefinition-hc-suppressed.html) is used to indicate if this resource should be hidden from display in the Provider Directory. A Practitioner may elect to hide their visibility from those searching the Health Connect Provider Directory system. A value of `true` indicates the resource **SHALL** be excluded from Provider Directory listings. For more details, please see the extension intro notes.
+
 #### Identifiers
 
 **Required Identifier:**
@@ -11,9 +16,9 @@ The following guidance maps key information requirements for HC Practitioner rec
 #### Professional Registration and Profession
 Professional registration should be carried in the `qualification` element. The registration number of the Practitioner should be populated in `qualification.identifier`; the practitioner's profession should be sent as free text in `qualification.code.text`.
 
-- `qualification.identifier`: Registration number issued by the regulatory body (either issued by Ahpra or a non-Ahpra peak body). Follow the applicable identifier profile for format and issuer information.
-- `qualification.code.text`: The practitioner's profession linked to the registration number as a human-readable string. Because there is no single, authoritative ValueSet that covers all professions reliably, send the profession in `code.text`.
-- `qualification.code.coding` (optional): Only use coded values when you have an authoritative, stable code system for that profession. When `coding` is included, also populate `code.text` with the same label.
+  - `qualification.identifier`: Registration number issued by the regulatory body (either issued by Ahpra or a non-Ahpra peak body). Follow the applicable identifier profile for format and issuer information.
+  - `qualification.code.text`: The practitioner's profession linked to the registration number as a human-readable string. Because there is no single, authoritative ValueSet that covers all professions reliably, send the profession in `code.text`.
+  - `qualification.code.coding` (optional): Only use coded values when you have an authoritative, stable code system for that profession. When `coding` is included, also populate `code.text` with the same label.
 
 Notes:
 - For Ahpra-registered practitioners include the Ahpra registration number in `qualification.identifier`. If you can map the profession to a reliable Ahpra code you may include `qualification.code.coding`, but still provide `qualification.code.text`.
@@ -32,8 +37,8 @@ This profile includes invariants to ensure data consistency and proper professio
 
 **`inv-01-qualification-registration-required` (error):**
 Ensures at least one professional registration is present in qualifications:
-- At least one qualification with Ahpra registration identifier OR
-- At least one qualification with a peak body registration identifier
+  - At least one qualification with Ahpra registration identifier OR
+  - At least one qualification with a peak body registration identifier
 
 **Implementation Validation:**
 - Each qualification will include both an identifier and appropriate profession code (at least qualification.code.text). 

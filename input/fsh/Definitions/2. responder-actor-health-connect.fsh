@@ -12,4 +12,4 @@ Description: "The Health Connect Provider Directory Responder actor represents t
 - **SHALL** implement the required REST API interactions and search parameters as defined in the Health Connect Provider Directory Responder Capability Statement.
 """
 
-* capabilities = "http://ns.electronichealth.net.au/hc/CapabilityStatement/health-connect-provider-directory-responder"
+* capabilities = "http://digitalhealth.gov.au/fhir/hcpd/CapabilityStatement/health-connect-provider-directory-responder"

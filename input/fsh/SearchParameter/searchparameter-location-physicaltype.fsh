@@ -3,10 +3,10 @@ InstanceOf: SearchParameter
 Usage: #definition
 Title: "Location Physical Type Search Parameter"
 Description: "Search for Location resources by physicalType field."
-* url = "http://ns.electronichealth.net.au/hc/SearchParameter/location-physicaltype"
+* url = "http://digitalhealth.gov.au/fhir/hcpd/SearchParameter/location-physicaltype"
 * name = "SearchParameterLocationPhysicalType"
 * status = #draft
-* experimental = true
+* experimental = false
 * publisher = "Australian Digital Health Agency"
 * code = #locationphysicaltype
 * base = #Location
